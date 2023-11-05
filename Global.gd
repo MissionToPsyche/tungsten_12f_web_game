@@ -2,8 +2,9 @@ extends Node
 class_name Global
 
 var points = 0
-var milestones = {10: "Item1", 20: "Item2", 30: "Item3"}
-var points_label_path = "/root/MainScene/PointsLabel"  # The node path to your points display label.
+var milestones = {10: "Item1", 20: "Item2", 30: "Item3", 40: "Item4", 50: "Item5"}
+var points_label_path = "/root/Node2D/points_label"  # The node path to your points display label.
+var last_milestone_reached = 0  # Keep track of the last milestone reached
 
 func _ready():
 	# Initialize any necessary data on game start
@@ -17,17 +18,24 @@ func add_points(value):
 	update_points_display()
 
 func check_for_notifications():
-	# Check if the player has enough points to buy the cheapest item
-	for cost in milestones.keys():
-		if points >= cost:
+	# Sort the milestones' costs and check if the player has enough points to buy any items since last check
+	var sorted_costs = milestones.keys()
+	sorted_costs.sort()  # This will sort the array of keys
+	for cost in sorted_costs:
+		if points >= cost and cost > last_milestone_reached:
 			# Notify the player
-			show_notification("You can buy " + milestones[cost] + "!")
-			break
+			show_notification("You have enough points to buy " + milestones[cost] + "!")
+			last_milestone_reached = cost  # Update the last milestone reached
+			break  # Exit the loop after the first notification
+
 
 func show_notification(message: String):
-	# This function should show the notification to the player.
-	# You could use a Popup, or a dedicated notification area in your UI.
-	print("Notification: ", message)  # Placeholder for actual notification logic
+	# Assuming the Popup is already in the scene tree
+	var popup = get_node("/root/Node2D/Popup")  # Adjust the path to your popup node
+	if popup:
+		popup.show_notification(message)
+	else:
+		print("Error: Popup node not found at path: /root/Node2D/Popup")
 
 func update_points_display():
 	# Check if the points_label node exists
@@ -35,13 +43,4 @@ func update_points_display():
 	if points_label:
 		points_label.text = str(points)
 	else:
-		print("Error: PointsLabel node not found at path: ", points_label_path)
-
-# You might want to add a function to handle purchasing items.
-func purchase_item(cost: int):
-	if points >= cost:
-		points -= cost
-		update_points_display()
-		# You would also need to handle the logic for what happens when the item is purchased.
-	else:
-		print("Not enough points to purchase the item.")
+		print("Error: points_label node not found at path: ", points_label_path)

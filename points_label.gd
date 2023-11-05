@@ -15,7 +15,7 @@ func _ready():
 
 	# Set initial text with global points variable
 
-	self.bbcode_text = "Research Points: " + str(Global.points)
+	#self.bbcode_text = "Research Points: " + str(Global.points)
 
 	# Check if text is visible
 	print("Is the text visible?", is_visible_in_tree())

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1eovyd6y7e0u"]
+[gd_scene load_steps=12 format=3 uid="uid://c1eovyd6y7e0u"]
 
 [ext_resource type="Texture2D" uid="uid://cds0gcvxiwr37" path="res://lab_background.png" id="1_d23oa"]
 [ext_resource type="Script" path="res://Intro.gd" id="1_n6qel"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
 [ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://m5x7.ttf" id="9_s84ku"]
 [ext_resource type="Script" path="res://points_label.gd" id="10_3x6ki"]
+[ext_resource type="Script" path="res://Popup.gd" id="11_ichqc"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(911, 572)
@@ -87,5 +88,8 @@ theme_override_fonts/normal_font = ExtResource("9_s84ku")
 bbcode_enabled = true
 text = "Hello"
 script = ExtResource("10_3x6ki")
+
+[node name="Popup" type="Popup" parent="."]
+script = ExtResource("11_ichqc")
 
 [connection signal="pressed" from="sound" to="sound" method="_on_pressed"]
