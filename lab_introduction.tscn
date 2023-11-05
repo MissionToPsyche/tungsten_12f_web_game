@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://lof6tvsr43lg"]
+[gd_scene load_steps=6 format=3 uid="uid://dfcbri037dpp2"]
 
 [ext_resource type="Texture2D" uid="uid://cds0gcvxiwr37" path="res://lab_background.png" id="1_onfc7"]
-[ext_resource type="Script" path="res://lab_introduction.gd" id="1_usnya"]
-[ext_resource type="Texture2D" uid="uid://tfquuh7n6pje" path="res://assets/sprites/female_nasa_scientist.png" id="3_6klj1"]
-[ext_resource type="Texture2D" path="res://assets/sprites/male_nasa_scientist.png" id="4_3p8cl"]
-[ext_resource type="Script" path="res://Label.gd" id="4_l0obw"]
+[ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="3_6klj1"]
+[ext_resource type="Texture2D" uid="uid://bwop8desr3gxc" path="res://assets/sprites/male_nasa_scientist.png" id="4_3p8cl"]
+[ext_resource type="Script" path="res://Intro.gd" id="4_l0obw"]
 
 [sub_resource type="Theme" id="Theme_qqvom"]
 
 [node name="lab_introduction" type="Node2D"]
-script = ExtResource("1_usnya")
+script = ExtResource("4_l0obw")
 
 [node name="lab_background" type="Sprite2D" parent="."]
 position = Vector2(671, 409)

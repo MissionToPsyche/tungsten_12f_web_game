@@ -40,19 +40,25 @@ func start_sequence():
 	timer.start()
 
 func _on_timer_timeout():
+	print("Timer finished, hiding female scientist and panel1")
 	# This function is called after the Timer times out
 	female_scientist.visible = false
 	panel1.visible = false
+
+	print("Female Scientist Visible: ", female_scientist.visible)
+	print("Panel1 Visible: ", panel1.visible)
 
 	male_scientist.visible = true
 	yes_button.visible = true
 	no_button.visible = true
 
 	# Magnify the background sprite by 20%
-	background.scale *= Vector2(1.2, 1.2)
+	background.scale *= Vector2(1.5, 1.5)
+	male_scientist.scale *= Vector2(1.5, 1.5)
 
 	# Remove the Timer node after we're done with it
 	timer.queue_free()
+
 
 func _on_button_pressed(choice):
 	# Save the player's choice
