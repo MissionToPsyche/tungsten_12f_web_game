@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dulom3bo5jjfd"]
+
+[ext_resource type="Texture2D" uid="uid://d1oqq2lqbs16e" path="res://DesignScene/terminal-background.jpg" id="1_sp2c3"]
+[ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/JoganSoft-Regular.ttf" id="2_rcymp"]
+
+[node name="DesignScene" type="Node2D"]
+
+[node name="black-background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("1_sp2c3")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 81.0
+offset_right = 136.0
+offset_bottom = 121.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -81.0
+offset_top = -42.0
+offset_right = 62.0
+offset_bottom = 514.0
+
+[node name="Payload" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_rcymp")
+text = "Payload"
+
+[node name="Communications" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_rcymp")
+text = "Communications"
+
+[node name="Power System" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_rcymp")
+text = "Power System"
+
+[node name="Propulsion" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_rcymp")
+text = "Propulsion"
+
+[node name="Spacecraft Bus" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_rcymp")
+text = "Spacecraft Bus"

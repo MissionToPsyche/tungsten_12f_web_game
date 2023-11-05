@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b21w0k7dpxqyj"
-path="res://.godot/imported/rocket-builder-terminal.png-dacbfb8a5bf194ec3db62ae42cf28dbe.ctex"
+uid="uid://du2de65i5i3n5"
+path="res://.godot/imported/design-terminal.png-6040e52a4a682869abc44943bde3fcd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BuilderScene/rocket-builder-terminal.png"
-dest_files=["res://.godot/imported/rocket-builder-terminal.png-dacbfb8a5bf194ec3db62ae42cf28dbe.ctex"]
+source_file="res://DesignScene/design-terminal.png"
+dest_files=["res://.godot/imported/design-terminal.png-6040e52a4a682869abc44943bde3fcd6.ctex"]
 
 [params]
 
