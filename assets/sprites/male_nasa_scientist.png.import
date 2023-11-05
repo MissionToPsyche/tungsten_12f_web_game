@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bactqcib0rvm"
-path="res://.godot/imported/nasa_scientist.png-ec30cb29410b2fa5725eb641afa54474.ctex"
+uid="uid://bwop8desr3gxc"
+path="res://.godot/imported/male_nasa_scientist.png-eab570f0b07f928c7d5fc1b7070a7be1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nasa_scientist.png"
-dest_files=["res://.godot/imported/nasa_scientist.png-ec30cb29410b2fa5725eb641afa54474.ctex"]
+source_file="res://assets/sprites/male_nasa_scientist.png"
+dest_files=["res://.godot/imported/male_nasa_scientist.png-eab570f0b07f928c7d5fc1b7070a7be1.ctex"]
 
 [params]
 

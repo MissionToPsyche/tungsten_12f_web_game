@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1eovyd6y7e0u"]
+
+[ext_resource type="Texture2D" uid="uid://cds0gcvxiwr37" path="res://lab_background.png" id="1_d23oa"]
+[ext_resource type="Script" path="res://Intro.gd" id="1_n6qel"]
+[ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="2_acnra"]
+[ext_resource type="Texture2D" uid="uid://bwop8desr3gxc" path="res://assets/sprites/male_nasa_scientist.png" id="3_gtqg4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_n6qel")
+
+[node name="lab_background" type="Sprite2D" parent="."]
+texture = ExtResource("1_d23oa")
+
+[node name="female_nasa_scientist" type="Sprite2D" parent="."]
+position = Vector2(-654.813, 147.5)
+scale = Vector2(0.853458, 0.861963)
+texture = ExtResource("2_acnra")
+
+[node name="male_nasa_scientist" type="Sprite2D" parent="."]
+position = Vector2(-11, -50)
+scale = Vector2(0.360212, 0.351074)
+texture = ExtResource("3_gtqg4")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -485.0
+offset_top = 323.0
+offset_right = 792.0
+offset_bottom = 538.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 24.0
+offset_right = 1075.0
+offset_bottom = 189.0
+theme_type_variation = &"HeaderLarge"
+text = "HIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIHIH"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="yes" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="no" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0

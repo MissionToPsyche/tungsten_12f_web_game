@@ -1,43 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://lof6tvsr43lg"]
+[gd_scene load_steps=7 format=3 uid="uid://lof6tvsr43lg"]
 
 [ext_resource type="Texture2D" uid="uid://cds0gcvxiwr37" path="res://lab_background.png" id="1_onfc7"]
-[ext_resource type="Texture2D" uid="uid://bf3frqrro65yt" path="res://female_nasa_scientist.png" id="2_1vswp"]
+[ext_resource type="Script" path="res://lab_introduction.gd" id="1_usnya"]
+[ext_resource type="Texture2D" uid="uid://tfquuh7n6pje" path="res://assets/sprites/female_nasa_scientist.png" id="3_6klj1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/male_nasa_scientist.png" id="4_3p8cl"]
+[ext_resource type="Script" path="res://Label.gd" id="4_l0obw"]
+
+[sub_resource type="Theme" id="Theme_qqvom"]
 
 [node name="lab_introduction" type="Node2D"]
+script = ExtResource("1_usnya")
 
-[node name="lab background" type="Sprite2D" parent="."]
-position = Vector2(-7.99998, -6)
-scale = Vector2(0.792826, 0.762466)
+[node name="lab_background" type="Sprite2D" parent="."]
+position = Vector2(671, 409)
+scale = Vector2(0.741068, 0.707853)
 texture = ExtResource("1_onfc7")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 47.0
-offset_top = 489.0
-offset_right = 466.0
-offset_bottom = 597.0
-text = "Yes"
+[node name="yes" type="Button" parent="."]
+offset_left = 50.0
+offset_top = 679.0
+offset_right = 576.0
+offset_bottom = 773.0
+text = "YES"
 
-[node name="Button2" type="Button" parent="."]
-offset_left = -682.0
-offset_top = 430.0
-offset_right = -156.0
-offset_bottom = 524.0
-text = "Yes"
+[node name="no" type="Button" parent="."]
+offset_left = 720.0
+offset_top = 686.0
+offset_right = 1246.0
+offset_bottom = 780.0
+text = "NO"
 
-[node name="nasa scientist" type="Sprite2D" parent="."]
-position = Vector2(-524.462, 92.6177)
+[node name="female_nasa_scientist" type="Sprite2D" parent="."]
+position = Vector2(155, 474)
 scale = Vector2(0.709578, 0.694515)
-texture = ExtResource("2_1vswp")
+texture = ExtResource("3_6klj1")
 
-[node name="Label" type="Label" parent="."]
+[node name="male_nasa_scientist" type="Sprite2D" parent="."]
+position = Vector2(646, 349)
+scale = Vector2(0.29827, 0.289551)
+texture = ExtResource("4_3p8cl")
+
+[node name="Panel1" type="Panel" parent="."]
+offset_left = 318.0
+offset_top = 609.0
+offset_right = 1294.0
+offset_bottom = 738.0
+theme = SubResource("Theme_qqvom")
+
+[node name="Label1" type="Label" parent="Panel1"]
 top_level = true
-offset_left = -340.0
-offset_top = 241.0
-offset_right = 636.0
-offset_bottom = 414.0
+layout_mode = 0
+offset_left = 317.0
+offset_top = 625.0
+offset_right = 1293.0
+offset_bottom = 753.0
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "This will be your new work station, It's great to have you aas a new edition to the team."
+text = "This will be your new work station, It's great to have you as a new edition to the team."
 horizontal_alignment = 1
 autowrap_mode = 3
 uppercase = true
+script = ExtResource("4_l0obw")
