@@ -1,0 +1,27 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1699152037
+icon.svg::CompressedTexture2D::3145981615189895375::1699067339::1699067419::1::::<><>::
+main.gd::GDScript::-1::1699067339::0::1::::<>Node2D<>::
+main.tscn::PackedScene::3421949504959653084::1699067339::0::1::::<><>::res://main.gd<>uid://c5xmpip5h6nce
+README.md::TextFile::-1::1699067339::0::1::::<><>::
+world.tscn::PackedScene::4631350906452934755::1699067339::0::1::::<><>::
+::res://Assets/::1699067339
+::res://Assets/Title Screen/::1699067420
+Abort.png::CompressedTexture2D::5447739125562229616::1699067339::1699067420::1::::<><>::
+Asteroid-Title-Screen.png::CompressedTexture2D::8299074220536430689::1699067339::1699067420::1::::<><>::
+Control-Room-Title-Screen.png::CompressedTexture2D::4436849746854447138::1699067339::1699067420::1::::<><>::
+Play-Button.png::CompressedTexture2D::6926743200424837476::1699067339::1699067420::1::::<><>::
+::res://BuilderScene/::1699154343
+Abort-Button.png::CompressedTexture2D::4847900774266357826::1699154200::1699154355::1::::<><>::
+Analytics-Button.png::CompressedTexture2D::7304860250875568031::1699153922::1699154355::1::::<><>::
+Buttons.png::CompressedTexture2D::5984543362081996343::1699153560::1699154355::1::::<><>::
+Design-Button.png::CompressedTexture2D::1533488065786542439::1699153774::1699154355::1::::<><>::
+Launch-Button.png::CompressedTexture2D::3621341832660295618::1699154049::1699154355::1::::<><>::
+satellite-lab.tscn::PackedScene::7329679859547387012::1699152899::0::1::::<><>::uid://cmpmp1t4wa8tq::::res://BuilderScene/satellite-lab.png
+rocket-builder-terminal.png::CompressedTexture2D::4336574277038531585::1699152860::1699152872::1::::<><>::
+satellite-lab.png::CompressedTexture2D::5646829944480711514::1699152319::1699152321::1::::<><>::
+Test-Button.png::CompressedTexture2D::8278710172648167826::1699154343::1699154355::1::::<><>::
+::res://Intro/::1699067432
+Game_Intro.tscn::PackedScene::2445272359480326935::1699067432::0::1::::<><>::res://Intro/Intro.gd<>uid://dw7wed3me3hpb::::res://Intro/Intro-Screen-V2.png
+Intro-Screen-V2.png::CompressedTexture2D::8770819817638663867::1699067339::1699067420::1::::<><>::
+Intro.gd::GDScript::-1::1699067339::0::1::::<>Node2D<>::

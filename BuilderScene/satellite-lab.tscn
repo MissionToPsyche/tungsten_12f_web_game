@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcos0yn3ca76g"]
+
+[ext_resource type="Texture2D" uid="uid://cmpmp1t4wa8tq" path="res://BuilderScene/satellite-lab.png" id="1_orlfj"]
+[ext_resource type="Texture2D" uid="uid://v33lbae37f5x" path="res://BuilderScene/Design-Button.png" id="2_ja3uo"]
+[ext_resource type="Texture2D" uid="uid://dccr8mekq1ksd" path="res://BuilderScene/Analytics-Button.png" id="3_6jclb"]
+[ext_resource type="Texture2D" uid="uid://brug8amhvfx5s" path="res://BuilderScene/Launch-Button.png" id="4_q63ek"]
+[ext_resource type="Texture2D" uid="uid://dp7je87bgfb8e" path="res://BuilderScene/Test-Button.png" id="5_dlfsf"]
+[ext_resource type="Texture2D" uid="uid://cbcmhnnikpw15" path="res://BuilderScene/Abort-Button.png" id="6_d2ris"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(0.642857, 0.632813)
+texture = ExtResource("1_orlfj")
+metadata/_edit_lock_ = true
+
+[node name="Design" type="Button" parent="."]
+offset_left = 33.0
+offset_top = 488.0
+offset_right = 155.0
+offset_bottom = 603.0
+icon = ExtResource("2_ja3uo")
+flat = true
+expand_icon = true
+
+[node name="Line2D" type="Line2D" parent="Design"]
+points = PackedVector2Array(115, 33, 228, -24)
+width = 5.0
+default_color = Color(0.862745, 0.470588, 0.32549, 1)
+round_precision = 16
+
+[node name="Analytics" type="Button" parent="."]
+offset_left = 184.0
+offset_top = 529.0
+offset_right = 300.0
+offset_bottom = 662.0
+icon = ExtResource("3_6jclb")
+flat = true
+expand_icon = true
+
+[node name="Line2D" type="Line2D" parent="Analytics"]
+points = PackedVector2Array(115, 33, 235, 1)
+width = 5.0
+default_color = Color(0.862745, 0.470588, 0.32549, 1)
+round_precision = 16
+
+[node name="Launch" type="Button" parent="."]
+offset_left = 519.0
+offset_top = 417.0
+offset_right = 629.0
+offset_bottom = 544.0
+icon = ExtResource("4_q63ek")
+flat = true
+expand_icon = true
+
+[node name="Line2D" type="Line2D" parent="Launch"]
+points = PackedVector2Array(53, 112, 52, 147)
+width = 5.0
+default_color = Color(0.862745, 0.470588, 0.32549, 1)
+round_precision = 16
+
+[node name="Test" type="Button" parent="."]
+offset_left = 993.0
+offset_top = 491.0
+offset_right = 1103.0
+offset_bottom = 623.0
+icon = ExtResource("5_dlfsf")
+flat = true
+expand_icon = true
+
+[node name="Line2D" type="Line2D" parent="Test"]
+points = PackedVector2Array(11, 19, -118, -32)
+width = 5.0
+default_color = Color(0.862745, 0.470588, 0.32549, 1)
+round_precision = 16
+
+[node name="Abort" type="Button" parent="."]
+offset_left = 986.0
+offset_top = 18.0
+offset_right = 1098.0
+offset_bottom = 149.0
+icon = ExtResource("6_d2ris")
+flat = true
+expand_icon = true
