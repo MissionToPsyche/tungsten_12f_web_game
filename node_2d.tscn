@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1eovyd6y7e0u"]
+[gd_scene load_steps=9 format=3 uid="uid://c1eovyd6y7e0u"]
 
 [ext_resource type="Texture2D" uid="uid://cds0gcvxiwr37" path="res://lab_background.png" id="1_d23oa"]
 [ext_resource type="Script" path="res://Intro.gd" id="1_n6qel"]
 [ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="2_acnra"]
 [ext_resource type="Texture2D" uid="uid://bwop8desr3gxc" path="res://assets/sprites/male_nasa_scientist.png" id="3_gtqg4"]
+[ext_resource type="Texture2D" uid="uid://w3x668sbd1k5" path="res://assets/sprites/sound_on.png" id="5_gicql"]
+[ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/sound_off.png" id="6_kwpim"]
+[ext_resource type="Script" path="res://sound.gd" id="7_uhfwe"]
+[ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(911, 572)
@@ -56,3 +60,19 @@ offset_top = 141.0
 offset_right = 639.0
 offset_bottom = 246.0
 text = "NO"
+
+[node name="sound" type="TextureButton" parent="."]
+offset_left = -885.0
+offset_top = -565.0
+offset_right = -89.0
+offset_bottom = 229.0
+toggle_mode = true
+texture_normal = ExtResource("5_gicql")
+texture_pressed = ExtResource("6_kwpim")
+texture_disabled = ExtResource("6_kwpim")
+script = ExtResource("7_uhfwe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ae2sr")
+
+[connection signal="pressed" from="sound" to="sound" method="_on_pressed"]
