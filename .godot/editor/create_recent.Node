@@ -1,9 +1,10 @@
+Sprite2D
+Node
 Button
 VBoxContainer
 Control
 MenuButton
 MenuBar
 ItemList
-Sprite2D
 Node2D
 Line2D
