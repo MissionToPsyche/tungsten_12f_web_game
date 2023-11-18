@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5d28eb5p60qe"]
+
+[ext_resource type="Texture2D" uid="uid://b1bqyo7t6ojeb" path="res://assets/groundAndPlatform.png" id="1_tcarb"]
+[ext_resource type="Texture2D" uid="uid://cfsldq0r1enaw" path="res://assets/cloud1.png" id="2_f2nm8"]
+[ext_resource type="Script" path="res://cloudInit.gd" id="2_p86ho"]
+[ext_resource type="Script" path="res://cloud.gd" id="3_8ptby"]
+[ext_resource type="Texture2D" uid="uid://dxhndxreuth6" path="res://assets/cloud2.png" id="5_na33r"]
+[ext_resource type="Texture2D" uid="uid://cy88j86ribods" path="res://assets/cloud3.png" id="6_fm6xy"]
+[ext_resource type="Texture2D" uid="uid://c0q7k3s7weosw" path="res://assets/cloud4.png" id="7_krv2f"]
+[ext_resource type="Script" path="res://sky.gd" id="8_e2sva"]
+[ext_resource type="Texture2D" uid="uid://bo0i5dfmknwhe" path="res://assets/probe.png" id="9_1l3ch"]
+
+[sub_resource type="Animation" id="Animation_tmnon"]
+resource_name = "skycolor"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5, 2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.729412, 0.921569, 1, 1), Color(0, 0.670588, 0.847059, 1), Color(0, 0.376471, 0.482353, 1), Color(0, 0.0980392, 0.137255, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uh5mb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.729412, 0.921569, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agk2v"]
+_data = {
+"RESET": SubResource("Animation_uh5mb"),
+"skycolor": SubResource("Animation_tmnon")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(575.498, 326.5)
+scale = Vector2(1.07446, 1.07167)
+texture = ExtResource("1_tcarb")
+
+[node name="cloud" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Node2D" type="Node2D" parent="ParallaxBackground/cloud"]
+z_index = 1
+script = ExtResource("2_p86ho")
+
+[node name="cloud" type="Sprite2D" parent="ParallaxBackground/cloud/Node2D"]
+position = Vector2(-76, 44)
+scale = Vector2(0.436469, 0.436469)
+texture = ExtResource("2_f2nm8")
+script = ExtResource("3_8ptby")
+
+[node name="cloud2" type="Sprite2D" parent="ParallaxBackground/cloud/Node2D"]
+position = Vector2(-58, 205)
+scale = Vector2(0.436469, 0.436469)
+texture = ExtResource("5_na33r")
+script = ExtResource("3_8ptby")
+
+[node name="cloud3" type="Sprite2D" parent="ParallaxBackground/cloud/Node2D"]
+position = Vector2(-71, 282)
+scale = Vector2(0.436469, 0.436469)
+texture = ExtResource("6_fm6xy")
+script = ExtResource("3_8ptby")
+
+[node name="cloud4" type="Sprite2D" parent="ParallaxBackground/cloud/Node2D"]
+position = Vector2(-96, 118)
+scale = Vector2(0.436469, 0.436469)
+texture = ExtResource("7_krv2f")
+script = ExtResource("3_8ptby")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -1
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 1151.0
+offset_bottom = 648.0
+color = Color(0.729412, 0.921569, 1, 1)
+script = ExtResource("8_e2sva")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_agk2v")
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+light_mask = 0
+position = Vector2(627, 414)
+scale = Vector2(0.272888, 0.272888)
+texture = ExtResource("9_1l3ch")
