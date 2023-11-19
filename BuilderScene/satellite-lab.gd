@@ -1,20 +1,38 @@
 # satellite-lab.gd
 extends Node2D
 
-var satellite_parts = {} # Dictionary to hold the parts currently on the satellite, keyed by type
-var available_parts = {} # Dictionary of available parts for the player to choose from, keyed by type
-var current_visible_vbox = null
+var satellite_parts = {}  # Holds the actual part instances
+var available_parts = {}  # Holds the metadata from the JSON file
 
 func _ready():
 	initialize_parts()
 	update_ui()
 
 func initialize_parts():
-	# Load parts from a file or create them here
-	# Structure the parts into categories
-	available_parts["Power System"] = [Part1, Part2] # Replace with actual part instances
-	available_parts["Power System"] = [Part1, Part2]
-	# ... Do this for all categories
+	var file = File.new()
+	if file.open("res://path_to_your_file/parts.json", File.READ) == OK:
+		var data = parse_json(file.get_as_text())
+		file.close()
+
+		# Create instances of parts based on the JSON data
+		for category in data.keys():
+			available_parts[category] = []
+			for part_data in data[category]:
+				var part = create_part_instance(category, part_data)
+				available_parts[category].append(part)
+
+func create_part_instance(category: String, part_data: Dictionary) -> SatellitePart:
+	var part
+	match category:
+		"PowerSystem":
+			part = PowerSystemPart.new(
+				part_data["name"],
+				part_data["weight"],
+				part_data["cost"],
+				part_data["compatibility"],
+				# ... add all specific attributes here ...
+			)
+		# ... match other
 
 func update_ui():
 	# Reset all VBoxContainers to be hidden

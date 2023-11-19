@@ -1,0 +1,30 @@
+{
+	"PowerSystem": [
+		{
+			"name": "Solar Panels",
+			"weight": 100,
+			"cost": 500000.00,
+			"compatibility": ["Batteries", "Fuel Cells"],
+			"power_source": "Photovoltaic Arrays",
+			"solar_panel_efficiency": 22.5,
+			"battery_capacity": null,
+			"battery_type": null,
+			"voltage_regulation": true,
+			"power_consumption": 300,
+			"energy_harvesting": false
+		},
+		{
+			"name": "Batteries",
+			"weight": 50,
+			"cost": 200000.00,
+			"compatibility": ["Solar Panels", "RTGs"],
+			"power_source": "Chemical",
+			"solar_panel_efficiency": null,
+			"battery_capacity": 200,
+			"battery_type": "Lithium-ion",
+			"voltage_regulation": true,
+			"power_consumption": 100,
+			"energy_harvesting": false
+		},
+	],
+}
