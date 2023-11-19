@@ -1,11 +1,2 @@
-res://Intro/Game_Intro.tscn
-res://BuilderScene/satellite-lab.gd
-res://BuilderScene/satellite-lab.tscn
 res://DesignScene/DesignScene.tscn
-res://DesignScene/all_parts.json
-res://PowerSystemPart.gd
-res://BuilderScene/satellite-part.gd
-res://CommunicationsPart.gd
-res://PayloadPart.gd
-res://PropulsionPart.gd
-res://SpacecraftBusPart.gd
+res://DesignScene/DesignScene.gd
