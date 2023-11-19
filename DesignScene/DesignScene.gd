@@ -56,6 +56,7 @@ func initialize_parts():
 						var part_button = Button.new()
 						part_button.text = part_data["name"]
 						part_button.connect("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
+
 						
 						# Add the button to the VBoxContainer
 						category_vbox.add_child(part_button)
@@ -124,18 +125,3 @@ func select_part_button(button: Button, category: String):
 func _on_PartButton_pressed(button: Button, category: String, part: SatellitePart):
 	select_part_button(button, category)
 	add_part_to_satellite(category, part)
-
-func _on_payload_pressed():
-	pass # Replace with function body.
-
-func _on_communications_pressed():
-	pass # Replace with function body.
-
-func _on_power_system_pressed():
-	pass # Replace with function body.
-
-func _on_propulsion_pressed():
-	pass # Replace with function body.
-
-func _on_spacecraft_bus_pressed():
-	pass # Replace with function body.
