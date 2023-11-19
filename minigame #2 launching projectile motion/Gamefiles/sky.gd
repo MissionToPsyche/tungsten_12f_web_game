@@ -1,9 +1,8 @@
 extends ColorRect
 
 @onready var animation = $AnimationPlayer
-
 func _ready():
-	animation.play("skycolor")
+	pass
 	
 func _process(delta):
 	pass
