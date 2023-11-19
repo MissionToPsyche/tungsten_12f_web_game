@@ -1,3 +1,4 @@
 res://Intro/Game_Intro.tscn
+res://BuilderScene/satellite-lab.gd
 res://BuilderScene/satellite-lab.tscn
 res://DesignScene/DesignScene.tscn
