@@ -1,10 +1,11 @@
 extends TextureButton
 
-# Preload the scene
-var scene = preload("res://decision_tree.tscn")
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("pressed", Callable(self, "_on_button_pressed"))
+	pass # Replace with function body.
 
-func _on_button_pressed():
-	get_tree().change_scene_to(scene)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
