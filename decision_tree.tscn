@@ -1,0 +1,72 @@
+[gd_scene load_steps=16 format=3 uid="uid://c8jswe4xhc31f"]
+
+[ext_resource type="Texture2D" uid="uid://c2117wg8ttbtj" path="res://assets/sprites/decision_tree_sprites/muted_space_tree1.png" id="1_4k8kw"]
+[ext_resource type="Script" path="res://decision_tree.gd" id="1_l7wpw"]
+[ext_resource type="Script" path="res://Control.gd" id="2_dbo32"]
+[ext_resource type="Texture2D" uid="uid://p5ab88ma5evx" path="res://assets/sprites/decision_tree_sprites/mystery.png" id="2_kopy0"]
+[ext_resource type="Texture2D" uid="uid://dmbtrsfc6l4x" path="res://assets/sprites/decision_tree_sprites/mystery2.png" id="3_o0ioa"]
+[ext_resource type="Texture2D" uid="uid://hnqqk6twk6fq" path="res://assets/sprites/decision_tree_sprites/marketing.png" id="4_vgv8q"]
+[ext_resource type="Texture2D" uid="uid://8k856v7my5wx" path="res://assets/sprites/decision_tree_sprites/marketing2.png" id="5_ox4tu"]
+[ext_resource type="Script" path="res://mystery.gd" id="6_dultl"]
+[ext_resource type="Texture2D" uid="uid://dsj4urf0wvxom" path="res://assets/sprites/decision_tree_sprites/simulator.png" id="6_svm5m"]
+[ext_resource type="Texture2D" uid="uid://w4tnbvdhg0b1" path="res://assets/sprites/decision_tree_sprites/simulator2.png" id="7_wqkce"]
+[ext_resource type="Texture2D" uid="uid://bnhtud648q17p" path="res://assets/sprites/decision_tree_sprites/raw_ore.png" id="8_fono6"]
+[ext_resource type="Texture2D" uid="uid://cah0a1fqtr7at" path="res://assets/sprites/decision_tree_sprites/raw_ore2.png" id="9_7gbh0"]
+[ext_resource type="Script" path="res://marketing.gd" id="9_sid5g"]
+[ext_resource type="Script" path="res://simulation.gd" id="12_1hvnc"]
+[ext_resource type="Script" path="res://ore.gd" id="15_ru5mj"]
+
+[node name="decision_tree" type="Node2D"]
+script = ExtResource("1_l7wpw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_dbo32")
+
+[node name="tree_background" type="Sprite2D" parent="."]
+position = Vector2(2770, 1550)
+scale = Vector2(3.08259, 3.01367)
+texture = ExtResource("1_4k8kw")
+
+[node name="mystery" type="TextureButton" parent="."]
+offset_left = 7018.0
+offset_top = 2278.0
+offset_right = 7774.0
+offset_bottom = 3035.0
+texture_normal = ExtResource("3_o0ioa")
+texture_pressed = ExtResource("3_o0ioa")
+texture_disabled = ExtResource("2_kopy0")
+script = ExtResource("6_dultl")
+
+[node name="marketing" type="TextureButton" parent="."]
+offset_left = 2138.0
+offset_top = 586.0
+offset_right = 2848.0
+offset_bottom = 1262.0
+texture_normal = ExtResource("5_ox4tu")
+texture_pressed = ExtResource("5_ox4tu")
+texture_disabled = ExtResource("4_vgv8q")
+script = ExtResource("9_sid5g")
+
+[node name="simulation" type="TextureButton" parent="."]
+offset_left = 1329.0
+offset_top = 1428.0
+offset_right = 2078.0
+offset_bottom = 2216.0
+texture_normal = ExtResource("7_wqkce")
+texture_pressed = ExtResource("7_wqkce")
+texture_disabled = ExtResource("6_svm5m")
+script = ExtResource("12_1hvnc")
+
+[node name="ore" type="TextureButton" parent="."]
+offset_left = 2784.0
+offset_top = 2016.0
+offset_right = 3514.0
+offset_bottom = 2743.0
+texture_normal = ExtResource("9_7gbh0")
+texture_pressed = ExtResource("9_7gbh0")
+texture_disabled = ExtResource("8_fono6")
+script = ExtResource("15_ru5mj")

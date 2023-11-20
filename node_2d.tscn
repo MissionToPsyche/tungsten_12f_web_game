@@ -1,13 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1eovyd6y7e0u"]
+[gd_scene load_steps=15 format=3 uid="uid://c1eovyd6y7e0u"]
 
 [ext_resource type="Texture2D" uid="uid://cds0gcvxiwr37" path="res://lab_background.png" id="1_d23oa"]
 [ext_resource type="Script" path="res://Intro.gd" id="1_n6qel"]
 [ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="2_acnra"]
 [ext_resource type="Texture2D" uid="uid://bwop8desr3gxc" path="res://assets/sprites/male_nasa_scientist.png" id="3_gtqg4"]
+[ext_resource type="Texture2D" uid="uid://b4dryme7hm7h4" path="res://assets/sprites/no_button.png" id="5_2aqcg"]
+[ext_resource type="Texture2D" uid="uid://w2cdqlgfwi7" path="res://assets/sprites/empty_text_label.png" id="5_bko57"]
 [ext_resource type="Texture2D" uid="uid://w3x668sbd1k5" path="res://assets/sprites/sound_on.png" id="5_gicql"]
+[ext_resource type="Texture2D" uid="uid://bdxk14ek7ssp6" path="res://assets/sprites/yes_button.png" id="6_ayx38"]
 [ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/sound_off.png" id="6_kwpim"]
 [ext_resource type="Script" path="res://sound.gd" id="7_uhfwe"]
+[ext_resource type="Script" path="res://yes.gd" id="8_4ypkp"]
 [ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://m5x7.ttf" id="9_s84ku"]
+[ext_resource type="Script" path="res://points_label.gd" id="10_3x6ki"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(911, 572)
@@ -26,19 +32,19 @@ position = Vector2(-11, -74)
 scale = Vector2(0.360212, 0.351074)
 texture = ExtResource("3_gtqg4")
 
-[node name="Panel1" type="Panel" parent="."]
-offset_left = -485.0
-offset_top = 323.0
-offset_right = 792.0
-offset_bottom = 538.0
-metadata/_edit_use_anchors_ = true
+[node name="Panel1" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = 189.0
+offset_right = 803.0
+offset_bottom = 568.0
+texture = ExtResource("5_bko57")
 
 [node name="Label1" type="Label" parent="Panel1"]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 24.0
-offset_right = 1075.0
-offset_bottom = 189.0
+offset_left = 244.0
+offset_top = 56.0
+offset_right = 1159.0
+offset_bottom = 221.0
 theme_type_variation = &"HeaderLarge"
 text = "Welcome, I'm glad you joined us. "
 horizontal_alignment = 1
@@ -47,19 +53,20 @@ autowrap_mode = 3
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="yes" type="Button" parent="."]
-offset_left = -696.0
-offset_top = 146.0
-offset_right = -223.0
-offset_bottom = 242.0
-text = "YES"
+[node name="no" type="TextureButton" parent="."]
+offset_left = 100.0
+offset_top = -13.0
+offset_right = 788.0
+offset_bottom = 366.0
+texture_normal = ExtResource("5_2aqcg")
 
-[node name="no" type="Button" parent="."]
-offset_left = 169.0
-offset_top = 141.0
-offset_right = 639.0
-offset_bottom = 246.0
-text = "NO"
+[node name="yes" type="TextureButton" parent="."]
+offset_left = -640.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 363.0
+texture_normal = ExtResource("6_ayx38")
+script = ExtResource("8_4ypkp")
 
 [node name="sound" type="TextureButton" parent="."]
 offset_left = -885.0
@@ -74,5 +81,16 @@ script = ExtResource("7_uhfwe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ae2sr")
+
+[node name="points_label" type="RichTextLabel" parent="."]
+top_level = true
+offset_left = 1374.0
+offset_top = 72.0
+offset_right = 1738.0
+offset_bottom = 196.0
+theme_override_fonts/normal_font = ExtResource("9_s84ku")
+bbcode_enabled = true
+text = "Hello"
+script = ExtResource("10_3x6ki")
 
 [connection signal="pressed" from="sound" to="sound" method="_on_pressed"]
