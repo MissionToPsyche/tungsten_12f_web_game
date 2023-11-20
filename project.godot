@@ -10,10 +10,24 @@ config_version=5
 
 [application]
 
+<<<<<<< HEAD
+config/name="NASA Psyche Mission 12F"
+run/main_scene="res://Intro/Game_Intro.tscn"
+config/features=PackedStringArray("4.1", "Mobile")
+config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+=======
 config/name="decision"
 run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+CharacterManager="*res://team_builder.gd"
 
 [display]
 
@@ -22,4 +36,5 @@ window/size/viewport_height=1200
 
 [rendering]
 
+>>>>>>> jack-team-builder
 renderer/rendering_method="mobile"

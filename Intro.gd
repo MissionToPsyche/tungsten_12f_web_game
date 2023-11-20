@@ -61,7 +61,11 @@ func _on_timer_timeout():
 
 
 func _on_button_pressed(choice):
-	# Save the player's choice
-	player_choice = choice
-	# Do something with the choice here...
 	print("Player chose: " + choice)
+	if choice == "yes":
+		print("Loading Yes Scene")
+		get_tree().change_scene("res://decision_tree.tscn")
+	elif choice == "no":
+		print("Loading No Scene")
+		get_tree().change_scene("res://path_to_no_scene.tscn")
+
