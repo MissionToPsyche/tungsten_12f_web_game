@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bk264fl4w6io2"
+=======
+uid="uid://o1e85dm3m7e7"
+>>>>>>> jack-team-builder
 path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 metadata={
 "vram_texture": false
