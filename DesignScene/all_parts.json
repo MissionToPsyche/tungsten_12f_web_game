@@ -1,0 +1,86 @@
+{
+	"Payload": [
+		{
+			"name": "Hyperspectral Imager",
+			"weight": 10,
+			"cost": 1200000.00,
+			"compatibility": ["Data Handling System", "High-Gain Antenna"],
+			"instrument_name": "HyperCam-2",
+			"instrument_type": "Imager",
+			"purpose": "Surface Composition Mapping",
+			"sensing_technology": "Visible Light Imaging",
+			"spectral_range": "400-2500 nm",
+			"resolution": "30 m",
+			"field_of_view": 7.5,
+			"detection_limit": "1 ppm",
+			"data_output": "Raw Image Data",
+			"sampling_rate": 1,
+			"data_processing": "Onboard",
+			"calibration": "Pre-launch",
+			"power_consumption": 15
+		}
+	],
+	"Communications": [
+		{
+			"name": "X-Band Transceiver",
+			"weight": 5,
+			"cost": 450000.00,
+			"compatibility": ["Solar Panels", "Batteries"],
+			"frequency_band": "X-band",
+			"antenna_type": "Phased Array",
+			"transceiver": {
+				"power": 12,
+				"data_rate": 800,
+				"modulation_scheme": "QPSK",
+				"sensitivity": -150
+			},
+			"signal_strength": 5,
+			"data_rate": 800
+		}
+	],
+	"PowerSystem": [
+		{
+			"name": "Solar Panels",
+			"weight": 100,
+			"cost": 500000.00,
+			"compatibility": ["Batteries", "Fuel Cells"],
+			"power_source": "Photovoltaic Arrays",
+			"solar_panel_efficiency": 22.5,
+			"battery_capacity": null,
+			"battery_type": null,
+			"voltage_regulation": true,
+			"power_consumption": 300,
+			"energy_harvesting": false
+		}
+	],
+	"Propulsion": [
+		{
+			"name": "Ion Thrusters",
+			"weight": 20,
+			"cost": 2000000.00,
+			"compatibility": ["Xenon Tank", "Solar Panels"],
+			"propulsion_type": "Electric Propulsion",
+			"thrust": 0.5,
+			"specific_impulse": 3000,
+			"engine_lifespan": 15000,
+			"fuel_type": "Xenon",
+			"maneuverability": "High Precision"
+		}
+	],
+	"SpacecraftBus": [
+		{
+			"name": "Standard Bus",
+			"weight": 500,
+			"cost": 2500000.00,
+			"compatibility": ["All"],
+			"bus_type": "Standard",
+			"structure": "Aluminum Alloy",
+			"size": {
+				"length": 2.5,
+				"width": 2.5,
+				"height": 3.0
+			},
+			"durability": 3
+		}
+	]
+}
