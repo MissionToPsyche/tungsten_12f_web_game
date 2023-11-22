@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5d28eb5p60qe"]
+[gd_scene load_steps=31 format=3 uid="uid://b5d28eb5p60qe"]
 
+[ext_resource type="Script" path="res://mainScript.gd" id="1_qvqr0"]
 [ext_resource type="Texture2D" uid="uid://b1bqyo7t6ojeb" path="res://assets/groundAndPlatform.png" id="1_tcarb"]
 [ext_resource type="Texture2D" uid="uid://cfsldq0r1enaw" path="res://assets/cloud1.png" id="2_f2nm8"]
 [ext_resource type="Script" path="res://cloudInit.gd" id="2_p86ho"]
@@ -7,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dxhndxreuth6" path="res://assets/cloud2.png" id="5_na33r"]
 [ext_resource type="Texture2D" uid="uid://cy88j86ribods" path="res://assets/cloud3.png" id="6_fm6xy"]
 [ext_resource type="Texture2D" uid="uid://c0q7k3s7weosw" path="res://assets/cloud4.png" id="7_krv2f"]
-[ext_resource type="Script" path="res://sky.gd" id="8_e2sva"]
 [ext_resource type="Script" path="res://ArrowRotation.gd" id="9_css6r"]
 [ext_resource type="Texture2D" uid="uid://dhyqdeag5ytk0" path="res://assets/rocket.png" id="9_kqihl"]
 [ext_resource type="Script" path="res://Arrow.gd" id="10_22nl8"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bg5335nmwlc6y" path="res://assets/goodJob.png" id="14_1kpbt"]
 [ext_resource type="Texture2D" uid="uid://dngy8hvqrxw74" path="res://assets/tryagain.png" id="15_jet8i"]
 [ext_resource type="Texture2D" uid="uid://cly72qvts0thp" path="res://assets/powerbar.png" id="16_eim1l"]
+
+[sub_resource type="Animation" id="Animation_hy304"]
+resource_name = "CameraPan"
+length = 3.0
 
 [sub_resource type="Animation" id="Animation_egujq"]
 resource_name = "GoodJob"
@@ -347,10 +351,6 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.6)
 }
 
-[sub_resource type="Animation" id="Animation_hy304"]
-resource_name = "CameraPan"
-length = 3.0
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agk2v"]
 _data = {
 "CameraPan": SubResource("Animation_hy304"),
@@ -372,15 +372,282 @@ gradient = SubResource("Gradient_1lyl0")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2k7cw"]
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
-spread = 96.37
-gravity = Vector3(0, 50, 0)
-initial_velocity_max = 5.0
+spread = 39.53
+gravity = Vector3(0, 30, 0)
+initial_velocity_max = 28.95
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_max = 10.0
 color_ramp = SubResource("GradientTexture1D_fa5i2")
 
+[sub_resource type="Animation" id="Animation_r4kao"]
+resource_name = "RocketLauncCameraPan"
+length = 6.0
+step = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneCamera:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.6, -0.25, 0, 1.3, -0.000151038, 1.6, -0.25, 0, 1.1, -0.00219035, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneCamera:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.6, -0.25, 0, 1.3, -0.00422966, 1.6, -0.25, 0, 1.1, -0.000151038, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SceneCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 323), Vector2(631, 366), Vector2(631, 366), Vector2(576, 323)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(575.5, -0.25, 0, 0.25, 0, 575.5, -0.25, 0, 0.25, 0, 575.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 2.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(324.5, -0.25, 0, 0.25, 0, 326.275, -0.25, 0, 0.2, -1.60028, 800, -0.6, -0.945862, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 2.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground/cloud/Node2D:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2, 3)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParallaxBackground/cloud/Node2D:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 700, -1.35072, -5.90631, 0.25, 0),
+"times": PackedFloat32Array(2, 3)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParallaxBackground/GameLayer/RocketLayers:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-51.915, -43.255)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParallaxBackground/ParallaxLayer2/ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3, 4, 5, 5.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.729412, 0.921569, 1, 1), Color(0, 0.494118, 0.627451, 1), Color(0, 0.207843, 0.270588, 1), Color(0, 0, 0, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RLAUNCHclouds:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2, 3, 3.007, 3.012, 3.016, 3.033, 3.153, 3.347, 3.354, 3.359, 3.363, 3.38, 3.454, 3.461, 3.466, 3.47, 3.487),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1.25), Vector2(0, 900), Vector2(1200, 900), Vector2(1200, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 500), Vector2(0, 900), Vector2(1200, 900), Vector2(1200, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 900), Vector2(1200, 900), Vector2(1200, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RLAUNCHclouds2:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.3, 3.242, 3.243, 3.244, 3.245, 3.407, 3.408, 3.409, 3.41),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1.25), Vector2(0, 1200), Vector2(1200, 1200), Vector2(1200, 0), Vector2(0, 0), Vector2(0, 1200), Vector2(1200, 1200), Vector2(1200, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4lupt"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneCamera:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneCamera:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SceneCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 323)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(575.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(326.275, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground/cloud/Node2D:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParallaxBackground/cloud/Node2D:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParallaxBackground/GameLayer/RocketLayers:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ParallaxBackground/ParallaxLayer2/ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.729412, 0.921569, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RLAUNCHclouds:offset")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 900)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RLAUNCHclouds2:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ss8df"]
+_data = {
+"RESET": SubResource("Animation_4lupt"),
+"RocketLauncCameraPan": SubResource("Animation_r4kao")
+}
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_qvqr0")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -388,11 +655,12 @@ color_ramp = SubResource("GradientTexture1D_fa5i2")
 z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(575.5, 324.5)
+position = Vector2(575.5, 326.275)
 scale = Vector2(0.583628, 0.58574)
 texture = ExtResource("1_tcarb")
 
 [node name="cloud" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
 
 [node name="Node2D" type="Node2D" parent="ParallaxBackground/cloud"]
 z_index = 1
@@ -429,7 +697,6 @@ z_index = -2
 offset_right = 1151.0
 offset_bottom = 648.0
 color = Color(0.729412, 0.921569, 1, 1)
-script = ExtResource("8_e2sva")
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2/ColorRect"]
@@ -507,7 +774,83 @@ offset_right = 857.0
 offset_bottom = 208.0
 color = Color(0, 0, 0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="SceneCamera" type="Camera2D" parent="."]
 position = Vector2(576, 323)
+position_smoothing_enabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="SceneAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ss8df")
+}
+
+[node name="rocketLaunchClouds" type="Node2D" parent="."]
+
+[node name="RLAUNCHclouds" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 900)
+transform = Transform2D(1, 0, 0, 1, 0, 900)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="RLAUNCHclouds"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="cloud1" type="Sprite2D" parent="RLAUNCHclouds/ParallaxLayer"]
+position = Vector2(1046, -47)
+scale = Vector2(0.457921, 0.457921)
+texture = ExtResource("2_f2nm8")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="RLAUNCHclouds"]
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="cloud2" type="Sprite2D" parent="RLAUNCHclouds/ParallaxLayer2"]
+position = Vector2(126, -138)
+scale = Vector2(0.494737, 0.494737)
+texture = ExtResource("5_na33r")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="RLAUNCHclouds"]
+
+[node name="cloud3" type="Sprite2D" parent="RLAUNCHclouds/ParallaxLayer3"]
+position = Vector2(357, -227)
+scale = Vector2(0.492218, 0.492218)
+texture = ExtResource("6_fm6xy")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="RLAUNCHclouds"]
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="cloud4" type="Sprite2D" parent="RLAUNCHclouds/ParallaxLayer4"]
+position = Vector2(723, -182)
+scale = Vector2(0.503922, 0.503922)
+texture = ExtResource("7_krv2f")
+
+[node name="RLAUNCHclouds2" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 1200)
+transform = Transform2D(1, 0, 0, 1, 0, 1200)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="RLAUNCHclouds2"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="cloud1" type="Sprite2D" parent="RLAUNCHclouds2/ParallaxLayer"]
+position = Vector2(927, -398.75)
+scale = Vector2(0.457921, 0.457921)
+texture = ExtResource("2_f2nm8")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="RLAUNCHclouds2"]
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="cloud2" type="Sprite2D" parent="RLAUNCHclouds2/ParallaxLayer2"]
+position = Vector2(226, -313.75)
+scale = Vector2(0.494737, 0.494737)
+texture = ExtResource("5_na33r")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="RLAUNCHclouds2"]
+
+[node name="cloud3" type="Sprite2D" parent="RLAUNCHclouds2/ParallaxLayer3"]
+position = Vector2(290, -493.75)
+scale = Vector2(0.492218, 0.492218)
+texture = ExtResource("6_fm6xy")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="RLAUNCHclouds2"]
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="cloud4" type="Sprite2D" parent="RLAUNCHclouds2/ParallaxLayer4"]
+position = Vector2(547, -424.75)
+scale = Vector2(0.503922, 0.503922)
+texture = ExtResource("7_krv2f")

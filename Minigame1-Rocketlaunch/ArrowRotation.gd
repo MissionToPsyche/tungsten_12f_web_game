@@ -5,6 +5,7 @@ var final_rotation_value = 0
 var final_power_value = 0
 var animation_arrow= false;
 var animation_power= false;
+signal rocketLaunched
 
 func _ready():
 	$PowerBar.visible = false;
@@ -39,15 +40,8 @@ func _input(event):
 					get_node("PowerBar").queue_free()
 					animation_power = true
 					await get_tree().create_timer(1.3).timeout
-					animation.play("CameraPan")
+					emit_signal("rocketLaunched")
 				else:
 					animation.play("tryagain")
 					await get_tree().create_timer(1.4).timeout
 					animation.play("powerBar")
-				
-				
-
-			
-	
-func _process(delta):
-	pass
