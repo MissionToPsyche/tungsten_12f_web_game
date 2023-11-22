@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5d28eb5p60qe"]
+[gd_scene load_steps=28 format=3 uid="uid://b5d28eb5p60qe"]
 
 [ext_resource type="Texture2D" uid="uid://b1bqyo7t6ojeb" path="res://assets/groundAndPlatform.png" id="1_tcarb"]
 [ext_resource type="Texture2D" uid="uid://cfsldq0r1enaw" path="res://assets/cloud1.png" id="2_f2nm8"]
@@ -15,6 +15,67 @@
 [ext_resource type="Texture2D" uid="uid://ccxhu34603stg" path="res://assets/whitearrowinside.png" id="12_du181"]
 [ext_resource type="Texture2D" uid="uid://bg5335nmwlc6y" path="res://assets/goodJob.png" id="14_1kpbt"]
 [ext_resource type="Texture2D" uid="uid://dngy8hvqrxw74" path="res://assets/tryagain.png" id="15_jet8i"]
+[ext_resource type="Texture2D" uid="uid://cly72qvts0thp" path="res://assets/powerbar.png" id="16_eim1l"]
+
+[sub_resource type="Animation" id="Animation_egujq"]
+resource_name = "GoodJob"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../GameLayer/Feedback/Goodjob:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(576, -0.25, 0, 0.25, 0, 576, -0.25, 0, 0.25, 0, 576, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.8, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../GameLayer/Feedback/Goodjob:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-52, -0.25, 0, 0.4, 1.13539, 113.893, -0.1, 2.67899, 0.1, -0.757828, 88.8934, -0.1, 0.131241, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.6)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../GameLayer/Feedback/Goodjob:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../GameLayer/Feedback/Goodjob:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.496, -0.25, 0, 0.25, 0, 0.701389, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../GameLayer/Feedback/Goodjob:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.489, -0.25, 0, 0.25, 0, 0.690973, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
 
 [sub_resource type="Animation" id="Animation_uh5mb"]
 length = 2.0
@@ -130,21 +191,27 @@ tracks/9/keys = {
 "points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-
-[sub_resource type="Animation" id="Animation_tmnon"]
-resource_name = "skycolor"
-length = 3.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5, 2.5, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.729412, 0.921569, 1, 1), Color(0, 0.670588, 0.847059, 1), Color(0, 0.376471, 0.482353, 1), Color(0, 0.0980392, 0.137255, 1), Color(0, 0, 0, 1)]
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../GameLayer/PowerBar/PowerSetter:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(817, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../GameLayer/PowerBar/PowerSetter:position:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(200, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_da7kq"]
@@ -176,64 +243,48 @@ tracks/1/keys = {
 "values": [Color(0.984314, 0, 0.180392, 1), Color(1, 0.980392, 0.2, 1), Color(0, 0.980392, 0.2, 1), Color(1, 0.980392, 0.2, 1), Color(0.984314, 0, 0.180392, 1), Color(1, 0.980392, 0.2, 1), Color(0, 0.980392, 0.2, 1), Color(1, 0.980392, 0.2, 1), Color(0.984314, 0, 0.180392, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_egujq"]
-resource_name = "GoodJob"
-length = 1.2
+[sub_resource type="Animation" id="Animation_n32ey"]
+resource_name = "powerBar"
+length = 2.0
+loop_mode = 1
+step = 0.005
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../GameLayer/Feedback/Goodjob:position:x")
+tracks/0/path = NodePath("../../GameLayer/PowerBar/PowerSetter:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(576, -0.25, 0, 0.25, 0, 576, -0.25, 0, 0.25, 0, 576, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.8, 1)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(817, -0.25, 0, 0.25, 0, 817, -0.25, 0, 0.25, 0, 817, -0.25, 0, 0.25, 0, 817, -0.25, 0, 0.25, 0, 817, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.50808, 2)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../GameLayer/Feedback/Goodjob:position:y")
+tracks/1/path = NodePath("../../GameLayer/PowerBar/PowerSetter:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-52, -0.25, 0, 0.4, 1.13539, 113.893, -0.1, 2.67899, 0.1, -0.757828, 88.8934, -0.1, 0.131241, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(200, -0.25, 0, 0.5, 10.7317, 275, -0.1, -75.2683, 0.2, 145.795, 475, -0.4, -11.2684, 0.4, -9.06839, 275, -0.2, 152.432, 0.2, -85.1683, 200, -0.4, 7.4317, 0.5, 10.7317),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../GameLayer/Feedback/Goodjob:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+
+[sub_resource type="Animation" id="Animation_tmnon"]
+resource_name = "skycolor"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5, 2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../GameLayer/Feedback/Goodjob:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.496, -0.25, 0, 0.25, 0, 0.701389, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../GameLayer/Feedback/Goodjob:scale:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.489, -0.25, 0, 0.25, 0, 0.690973, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6)
+"values": [Color(0.729412, 0.921569, 1, 1), Color(0, 0.670588, 0.847059, 1), Color(0, 0.376471, 0.482353, 1), Color(0, 0.0980392, 0.137255, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_u1owm"]
@@ -296,11 +347,17 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.6)
 }
 
+[sub_resource type="Animation" id="Animation_hy304"]
+resource_name = "CameraPan"
+length = 3.0
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agk2v"]
 _data = {
+"CameraPan": SubResource("Animation_hy304"),
 "GoodJob": SubResource("Animation_egujq"),
 "RESET": SubResource("Animation_uh5mb"),
 "arrow": SubResource("Animation_da7kq"),
+"powerBar": SubResource("Animation_n32ey"),
 "skycolor": SubResource("Animation_tmnon"),
 "tryagain": SubResource("Animation_u1owm")
 }
@@ -435,3 +492,22 @@ texture = ExtResource("14_1kpbt")
 position = Vector2(576, -52)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_jet8i")
+
+[node name="PowerBar" type="Node2D" parent="ParallaxBackground/GameLayer"]
+
+[node name="Powerbar" type="Sprite2D" parent="ParallaxBackground/GameLayer/PowerBar"]
+position = Vector2(963, 331)
+scale = Vector2(0.317084, 0.317084)
+texture = ExtResource("16_eim1l")
+
+[node name="PowerSetter" type="ColorRect" parent="ParallaxBackground/GameLayer/PowerBar"]
+offset_left = 817.0
+offset_top = 200.0
+offset_right = 857.0
+offset_bottom = 208.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 323)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
