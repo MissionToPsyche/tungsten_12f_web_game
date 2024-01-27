@@ -18,10 +18,10 @@ var File = preload("res://DesignScene/all_parts.json")
 
 func _ready():
 	# Assuming your category buttons are direct children of a node called "Categories"
-	var category_buttons = get_node("Categories")
+	var category_buttons = get_node("Control/Categories")
 	for button in category_buttons.get_children():
 		if button is Button:
-			button.connect("pressed", self, "_on_CategoryButton_pressed", [button.name])
+			button.call_deferred("pressed", self, "_on_CategoryButton_pressed", [button.name])
 	initialize_parts()
 	update_ui()
 
@@ -39,7 +39,7 @@ func initialize_parts():
 			# Create instances of parts based on the JSON data
 			for category in data.keys():
 				available_parts[category] = []
-				var category_vbox_path = "Categories/" + category + "/" + category
+				var category_vbox_path = "Control/Categories/" + category + "/" + category
 				if has_node(category_vbox_path):
 					var category_vbox = get_node(category_vbox_path)
 					
@@ -55,7 +55,7 @@ func initialize_parts():
 						# Create a button for the part
 						var part_button = Button.new()
 						part_button.text = part_data["name"]
-						part_button.connect("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
+						part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
 
 						
 						# Add the button to the VBoxContainer
@@ -84,18 +84,18 @@ func create_part_instance(category: String, part_data: Dictionary) -> SatelliteP
 
 func update_ui():
 	# Reset all VBoxContainers to be hidden
-	for vbox in get_node("Categories").get_children():
+	for vbox in get_node("Control/Categories").get_children():
 		for category_vbox in vbox.get_children():
 			category_vbox.hide()
 	pass
 
 func show_components_for_category(category):
 	# Hide all VBoxContainers
-	for a_category in get_node("Categories").get_children():
+	for a_category in get_node("Control/Categories").get_children():
 		a_category.hide()
 
 	# Show the selected category's VBoxContainer
-	var vbox = get_node("Categories/" + category)
+	var vbox = get_node("Control/Categories/" + category)
 	vbox.show()
 	current_visible_vbox = vbox
 
@@ -116,7 +116,7 @@ func remove_part_from_satellite(category):
 
 func select_part_button(button: Button, category: String):
 	# Deselect any other selected button in this category
-	for btn in get_node("Categories/" + category).get_children():
+	for btn in get_node("Control/Categories/" + category).get_children():
 		btn.modulate = Color(1, 1, 1) # Normal color
 		btn.get_child(0).add_color_override("font_color", Color(0, 0, 0)) # Normal text color
 	button.modulate = Color(0.5, 1, 0.5) # Light green for selected
