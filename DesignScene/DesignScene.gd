@@ -31,10 +31,11 @@ func initialize_parts():
 		var json_text = file.get_as_text()
 		file.close()
 
+		# Create an instance of the JSON class
 		var json = JSON.new()
-		var error = json.parse(json_text)
-		if error == OK:
-			var data = json.get_data()  # This is the parsed JSON data
+		var json_result = json.parse(json_text)
+		if json_result.error == OK:
+			var data = json_result.result  # This is the parsed JSON data
 
 			# Create instances of parts based on the JSON data
 			for category in data.keys():
@@ -56,14 +57,13 @@ func initialize_parts():
 						var part_button = Button.new()
 						part_button.text = part_data["name"]
 						part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
-
 						
 						# Add the button to the VBoxContainer
 						category_vbox.add_child(part_button)
 				else:
 					print("Category VBoxContainer path not found: " + category_vbox_path)
 		else:
-			print("JSON Parse Error: ", json.get_error_message(), " in ", json_text, " at line ", json.get_error_line())
+			print("JSON Parse Error: ", json.get_error_message())
 
 func create_part_instance(category: String, part_data: Dictionary) -> SatellitePart:
 	var part
