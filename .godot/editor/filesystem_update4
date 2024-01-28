@@ -1,5 +1,5 @@
 res://DesignScene/DesignScene.tscn
 res://BuilderScene/satellite-lab.tscn
 res://Intro/Game_Intro.tscn
-res://Intro/Intro.gd
 res://DesignScene/DesignScene.gd
+res://Classes/PowerSystemPart.gd

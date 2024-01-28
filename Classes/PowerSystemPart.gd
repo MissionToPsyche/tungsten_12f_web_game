@@ -12,7 +12,7 @@ var energy_harvesting = false
 
 func _init(part_data: Dictionary):
 	# Extract values from the part_data dictionary
-	var _part_name = part_data["part_name"]
+	var _part_name = part_data["name"]
 	var _weight = part_data["weight"]
 	var _cost = part_data["cost"]
 	var _compatibility = part_data["compatibility"]

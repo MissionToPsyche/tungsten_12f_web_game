@@ -21,21 +21,23 @@ func _ready():
 	var category_buttons = get_node("Control/Categories")
 	for button in category_buttons.get_children():
 		if button is Button:
-			button.call_deferred("pressed", self, "_on_CategoryButton_pressed", [button.name])
+			# button.connect("pressed", self, "_on_CategoryButton_pressed", [button.name])
+			button.pressed.connect(self._on_CategoryButton_pressed)
 	initialize_parts()
 	update_ui()
 
 func initialize_parts():
-	var file = File.new()
-	if file.open("res://DesignScene/all_parts.json", File.READ) == OK:
+	var file = FileAccess.open("res://DesignScene/all_parts.json", FileAccess.READ)
+	if file.get_error() == OK:  # This checks if the file was opened without errors
 		var json_text = file.get_as_text()
 		file.close()
 
 		# Create an instance of the JSON class
 		var json = JSON.new()
-		var json_result = json.parse(json_text)
-		if json_result.error == OK:
-			var data = json_result.result  # This is the parsed JSON data
+		var json_result = json.parse(json_text, true)
+		# json_result is a Dictionary with 'error' and 'result' keys
+		if json_result == OK:
+			var data = json.get_data()  # This is the parsed JSON data
 
 			# Create instances of parts based on the JSON data
 			for category in data.keys():
