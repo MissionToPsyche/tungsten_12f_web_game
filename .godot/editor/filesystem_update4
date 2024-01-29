@@ -1,7 +1,12 @@
 res://DesignScene/DesignScene.tscn
+<<<<<<< HEAD
 res://IntroScene/Intro.gd
 res://TeamBuilder.gd
 res://Intro/Game_Intro.tscn
 res://TitleScene/main.tscn
 res://IntroScene/node_2d.tscn
 res://team_builder.tscn
+=======
+res://BuilderScene/satellite-lab.tscn
+res://Intro/Game_Intro.tscn
+>>>>>>> afabba8c96cf69b29747cb78e0470300164c635e
