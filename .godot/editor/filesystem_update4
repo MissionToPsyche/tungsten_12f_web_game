@@ -1,2 +1,3 @@
 res://DesignScene/DesignScene.tscn
-res://DesignScene/DesignScene.gd
+res://BuilderScene/satellite-lab.tscn
+res://Intro/Game_Intro.tscn
