@@ -1,78 +1,50 @@
-[gd_scene load_steps=10 format=3 uid="uid://lni8epmn27mb"]
+[gd_scene load_steps=13 format=3 uid="uid://blfymdv2dk2c0"]
 
-[ext_resource type="Script" path="res://team_builder.gd" id="1_6typq"]
-[ext_resource type="Texture2D" uid="uid://7u7c2ujwk75q" path="res://assets/sprites/team_builder_sprites/nasa_office.png" id="1_evjmo"]
-[ext_resource type="Texture2D" uid="uid://wffvgl0tlhjg" path="res://assets/sprites/team_builder_sprites/asian_female_nasa_scientist.png" id="2_mn63p"]
-[ext_resource type="Script" path="res://character1.gd" id="4_mk6e2"]
-[ext_resource type="Script" path="res://stats+skills1.gd" id="5_8poes"]
-[ext_resource type="Script" path="res://character2.gd" id="5_ctnyh"]
-[ext_resource type="Script" path="res://character4.gd" id="6_27dpy"]
-[ext_resource type="Script" path="res://character3.gd" id="6_inyrd"]
-[ext_resource type="Script" path="res://character5.gd" id="7_bglv8"]
+[ext_resource type="Script" path="res://TeamBuilder.gd" id="1_10wfg"]
+[ext_resource type="Texture2D" uid="uid://clceqobjk8gl8" path="res://assets/sprites/team_builder_sprites/Alexa.png" id="2_y3g14"]
+[ext_resource type="Texture2D" uid="uid://bwefxo5yplqfw" path="res://assets/sprites/team_builder_sprites/Alexandra.png" id="3_t8w05"]
+[ext_resource type="Texture2D" uid="uid://culnit5rqqkdw" path="res://assets/sprites/team_builder_sprites/Andrew.png" id="4_a4hj7"]
+[ext_resource type="Texture2D" uid="uid://ciaffwcyickfl" path="res://assets/sprites/team_builder_sprites/Ava.png" id="5_qcvmg"]
+[ext_resource type="Texture2D" uid="uid://dn0mj41lq84ar" path="res://assets/sprites/team_builder_sprites/Caleb.png" id="6_f4oto"]
+[ext_resource type="Texture2D" uid="uid://7j1pkj7l683g" path="res://assets/sprites/team_builder_sprites/Carter.png" id="7_v1i1b"]
+[ext_resource type="Texture2D" uid="uid://ymhvpjhob8o4" path="res://assets/sprites/team_builder_sprites/Emma.png" id="8_rjd1a"]
+[ext_resource type="Texture2D" uid="uid://dkgmmpr5nj3rh" path="res://assets/sprites/team_builder_sprites/Hannah.png" id="9_5h20p"]
+[ext_resource type="Texture2D" uid="uid://cr3liqlcdvo2m" path="res://assets/sprites/team_builder_sprites/John.png" id="10_xcc1j"]
+[ext_resource type="Texture2D" uid="uid://clvtwghutuo2n" path="res://assets/sprites/team_builder_sprites/Jordan.png" id="11_sgslh"]
+[ext_resource type="Texture2D" uid="uid://ck4w4j867nvqv" path="res://assets/sprites/team_builder_sprites/Nick.png" id="12_khh2p"]
 
-[node name="team_builder" type="Node2D"]
-script = ExtResource("1_6typq")
+[node name="TeamBuilder" type="Node2D"]
+script = ExtResource("1_10wfg")
 
-[node name="office_background" type="Sprite2D" parent="."]
-texture = ExtResource("1_evjmo")
+[node name="Alexa" type="Sprite2D" parent="."]
+texture = ExtResource("2_y3g14")
 
-[node name="Continue" type="TextureButton" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Alexandra" type="Sprite2D" parent="."]
+texture = ExtResource("3_t8w05")
 
-[node name="number_of_team_members" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="Andrew" type="Sprite2D" parent="."]
+texture = ExtResource("4_a4hj7")
 
-[node name="character1" type="Sprite2D" parent="."]
-position = Vector2(232, 63)
-scale = Vector2(0.363281, 0.496652)
-texture = ExtResource("2_mn63p")
-script = ExtResource("4_mk6e2")
+[node name="Ava" type="Sprite2D" parent="."]
+texture = ExtResource("5_qcvmg")
 
-[node name="stats+skills1" type="TextureProgressBar" parent="character1"]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_8poes")
+[node name="Caleb" type="Sprite2D" parent="."]
+texture = ExtResource("6_f4oto")
 
-[node name="character2" type="Sprite2D" parent="."]
-position = Vector2(-69, 63)
-scale = Vector2(0.517578, 0.496652)
-texture = ExtResource("2_mn63p")
-script = ExtResource("5_ctnyh")
+[node name="Carter" type="Sprite2D" parent="."]
+texture = ExtResource("7_v1i1b")
 
-[node name="stats+skills2" type="TextureProgressBar" parent="character2"]
-offset_left = 581.555
-offset_top = 1.52588e-05
-offset_right = 621.555
-offset_bottom = 40.0
+[node name="Emma" type="Sprite2D" parent="."]
+texture = ExtResource("8_rjd1a")
 
-[node name="character3" type="Sprite2D" parent="."]
-position = Vector2(-760, 109)
-scale = Vector2(0.300781, 0.452009)
-texture = ExtResource("2_mn63p")
-script = ExtResource("6_inyrd")
+[node name="Hannah" type="Sprite2D" parent="."]
+texture = ExtResource("9_5h20p")
 
-[node name="stats+skills3" type="TextureProgressBar" parent="character3"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="John" type="Sprite2D" parent="."]
+texture = ExtResource("10_xcc1j")
 
-[node name="character4" type="Sprite2D" parent="."]
-position = Vector2(619, 221)
-scale = Vector2(0.689453, 0.320312)
-texture = ExtResource("2_mn63p")
-script = ExtResource("6_27dpy")
+[node name="Jordan" type="Sprite2D" parent="."]
+texture = ExtResource("11_sgslh")
 
-[node name="stats+skills4" type="TextureProgressBar" parent="character4"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="character5" type="Sprite2D" parent="."]
-position = Vector2(-404, 233)
-scale = Vector2(0.40625, 0.322545)
-texture = ExtResource("2_mn63p")
-script = ExtResource("7_bglv8")
-
-[node name="stats+skills5" type="TextureProgressBar" parent="character5"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Nick" type="Sprite2D" parent="."]
+texture = ExtResource("12_khh2p")

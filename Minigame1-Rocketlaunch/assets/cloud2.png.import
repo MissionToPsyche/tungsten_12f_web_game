@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxhndxreuth6"
-path="res://.godot/imported/cloud2.png-f40dea0f42ba07f2ca47dc8335c3b0de.ctex"
+path="res://.godot/imported/cloud2.png-13306da63355a75af52c3b2439b6f5f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cloud2.png"
-dest_files=["res://.godot/imported/cloud2.png-f40dea0f42ba07f2ca47dc8335c3b0de.ctex"]
+source_file="res://Minigame1-Rocketlaunch/assets/cloud2.png"
+dest_files=["res://.godot/imported/cloud2.png-13306da63355a75af52c3b2439b6f5f4.ctex"]
 
 [params]
 

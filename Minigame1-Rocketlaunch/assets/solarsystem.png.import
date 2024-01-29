@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du0er7vkobs7i"
-path="res://.godot/imported/solarsystem.png-9fd6aa6d67f035dd8924cd7b73cf2613.ctex"
+path="res://.godot/imported/solarsystem.png-7fcb9bdb65b6b18e1fe15bb29b9fb003.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/solarsystem.png"
-dest_files=["res://.godot/imported/solarsystem.png-9fd6aa6d67f035dd8924cd7b73cf2613.ctex"]
+source_file="res://Minigame1-Rocketlaunch/assets/solarsystem.png"
+dest_files=["res://.godot/imported/solarsystem.png-7fcb9bdb65b6b18e1fe15bb29b9fb003.ctex"]
 
 [params]
 

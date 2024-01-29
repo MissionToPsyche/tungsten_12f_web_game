@@ -8,7 +8,7 @@ func _ready():
 	var dynamic_font = FontFile.new()
 
 	# Load the TTF font data
-	dynamic_font.font_data = load("res://m5x7.ttf")  # Make sure the path is correct
+	dynamic_font.font_data = load("res://IntroScene/m5x7.ttf")  # Make sure the path is correct
 
 	# Set the font to the RichTextLabel
 	self.add_theme_font_override("normal_font", dynamic_font)

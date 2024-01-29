@@ -21,7 +21,7 @@ func _ready():
 	var category_buttons = get_node("Categories")
 	for button in category_buttons.get_children():
 		if button is Button:
-			button.connect("pressed", self, "_on_CategoryButton_pressed", [button.name])
+			button.connect("pressed", self, "_on_CategoryButton_pressed")
 	initialize_parts()
 	update_ui()
 
@@ -55,7 +55,8 @@ func initialize_parts():
 						# Create a button for the part
 						var part_button = Button.new()
 						part_button.text = part_data["name"]
-						part_button.connect("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
+						part_button.connect("pressed", self, "_on_PartButton_pressed")
+
 
 						
 						# Add the button to the VBoxContainer
@@ -101,7 +102,12 @@ func show_components_for_category(category):
 
 
 func _on_CategoryButton_pressed(category):
-	show_components_for_category(category)
+	var category_buttons = get_node("Categories")
+	for button in category_buttons.get_children():
+		if button is Button and button.pressed:
+			var selected_category = button.name  # or any other property you need
+			show_components_for_category(category)
+			break
 
 func add_part_to_satellite(category, part):
 	# Assume part is an instance of SatellitePart

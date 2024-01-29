@@ -1,10 +1,10 @@
-VBoxContainer
 Sprite2D
+Node2D
+VBoxContainer
 Node
 Button
 Control
 MenuButton
 MenuBar
 ItemList
-Node2D
 Line2D

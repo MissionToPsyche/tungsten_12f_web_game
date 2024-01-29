@@ -1,2 +1,7 @@
 res://DesignScene/DesignScene.tscn
-res://DesignScene/DesignScene.gd
+res://IntroScene/Intro.gd
+res://TeamBuilder.gd
+res://Intro/Game_Intro.tscn
+res://TitleScene/main.tscn
+res://IntroScene/node_2d.tscn
+res://team_builder.tscn
