@@ -10,12 +10,15 @@ config_version=5
 
 [application]
 
-config/name="NASA Psyche Mission 12F"
-run/main_scene="res://Intro/Game_Intro.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/name="Mini Game"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/resizable=false
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"

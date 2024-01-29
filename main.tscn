@@ -1,34 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo0vajx5xbpqi"]
+[gd_scene load_steps=3 format=3 uid="uid://b8utpln3bwc0j"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_m1rjy"]
-[ext_resource type="Texture2D" uid="uid://c5xmpip5h6nce" path="res://Assets/Title Screen/Play-Button.png" id="2_8kkr3"]
-[ext_resource type="Texture2D" uid="uid://b4hijc1b1xlws" path="res://Assets/Title Screen/Control-Room-Title-Screen.png" id="2_acuhj"]
-[ext_resource type="Texture2D" uid="uid://cju6p5ntqpa37" path="res://Assets/Title Screen/Abort.png" id="3_35gxx"]
+[ext_resource type="Script" path="res://main.gd" id="1_kjref"]
+[ext_resource type="PackedScene" uid="uid://cajycmciug0kk" path="res://bg.tscn" id="2_q6uqw"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_m1rjy")
+script = ExtResource("1_kjref")
 
-[node name="Start" type="Button" parent="."]
-offset_left = 488.0
-offset_top = 348.0
-offset_right = 720.0
-offset_bottom = 454.0
-icon = ExtResource("2_8kkr3")
+[node name="Play" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 452.0
+offset_top = 194.0
+offset_right = 679.0
+offset_bottom = 281.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "PLAY MINI GAME"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 508.0
-offset_top = 479.0
-offset_right = 705.0
-offset_bottom = 665.0
-icon = ExtResource("3_35gxx")
-expand_icon = true
+offset_left = 455.0
+offset_top = 330.0
+offset_right = 682.0
+offset_bottom = 417.0
+text = "OPTIONS
+"
 
-[node name="Control-room-title-screen" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(576, 324)
-scale = Vector2(0.642857, 0.632813)
-texture = ExtResource("2_acuhj")
-metadata/_edit_lock_ = true
+[node name="Quit2" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 478.0
+offset_right = 683.0
+offset_bottom = 565.0
+text = "QUIT
+"
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[node name="BG" parent="." instance=ExtResource("2_q6uqw")]
+
+[node name="BG2" parent="." instance=ExtResource("2_q6uqw")]
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Quit2" to="." method="_on_quit_pressed"]
