@@ -22,7 +22,9 @@ func _ready():
 	for button in category_buttons.get_children():
 		if button is Button:
 			# button.connect("pressed", self, "_on_CategoryButton_pressed", [button.name])
-			button.pressed.connect(self._on_CategoryButton_pressed)
+			# button.pressed.connect(self._on_CategoryButton_pressed)
+			button.pressed.connect(self._on_CategoryButton_pressed.bind(button.name))
+
 	initialize_parts()
 	update_ui()
 
@@ -101,9 +103,12 @@ func show_components_for_category(category):
 	vbox.show()
 	current_visible_vbox = vbox
 
-
 func _on_CategoryButton_pressed(category):
 	show_components_for_category(category)
+
+#func _on_CategoryButton_pressed(button: Button):
+	# Now you can use the 'button' directly
+	#show_components_for_category(button.name)
 
 func add_part_to_satellite(category, part):
 	# Assume part is an instance of SatellitePart
