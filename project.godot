@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.1", "Mobile")
 
 [autoload]
 
-CharacterManager="*res://team_builder.gd"
+CharacterManager="*res://CharacterManager.gd"
 
 [display]
 

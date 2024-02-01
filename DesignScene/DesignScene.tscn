@@ -89,3 +89,5 @@ offset_bottom = 40.0
 position = Vector2(538, 309)
 scale = Vector2(0.333984, 0.321777)
 texture = ExtResource("3_sbla5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

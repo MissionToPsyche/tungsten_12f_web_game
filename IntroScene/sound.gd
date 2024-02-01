@@ -9,7 +9,7 @@ func _ready():
 	connect("pressed", Callable(self, "_on_sound_pressed"))  # Connect the pressed signal to the function
 
 	if music_playing:
-		audio_stream_player.play()
+		audio_stream_player.stop()#change this to play to make the music work
 	else:
 		audio_stream_player.stop()
 

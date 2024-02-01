@@ -1,20 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://lni8epmn27mb"]
+[gd_scene load_steps=14 format=3 uid="uid://lni8epmn27mb"]
 
-[ext_resource type="Script" path="res://team_builder.gd" id="1_6typq"]
-[ext_resource type="Texture2D" uid="uid://7u7c2ujwk75q" path="res://assets/sprites/team_builder_sprites/nasa_office.png" id="1_evjmo"]
-[ext_resource type="Texture2D" uid="uid://wffvgl0tlhjg" path="res://assets/sprites/team_builder_sprites/asian_female_nasa_scientist.png" id="2_mn63p"]
-[ext_resource type="Script" path="res://character1.gd" id="4_mk6e2"]
-[ext_resource type="Script" path="res://stats+skills1.gd" id="5_8poes"]
-[ext_resource type="Script" path="res://character2.gd" id="5_ctnyh"]
-[ext_resource type="Script" path="res://character4.gd" id="6_27dpy"]
-[ext_resource type="Script" path="res://character3.gd" id="6_inyrd"]
-[ext_resource type="Script" path="res://character5.gd" id="7_bglv8"]
+[ext_resource type="Script" path="res://TeamBuilderScene/team_builder.gd" id="1_6typq"]
+[ext_resource type="Texture2D" uid="uid://clceqobjk8gl8" path="res://assets/sprites/team_builder_sprites/Alexa.png" id="3_b6gx2"]
+[ext_resource type="Texture2D" uid="uid://bwefxo5yplqfw" path="res://assets/sprites/team_builder_sprites/Alexandra.png" id="6_aukpe"]
+[ext_resource type="Texture2D" uid="uid://culnit5rqqkdw" path="res://assets/sprites/team_builder_sprites/Andrew.png" id="8_kphpf"]
+[ext_resource type="Texture2D" uid="uid://ciaffwcyickfl" path="res://assets/sprites/team_builder_sprites/Ava.png" id="10_xvecq"]
+[ext_resource type="Texture2D" uid="uid://dn0mj41lq84ar" path="res://assets/sprites/team_builder_sprites/Caleb.png" id="12_0k88f"]
+[ext_resource type="Texture2D" uid="uid://w2cdqlgfwi7" path="res://assets/sprites/empty_text_label.png" id="12_tbi5t"]
+[ext_resource type="Texture2D" uid="uid://7j1pkj7l683g" path="res://assets/sprites/team_builder_sprites/Carter.png" id="14_ml2lc"]
+[ext_resource type="Texture2D" uid="uid://ymhvpjhob8o4" path="res://assets/sprites/team_builder_sprites/Emma.png" id="15_fppqy"]
+[ext_resource type="Texture2D" uid="uid://dkgmmpr5nj3rh" path="res://assets/sprites/team_builder_sprites/Hannah.png" id="16_4er56"]
+[ext_resource type="Texture2D" uid="uid://cr3liqlcdvo2m" path="res://assets/sprites/team_builder_sprites/John.png" id="17_ixqhi"]
+[ext_resource type="Texture2D" uid="uid://ck4w4j867nvqv" path="res://assets/sprites/team_builder_sprites/Nick.png" id="18_810it"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mmd1v"]
 
 [node name="team_builder" type="Node2D"]
 script = ExtResource("1_6typq")
 
 [node name="office_background" type="Sprite2D" parent="."]
-texture = ExtResource("1_evjmo")
+position = Vector2(969, 596)
+scale = Vector2(1.08817, 1.15625)
+texture = SubResource("CanvasTexture_mmd1v")
 
 [node name="Continue" type="TextureButton" parent="."]
 offset_right = 40.0
@@ -25,21 +32,18 @@ offset_right = 4.0
 offset_bottom = 27.0
 
 [node name="character1" type="Sprite2D" parent="."]
-position = Vector2(232, 63)
-scale = Vector2(0.363281, 0.496652)
-texture = ExtResource("2_mn63p")
-script = ExtResource("4_mk6e2")
+position = Vector2(994, 728)
+scale = Vector2(0.486328, 0.450128)
+texture = ExtResource("3_b6gx2")
 
 [node name="stats+skills1" type="TextureProgressBar" parent="character1"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_8poes")
 
 [node name="character2" type="Sprite2D" parent="."]
-position = Vector2(-69, 63)
+position = Vector2(633, 717)
 scale = Vector2(0.517578, 0.496652)
-texture = ExtResource("2_mn63p")
-script = ExtResource("5_ctnyh")
+texture = ExtResource("6_aukpe")
 
 [node name="stats+skills2" type="TextureProgressBar" parent="character2"]
 offset_left = 581.555
@@ -50,18 +54,16 @@ offset_bottom = 40.0
 [node name="character3" type="Sprite2D" parent="."]
 position = Vector2(-760, 109)
 scale = Vector2(0.300781, 0.452009)
-texture = ExtResource("2_mn63p")
-script = ExtResource("6_inyrd")
+texture = ExtResource("8_kphpf")
 
 [node name="stats+skills3" type="TextureProgressBar" parent="character3"]
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="character4" type="Sprite2D" parent="."]
-position = Vector2(619, 221)
-scale = Vector2(0.689453, 0.320312)
-texture = ExtResource("2_mn63p")
-script = ExtResource("6_27dpy")
+position = Vector2(1375, 721)
+scale = Vector2(0.567901, 0.487462)
+texture = ExtResource("10_xvecq")
 
 [node name="stats+skills4" type="TextureProgressBar" parent="character4"]
 offset_right = 40.0
@@ -70,9 +72,139 @@ offset_bottom = 40.0
 [node name="character5" type="Sprite2D" parent="."]
 position = Vector2(-404, 233)
 scale = Vector2(0.40625, 0.322545)
-texture = ExtResource("2_mn63p")
-script = ExtResource("7_bglv8")
+texture = ExtResource("12_0k88f")
 
 [node name="stats+skills5" type="TextureProgressBar" parent="character5"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="character6" type="Sprite2D" parent="."]
+position = Vector2(-568.125, 308.153)
+scale = Vector2(0.165039, 0.104035)
+texture = ExtResource("14_ml2lc")
+
+[node name="stats+skills6" type="TextureProgressBar" parent="character6"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="character7" type="Sprite2D" parent="."]
+position = Vector2(-404, 233)
+scale = Vector2(0.40625, 0.322545)
+texture = ExtResource("15_fppqy")
+
+[node name="stats+skills7" type="TextureProgressBar" parent="character7"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="character8" type="Sprite2D" parent="."]
+position = Vector2(-568.125, 308.153)
+scale = Vector2(0.165039, 0.104035)
+texture = ExtResource("16_4er56")
+
+[node name="stats+skills8" type="TextureProgressBar" parent="character8"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="character9" type="Sprite2D" parent="."]
+position = Vector2(-404, 233)
+scale = Vector2(0.40625, 0.322545)
+texture = ExtResource("17_ixqhi")
+
+[node name="stats+skills9" type="TextureProgressBar" parent="character9"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="character10" type="Sprite2D" parent="."]
+position = Vector2(-404, 233)
+scale = Vector2(0.40625, 0.322545)
+texture = ExtResource("18_810it")
+
+[node name="stats+skills10" type="TextureProgressBar" parent="character10"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Panel1" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = 189.0
+offset_right = 803.0
+offset_bottom = 568.0
+texture = ExtResource("12_tbi5t")
+
+[node name="Label1" type="Label" parent="Panel1"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 56.0
+offset_right = 1159.0
+offset_bottom = 221.0
+theme_type_variation = &"HeaderLarge"
+text = "Welcome, I'm glad you joined us. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = 189.0
+offset_right = 803.0
+offset_bottom = 568.0
+texture = ExtResource("12_tbi5t")
+
+[node name="Label2" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 56.0
+offset_right = 1159.0
+offset_bottom = 221.0
+theme_type_variation = &"HeaderLarge"
+text = "Welcome, I'm glad you joined us. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = 189.0
+offset_right = 803.0
+offset_bottom = 568.0
+texture = ExtResource("12_tbi5t")
+
+[node name="Label3" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 56.0
+offset_right = 1159.0
+offset_bottom = 221.0
+theme_type_variation = &"HeaderLarge"
+text = "Welcome, I'm glad you joined us. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel4" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = 189.0
+offset_right = 803.0
+offset_bottom = 568.0
+texture = ExtResource("12_tbi5t")
+
+[node name="Label4" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 56.0
+offset_right = 1159.0
+offset_bottom = 221.0
+theme_type_variation = &"HeaderLarge"
+text = "Welcome, I'm glad you joined us. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_use_anchors_ = true

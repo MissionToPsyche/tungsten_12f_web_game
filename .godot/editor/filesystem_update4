@@ -1,12 +1,18 @@
 res://DesignScene/DesignScene.tscn
-<<<<<<< HEAD
-res://IntroScene/Intro.gd
 res://TeamBuilder.gd
 res://Intro/Game_Intro.tscn
 res://TitleScene/main.tscn
 res://IntroScene/node_2d.tscn
 res://team_builder.tscn
-=======
-res://BuilderScene/satellite-lab.tscn
-res://Intro/Game_Intro.tscn
->>>>>>> afabba8c96cf69b29747cb78e0470300164c635e
+res://IntroScene/Intro.gd
+res://IntroScene/sound.gd
+res://TeamBuilderScene/team_builder.gd
+res://TeamBuilderScene/team_builder.tscn
+res://DecesionTreeScene/character2.gd
+res://DecesionTreeScene/character1.gd
+res://DecesionTreeScene/character3.gd
+res://DecesionTreeScene/character4.gd
+res://DecesionTreeScene/character5.gd
+res://CharacterManager.gd
+res://IntroScene/yes.gd
+res://Character.gd
