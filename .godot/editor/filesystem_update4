@@ -16,3 +16,13 @@ res://DecesionTreeScene/character5.gd
 res://CharacterManager.gd
 res://IntroScene/yes.gd
 res://Character.gd
+res://TeamBuilderScene/character1.gd
+res://TeamBuilderScene/character2.gd
+res://TeamBuilderScene/character3.gd
+res://TeamBuilderScene/character4.gd
+res://TeamBuilderScene/character5.gd
+res://TeamBuilderScene/character6.gd
+res://TeamBuilderScene/character7.gd
+res://TeamBuilderScene/character8.gd
+res://TeamBuilderScene/character9.gd
+res://TeamBuilderScene/character10.gd

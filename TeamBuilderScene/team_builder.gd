@@ -16,10 +16,11 @@ var sprite_scenes = [
 ]
 
 var selected_character_names = []
-var character_labels = [$Panel1/Label1, $Panel2/Label2, $Panel3/Label3]
+var character_labels = []
 var team_count = 0
 
 func _ready() -> void:
+	character_labels = [get_node("Panel1/Label1"), get_node("Panel2/Label2"), get_node("Panel3/Label3")]
 	display_initial_characters()
 
 func calculate_positions() -> Array:
@@ -54,25 +55,52 @@ func display_sprites(sprites: Array, positions: Array) -> void:
 	# Display new characters and setup labels
 	for i in range(sprites.size()):
 		var sprite_info = sprites[i]
+		# Construct the script path dynamically. Adjust the path as necessary.
+		var script_path = "res://TeamBuilderScene/character" + str(i + 1) + ".gd"
+		var character_script = load(script_path)
+
+		# Create a new Sprite2D instance and assign the dynamically loaded script.
 		var character = Sprite2D.new()
+		character.set_script(character_script)
 		character.texture = sprite_info["texture"]
 		character.position = positions[i] + Vector2(1000, 0)  # Start off-screen to the right
+		character.connect("sprite_selected", Callable(self, "_on_sprite_selected"))
 		add_child(character)
 
-		# Tween for character animation into position
-		var tween = create_tween()
-		add_child(tween)
-		
-		tween.interpolate_property(character, "position", 
-			character.position, positions[i], 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		tween.start()
+		# Properly use create_tween() for character animation into position
+		var tween = character.create_tween()
+		# Animate the character's position
+		tween.tween_property(character, "position", positions[i], 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		# Animate the character's modulate property for a fade-in effect
+		# Assuming you want to fade to fully opaque, you would use a Color value here
+		var target_color = Color(1, 1, 1, 1)  # Fully opaque white
+		tween.tween_property(character, "modulate", target_color, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
-		# Setup labels for each character
-		var label = character_labels[i]
-		label.text = "%s\nStrength: %d\nIntelligence: %d" % [sprite_info["name"], sprite_info["stats"]["Strength"], sprite_info["stats"]["Intelligence"]]
-		label.modulate = Color(label.modulate.r, label.modulate.g, label.modulate.b, 0)  # Start transparent
-		# Tween for label fade in
-		tween.interpolate_property(label, "modulate", 
-			Color(label.modulate.r, label.modulate.g, label.modulate.b, 0), 
-			Color(label.modulate.r, label.modulate.g, label.modulate.b, 1), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 1.0)  # Delay start to sync with character arrival
-		tween.start()
+	adjust_label_positions()
+
+func adjust_label_positions():
+	var screen_width = get_viewport_rect().size.x
+	var screen_height = get_viewport_rect().size.y
+	var y_position = screen_height / 3  # 1/3 down the screen in the Y direction
+
+	for i in range(character_labels.size()):
+		var x_position = screen_width * (i + 1) / 4  # Calculate 1/4, 1/2, and 3/4 positions for each label
+		character_labels[i].position = Vector2(x_position - character_labels[i].size.x / 2, y_position)  # Center labels at their positions
+
+
+func fade_labels_in_out(fade_in: bool):
+	for label in character_labels:
+		var end_alpha = 1.0 if fade_in else 0.0
+		var tween = create_tween()
+		tween.tween_property(label, "modulate:a", end_alpha, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		tween.connect("tween_all_completed", Callable(self, "_on_labels_fade_completed"), fade_in)
+
+func _on_sprite_selected(sprite_name: String):
+	# Determine which label corresponds to the clicked sprite, for example:
+	var label_index = selected_character_names.find(sprite_name)
+	if label_index != -1:  # Found the corresponding label
+		fade_labels_in_out(character_labels[label_index])
+	else:
+		print("Label for sprite not found")
+
+
