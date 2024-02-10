@@ -60,7 +60,8 @@ func initialize_parts():
 						# Create a button for the part
 						var part_button = Button.new()
 						part_button.text = part_data["name"]
-						part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
+						# part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
+						part_button.connect("pressed", self._on_PartButton_pressed.bind(part_data["name"]))
 						
 						# Add the button to the VBoxContainer
 						category_vbox.add_child(part_button)
@@ -163,6 +164,14 @@ func select_part_button(button: Button, category: String):
 func _on_PartButton_pressed(part_data: Dictionary):
 	# Extract category from part_data
 	var category = part_data["category"]
-	select_part_button(part_data)
+	# Find the button instance that was pressed
+	var category_vbox_path = "Control/Categories/" + category
+	var category_vbox = get_node(category_vbox_path)
+	for child in category_vbox.get_children():
+		if child is Button and child.text == part_data["name"]:
+			# Now you have the button that was pressed, you can call select_part_button
+			select_part_button(child, category)
+			break
 	add_part_to_satellite(category, part_data)
 	# Refresh the UI if necessary
+
