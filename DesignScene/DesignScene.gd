@@ -123,7 +123,9 @@ func populate_category_vbox(vbox: VBoxContainer, category_name: String):
 	for part_data in available_parts[category_name]:
 		var part_button = Button.new()
 		part_button.text = part_data["name"]
-		part_button.connect("pressed", self, "_on_PartButton_pressed", [part_data])
+		part_button.connect("pressed", _on_PartButton_pressed.bind(part_button, category_name, part_button.text))
+
+
 		vbox.add_child(part_button)
 
 

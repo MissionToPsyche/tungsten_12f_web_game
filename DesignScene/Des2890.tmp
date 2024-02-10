@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://dulom3bo5jjfd"]
+
+[ext_resource type="Texture2D" uid="uid://d1oqq2lqbs16e" path="res://DesignScene/Assets/terminal-background.jpg" id="1_mm0ry"]
+[ext_resource type="Script" path="res://DesignScene/DesignScene.gd" id="1_u7iyn"]
+[ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_x55oi"]
+[ext_resource type="Texture2D" uid="uid://b4prybdin5r7i" path="res://DesignScene/Assets/satellite-image.png" id="3_sbla5"]
+
+[node name="DesignScene" type="Node2D"]
+script = ExtResource("1_u7iyn")
+
+[node name="black-background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("1_mm0ry")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 81.0
+offset_right = 136.0
+offset_bottom = 121.0
+
+[node name="Categories" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -81.0
+offset_top = -42.0
+offset_right = 62.0
+offset_bottom = 514.0
+
+[node name="Payload" type="Button" parent="Control/Categories"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_x55oi")
+text = "Payload"
+
+[node name="Payload" type="VBoxContainer" parent="Control/Categories/Payload"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Communications" type="Button" parent="Control/Categories"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_x55oi")
+text = "Communications"
+
+[node name="Communications" type="VBoxContainer" parent="Control/Categories/Communications"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PowerSystem" type="Button" parent="Control/Categories"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_x55oi")
+text = "Power System"
+
+[node name="PowerSystem" type="VBoxContainer" parent="Control/Categories/PowerSystem"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Propulsion" type="Button" parent="Control/Categories"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_x55oi")
+text = "Propulsion"
+
+[node name="Propulsion" type="VBoxContainer" parent="Control/Categories/Propulsion"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpacecraftBus" type="Button" parent="Control/Categories"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
+theme_override_fonts/font = ExtResource("2_x55oi")
+text = "Spacecraft Bus"
+
+[node name="SpacecraftBus" type="VBoxContainer" parent="Control/Categories/SpacecraftBus"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(538, 309)
+scale = Vector2(0.333984, 0.321777)
+texture = ExtResource("3_sbla5")
