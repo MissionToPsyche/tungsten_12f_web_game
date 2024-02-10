@@ -105,16 +105,21 @@ func show_components_for_category(category):
 
 # This function gets called when a category button is pressed
 func _on_CategoryButton_pressed(category_name: String):
-	# First hide all category VBoxes to simulate closing any open dropdowns
-	for category_vbox in get_node("Control/Categories").get_children():
-		if category_vbox is VBoxContainer:
+	# Hide all other categories
+	for a_category in get_node("Control/Categories").get_children():
+		if a_category.name != category_name and a_category is VBoxContainer:
+			a_category.hide()
+
+	# Show or populate the category's VBox with parts
+	var category_vbox_path = "Control/Categories/" + category_name
+	if has_node(category_vbox_path):
+		var category_vbox = get_node(category_vbox_path)
+		if category_vbox.is_hidden():
+			populate_category_vbox(category_vbox, category_name)
+			category_vbox.show()
+		else:
 			category_vbox.hide()
 
-	# Now find the specific VBox for the category and populate it
-	var category_vbox_path = "Control/Categories/VBox_" + category_name
-	var category_vbox = get_node(category_vbox_path)
-	populate_category_vbox(category_vbox, category_name)
-	category_vbox.show()  # Show the VBox as a dropdown
 
 # This function populates a given VBoxContainer with buttons for each part in a category
 func populate_category_vbox(vbox: VBoxContainer, category_name: String):
@@ -155,9 +160,9 @@ func select_part_button(button: Button, category: String):
 	button.get_child(0).add_color_override("font_color", Color(0.5, 0.5, 0.5)) # Gray text for selected
 	
 # This function gets called when a part button is pressed
-func _on_PartButton_pressed(part_data):
-	# Here you handle what happens when a part button is pressed
-	# For example, you can add the part to the satellite
-	var category = part_data["category"]  # Assuming you have a "category" field in part_data
+func _on_PartButton_pressed(part_data: Dictionary):
+	# Extract category from part_data
+	var category = part_data["category"]
+	select_part_button(part_data)
 	add_part_to_satellite(category, part_data)
-	# You might want to update the UI here or do other logic
+	# Refresh the UI if necessary
