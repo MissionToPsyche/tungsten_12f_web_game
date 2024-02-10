@@ -103,8 +103,29 @@ func show_components_for_category(category):
 	vbox.show()
 	current_visible_vbox = vbox
 
-func _on_CategoryButton_pressed(category):
-	show_components_for_category(category)
+func _on_CategoryButton_pressed(category_name: String):
+	# First hide all category VBoxes to simulate closing any open dropdowns
+	for category_vbox in get_node("Control/Categories").get_children():
+		if category_vbox is VBoxContainer:
+			category_vbox.hide()
+
+	# Now find the specific VBox for the category and populate it
+	var category_vbox_path = "Control/Categories/" + category_name
+	var category_vbox = get_node(category_vbox_path)
+	populate_category_vbox(category_vbox, category_name)
+	category_vbox.show()  # Show the VBox as a dropdown
+
+func populate_category_vbox(vbox: VBoxContainer, category_name: String):
+	# Clear existing buttons
+	vbox.clear()  # Assuming there's a clear method, or use queue_free() on children
+
+	# Add new buttons based on available parts
+	for part_data in available_parts[category_name]:
+		var part_button = Button.new()
+		part_button.text = part_data["name"]
+		part_button.connect("pressed", self, "_on_PartButton_pressed", [part_data])
+		vbox.add_child(part_button)
+
 
 #func _on_CategoryButton_pressed(button: Button):
 	# Now you can use the 'button' directly
