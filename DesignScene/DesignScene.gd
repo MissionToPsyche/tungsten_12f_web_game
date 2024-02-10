@@ -126,8 +126,8 @@ func populate_category_vbox(vbox: VBoxContainer, category_name: String):
 	for part_data in available_parts[category_name]:
 		var part_button = Button.new()
 		part_button.text = part_data["name"]
-		# Correct way to connect the button's "pressed" signal to the "_on_PartButton_pressed" function
-		part_button.connect("pressed", self, "_on_PartButton_pressed", [part_data])
+		# Use Callable for the second argument in connect() in Godot 4.0
+		part_button.connect("pressed", self._on_PartButton_pressed.bind(part_data["name"]))
 		vbox.add_child(part_button)
 
 
