@@ -103,6 +103,7 @@ func show_components_for_category(category):
 	vbox.show()
 	current_visible_vbox = vbox
 
+# This function gets called when a category button is pressed
 func _on_CategoryButton_pressed(category_name: String):
 	# First hide all category VBoxes to simulate closing any open dropdowns
 	for category_vbox in get_node("Control/Categories").get_children():
@@ -110,22 +111,23 @@ func _on_CategoryButton_pressed(category_name: String):
 			category_vbox.hide()
 
 	# Now find the specific VBox for the category and populate it
-	var category_vbox_path = "Control/Categories/" + category_name
+	var category_vbox_path = "Control/Categories/VBox_" + category_name
 	var category_vbox = get_node(category_vbox_path)
 	populate_category_vbox(category_vbox, category_name)
 	category_vbox.show()  # Show the VBox as a dropdown
 
+# This function populates a given VBoxContainer with buttons for each part in a category
 func populate_category_vbox(vbox: VBoxContainer, category_name: String):
 	# Clear existing buttons
-	vbox.clear()  # Assuming there's a clear method, or use queue_free() on children
+	for child in vbox.get_children():
+		child.queue_free()  # Proper way to remove nodes
 
 	# Add new buttons based on available parts
 	for part_data in available_parts[category_name]:
 		var part_button = Button.new()
 		part_button.text = part_data["name"]
-		part_button.connect("pressed", _on_PartButton_pressed.bind(part_button, category_name, part_button.text))
-
-
+		# Correct way to connect the button's "pressed" signal to the "_on_PartButton_pressed" function
+		part_button.connect("pressed", self, "_on_PartButton_pressed", [part_data])
 		vbox.add_child(part_button)
 
 
@@ -152,6 +154,10 @@ func select_part_button(button: Button, category: String):
 	button.modulate = Color(0.5, 1, 0.5) # Light green for selected
 	button.get_child(0).add_color_override("font_color", Color(0.5, 0.5, 0.5)) # Gray text for selected
 	
-func _on_PartButton_pressed(button: Button, category: String, part: SatellitePart):
-	select_part_button(button, category)
-	add_part_to_satellite(category, part)
+# This function gets called when a part button is pressed
+func _on_PartButton_pressed(part_data):
+	# Here you handle what happens when a part button is pressed
+	# For example, you can add the part to the satellite
+	var category = part_data["category"]  # Assuming you have a "category" field in part_data
+	add_part_to_satellite(category, part_data)
+	# You might want to update the UI here or do other logic

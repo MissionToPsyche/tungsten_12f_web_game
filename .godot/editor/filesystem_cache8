@@ -21,10 +21,10 @@ PowerSystemPart.gd::GDScript::-1::1706400714::0::1::::PowerSystemPart<>Satellite
 PropulsionPart.gd::GDScript::-1::1700361513::0::1::::PropulsionPart<>SatellitePart<>::
 satellite-part.gd::GDScript::-1::1700361091::0::1::::SatellitePart<>Node<>::
 SpacecraftBusPart.gd::GDScript::-1::1700361513::0::1::::SpacecraftBusPart<>SatellitePart<>::
-::res://DesignScene/::1707599561
+::res://DesignScene/::1707600126
 all_parts.json::JSON::-1::1700417378::0::1::::<><>::
-DesignScene.gd::GDScript::-1::1707599468::0::1::::<>Node2D<>::
-DesignScene.tscn::PackedScene::8586620019435356409::1707599561::0::1::::<><>::uid://d1oqq2lqbs16e::::res://DesignScene/Assets/terminal-background.jpg<>res://DesignScene/DesignScene.gd<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>uid://b4prybdin5r7i::::res://DesignScene/Assets/satellite-image.png
+DesignScene.gd::GDScript::-1::1707600126::0::1::::<>Node2D<>::
+DesignScene.tscn::PackedScene::8586620019435356409::1707600126::0::1::::<><>::uid://d1oqq2lqbs16e::::res://DesignScene/Assets/terminal-background.jpg<>res://DesignScene/DesignScene.gd<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>uid://b4prybdin5r7i::::res://DesignScene/Assets/satellite-image.png
 ::res://DesignScene/Assets/::1700420296
 black-background.jpg::CompressedTexture2D::3512455139417673018::1699213802::1700420011::1::::<><>::
 design-terminal.png::CompressedTexture2D::8618968092325391464::1699213354::1700420011::1::::<><>::
