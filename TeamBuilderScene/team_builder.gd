@@ -16,12 +16,12 @@ var sprite_scenes = [
 ]
 
 var selected_character_names = []
-var character_labels = []
+var all_sprites = []
 var team_count = 0
 
 func _ready() -> void:
-	character_labels = [get_node("Panel1/Label1"), get_node("Panel2/Label2"), get_node("Panel3/Label3")]
 	display_initial_characters()
+
 
 func calculate_positions() -> Array:
 	var screen_width = get_viewport_rect().size.x
@@ -46,61 +46,86 @@ func display_initial_characters():
 	display_sprites(selected_sprites, positions)
 
 func display_sprites(sprites: Array, positions: Array) -> void:
-	# Cleanup previous characters and labels if any
+	# Cleanup previous character nodes if any
 	for child in get_children():
-		if child is Sprite2D or child is Label:
+		if child is Node2D:  # Check if it's the kind of Node2D we're using for characters
 			remove_child(child)
-			child.queue_free()
+		child.queue_free()
+	all_sprites.clear()  # Adjust this as necessary for your new structure
 
 	# Display new characters and setup labels
 	for i in range(sprites.size()):
 		var sprite_info = sprites[i]
-		# Construct the script path dynamically. Adjust the path as necessary.
+		var character_node = Node2D.new()
+		add_child(character_node)
+
+		# Create and configure the sprite
+		var character_sprite = Sprite2D.new()
+		character_sprite.texture = sprite_info["texture"]
+		# Load and assign the script dynamically based on the character's name
 		var script_path = "res://TeamBuilderScene/character" + str(i + 1) + ".gd"
-		var character_script = load(script_path)
+		character_sprite.set_script(load(script_path))
+		character_node.add_child(character_sprite)
+		character_sprite.sprite_selected.connect(_on_character_selected)
 
-		# Create a new Sprite2D instance and assign the dynamically loaded script.
-		var character = Sprite2D.new()
-		character.set_script(character_script)
-		character.texture = sprite_info["texture"]
-		character.position = positions[i] + Vector2(1000, 0)  # Start off-screen to the right
-		character.connect("sprite_selected", Callable(self, "_on_sprite_selected"))
-		add_child(character)
+		await get_tree().process_frame
+		var character_info = character_sprite.call("get_character_info")
+		print("Character info for sprite: ", character_info)
 
-		# Properly use create_tween() for character animation into position
-		var tween = character.create_tween()
-		# Animate the character's position
-		tween.tween_property(character, "position", positions[i], 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-		# Animate the character's modulate property for a fade-in effect
-		# Assuming you want to fade to fully opaque, you would use a Color value here
+		# Create and configure the label
+		var character_label = Label.new()
+		# Combine name and stats into the label text
+		var stats_text = character_stats_to_text(character_info["stats"])  # Convert stats to text
+		character_label.text = character_info["name"] + "\n" + stats_text
+		character_node.add_child(character_label)
+		character_label.global_position = Vector2(0, 350)  # Position label above sprite
+
+		# Initial position off-screen to the right
+		character_node.position = positions[i] + Vector2(1000, 0)
+
+		# Use Godot 4's tween system for the animation
+		var tween: = character_node.create_tween()
+		tween.tween_property(character_node, "position", positions[i], 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		# If you want to animate the modulate property for a fade-in effect
 		var target_color = Color(1, 1, 1, 1)  # Fully opaque white
-		tween.tween_property(character, "modulate", target_color, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(character_node, "modulate", target_color, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
-	adjust_label_positions()
-
-func adjust_label_positions():
-	var screen_width = get_viewport_rect().size.x
-	var screen_height = get_viewport_rect().size.y
-	var y_position = screen_height / 3  # 1/3 down the screen in the Y direction
-
-	for i in range(character_labels.size()):
-		var x_position = screen_width * (i + 1) / 4  # Calculate 1/4, 1/2, and 3/4 positions for each label
-		character_labels[i].position = Vector2(x_position - character_labels[i].size.x / 2, y_position)  # Center labels at their positions
+		# Optionally, store a reference to the character_node for future use
+		all_sprites.append(character_node)  # Consider adjusting 'all_sprites' as needed
 
 
-func fade_labels_in_out(fade_in: bool):
-	for label in character_labels:
-		var end_alpha = 1.0 if fade_in else 0.0
-		var tween = create_tween()
-		tween.tween_property(label, "modulate:a", end_alpha, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-		tween.connect("tween_all_completed", Callable(self, "_on_labels_fade_completed"), fade_in)
-
-func _on_sprite_selected(sprite_name: String):
-	# Determine which label corresponds to the clicked sprite, for example:
-	var label_index = selected_character_names.find(sprite_name)
-	if label_index != -1:  # Found the corresponding label
-		fade_labels_in_out(character_labels[label_index])
-	else:
-		print("Label for sprite not found")
+func _on_character_selected(character_name: String, character_info: Dictionary) -> void:
+	# Assuming there's a way to identify which label corresponds to the selected sprite,
+	# For example, if labels are stored in an array or if you can identify them by name or position.
+	for character_node in all_sprites:
+		var label = character_node.get_node(("/team_builder/Node2D" + str(character_node+1) + "/Label"))#error here
+		if label:  # If the label is found
+			var stats_text = character_stats_to_text(character_info["stats"])
+			label.text = character_name + "\n" + stats_text
 
 
+func animate_sprites_off_screen():
+	for sprite in all_sprites:
+		var tween = sprite.create_tween()
+		tween.tween_property(sprite, "position", sprite.position - Vector2(1000, 0), 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+
+var tweens_completed = 0
+
+func _on_sprites_off_screen(_tween, _key):
+	tweens_completed += 1
+	if tweens_completed == all_sprites.size():
+		tweens_completed = 0  # Reset the counter for the next round
+		display_initial_characters()  # Load and display new characters
+
+func find_sprite_index(character_name: String) -> int:
+	for i in range(all_sprites.size()):
+		if all_sprites[i].name == character_name:
+			return i
+	return -1 
+
+func character_stats_to_text(stats: Dictionary) -> String:
+	var stats_text = ""
+	for key in stats.keys():
+		stats_text += key + ": " + str(stats[key]) + "\n"
+	return stats_text

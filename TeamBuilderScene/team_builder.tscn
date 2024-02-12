@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://lni8epmn27mb"]
+[gd_scene load_steps=32 format=3 uid="uid://lni8epmn27mb"]
 
 [ext_resource type="Script" path="res://TeamBuilderScene/team_builder.gd" id="1_6typq"]
 [ext_resource type="Texture2D" uid="uid://clceqobjk8gl8" path="res://assets/sprites/team_builder_sprites/Alexa.png" id="3_b6gx2"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character1.gd" id="3_u4ejl"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="5_d0p7q"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character2.gd" id="5_esjc4"]
 [ext_resource type="Texture2D" uid="uid://bwefxo5yplqfw" path="res://assets/sprites/team_builder_sprites/Alexandra.png" id="6_aukpe"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character3.gd" id="7_651we"]
@@ -11,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://ciaffwcyickfl" path="res://assets/sprites/team_builder_sprites/Ava.png" id="10_xvecq"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character5.gd" id="11_e3gnj"]
 [ext_resource type="Texture2D" uid="uid://dn0mj41lq84ar" path="res://assets/sprites/team_builder_sprites/Caleb.png" id="12_0k88f"]
-[ext_resource type="Texture2D" uid="uid://w2cdqlgfwi7" path="res://assets/sprites/empty_text_label.png" id="12_tbi5t"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character6.gd" id="13_u2p4q"]
 [ext_resource type="Texture2D" uid="uid://7j1pkj7l683g" path="res://assets/sprites/team_builder_sprites/Carter.png" id="14_ml2lc"]
 [ext_resource type="Texture2D" uid="uid://ymhvpjhob8o4" path="res://assets/sprites/team_builder_sprites/Emma.png" id="15_fppqy"]
@@ -22,8 +22,53 @@
 [ext_resource type="Texture2D" uid="uid://ck4w4j867nvqv" path="res://assets/sprites/team_builder_sprites/Nick.png" id="18_810it"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character9.gd" id="19_awd2s"]
 [ext_resource type="Script" path="res://TeamBuilderScene/character10.gd" id="21_fovbx"]
+[ext_resource type="Script" path="res://TeamBuilderScene/character11.gd" id="22_k8mdl"]
+[ext_resource type="Texture2D" uid="uid://nf8hia7ll8w2" path="res://assets/sprites/stats_bar.png" id="23_xmsxp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mmd1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgw8c"]
+atlas = ExtResource("23_xmsxp")
+region = Rect2(4, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyapo"]
+atlas = ExtResource("23_xmsxp")
+region = Rect2(52, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lngc2"]
+atlas = ExtResource("23_xmsxp")
+region = Rect2(100, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il6fo"]
+atlas = ExtResource("23_xmsxp")
+region = Rect2(148, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb6dq"]
+atlas = ExtResource("23_xmsxp")
+region = Rect2(196, 1, 43, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xit4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgw8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyapo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lngc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il6fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb6dq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="team_builder" type="Node2D"]
 script = ExtResource("1_6typq")
@@ -41,196 +86,152 @@ offset_bottom = 40.0
 offset_right = 4.0
 offset_bottom = 27.0
 
-[node name="character1" type="Sprite2D" parent="."]
-position = Vector2(994, 728)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(828, 438)
+scale = Vector2(11.6163, 16)
+sprite_frames = SubResource("SpriteFrames_4xit4")
+
+[node name="Node2D1" type="Node2D" parent="."]
+
+[node name="character1" type="Sprite2D" parent="Node2D1"]
+position = Vector2(-614, 1052)
 scale = Vector2(0.486328, 0.450128)
 texture = ExtResource("3_b6gx2")
 script = ExtResource("3_u4ejl")
 
-[node name="stats+skills1" type="TextureProgressBar" parent="character1"]
+[node name="Label" type="Label" parent="Node2D1"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character1" type="Sprite2D" parent="character1"]
-position = Vector2(994, 728)
-scale = Vector2(0.486328, 0.450128)
-texture = ExtResource("3_b6gx2")
-script = ExtResource("3_u4ejl")
+[node name="Node2D2" type="Node2D" parent="."]
 
-[node name="stats+skills1" type="TextureProgressBar" parent="character1/character1"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="character2" type="Sprite2D" parent="."]
-position = Vector2(633, 717)
+[node name="character2" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-519, 655)
 scale = Vector2(0.517578, 0.496652)
 texture = ExtResource("6_aukpe")
 script = ExtResource("5_esjc4")
 
-[node name="stats+skills2" type="TextureProgressBar" parent="character2"]
-offset_left = 581.555
-offset_top = 1.52588e-05
-offset_right = 621.555
-offset_bottom = 40.0
+[node name="Label" type="Label" parent="Node2D2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character3" type="Sprite2D" parent="."]
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="character3" type="Sprite2D" parent="Node2D3"]
 position = Vector2(-760, 109)
 scale = Vector2(0.300781, 0.452009)
 texture = ExtResource("8_kphpf")
 script = ExtResource("7_651we")
 
-[node name="stats+skills3" type="TextureProgressBar" parent="character3"]
+[node name="Label" type="Label" parent="Node2D3"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character4" type="Sprite2D" parent="."]
-position = Vector2(1375, 721)
+[node name="Node2D4" type="Node2D" parent="."]
+
+[node name="character4" type="Sprite2D" parent="Node2D4"]
+position = Vector2(-501, 1447)
 scale = Vector2(0.567901, 0.487462)
 texture = ExtResource("10_xvecq")
 script = ExtResource("9_fw08o")
 
-[node name="stats+skills4" type="TextureProgressBar" parent="character4"]
+[node name="Label" type="Label" parent="Node2D4"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character5" type="Sprite2D" parent="."]
+[node name="Node2D5" type="Node2D" parent="."]
+
+[node name="character5" type="Sprite2D" parent="Node2D5"]
 position = Vector2(-404, 233)
 scale = Vector2(0.40625, 0.322545)
 texture = ExtResource("12_0k88f")
 script = ExtResource("11_e3gnj")
 
-[node name="stats+skills5" type="TextureProgressBar" parent="character5"]
+[node name="Label" type="Label" parent="Node2D5"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character6" type="Sprite2D" parent="."]
+[node name="Node2D6" type="Node2D" parent="."]
+
+[node name="character6" type="Sprite2D" parent="Node2D6"]
 position = Vector2(-568.125, 308.153)
 scale = Vector2(0.165039, 0.104035)
 texture = ExtResource("14_ml2lc")
 script = ExtResource("13_u2p4q")
 
-[node name="stats+skills6" type="TextureProgressBar" parent="character6"]
+[node name="Label" type="Label" parent="Node2D6"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character7" type="Sprite2D" parent="."]
+[node name="Node2D7" type="Node2D" parent="."]
+
+[node name="character7" type="Sprite2D" parent="Node2D7"]
 position = Vector2(-404, 233)
 scale = Vector2(0.40625, 0.322545)
 texture = ExtResource("15_fppqy")
 script = ExtResource("15_yhkln")
 
-[node name="stats+skills7" type="TextureProgressBar" parent="character7"]
+[node name="Label" type="Label" parent="Node2D7"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character8" type="Sprite2D" parent="."]
+[node name="Node2D8" type="Node2D" parent="."]
+
+[node name="character8" type="Sprite2D" parent="Node2D8"]
 position = Vector2(-568.125, 308.153)
 scale = Vector2(0.165039, 0.104035)
 texture = ExtResource("16_4er56")
 script = ExtResource("17_uqfiv")
 
-[node name="stats+skills8" type="TextureProgressBar" parent="character8"]
+[node name="Label" type="Label" parent="Node2D8"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character9" type="Sprite2D" parent="."]
+[node name="Node2D9" type="Node2D" parent="."]
+
+[node name="character9" type="Sprite2D" parent="Node2D9"]
 position = Vector2(-404, 233)
 scale = Vector2(0.40625, 0.322545)
 texture = ExtResource("17_ixqhi")
 script = ExtResource("19_awd2s")
 
-[node name="stats+skills9" type="TextureProgressBar" parent="character9"]
+[node name="Label" type="Label" parent="Node2D9"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="character10" type="Sprite2D" parent="."]
+[node name="Node2D10" type="Node2D" parent="."]
+
+[node name="character10" type="Sprite2D" parent="Node2D10"]
 position = Vector2(-404, 233)
 scale = Vector2(0.40625, 0.322545)
 texture = ExtResource("18_810it")
 script = ExtResource("21_fovbx")
 
-[node name="stats+skills10" type="TextureProgressBar" parent="character10"]
+[node name="Label" type="Label" parent="Node2D10"]
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Node2D11" type="Node2D" parent="."]
 
-[node name="Panel1" type="TextureRect" parent="."]
-offset_left = -597.0
-offset_top = 189.0
-offset_right = 803.0
-offset_bottom = 568.0
-texture = ExtResource("12_tbi5t")
+[node name="character11" type="Sprite2D" parent="Node2D11"]
+position = Vector2(-404, 233)
+scale = Vector2(0.40625, 0.322545)
+texture = ExtResource("18_810it")
+script = ExtResource("22_k8mdl")
 
-[node name="Label1" type="Label" parent="Panel1"]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 56.0
-offset_right = 1159.0
-offset_bottom = 221.0
-theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel2" type="TextureRect" parent="."]
-offset_left = -597.0
-offset_top = 189.0
-offset_right = 803.0
-offset_bottom = 568.0
-texture = ExtResource("12_tbi5t")
-
-[node name="Label2" type="Label" parent="Panel2"]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 56.0
-offset_right = 1159.0
-offset_bottom = 221.0
-theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel3" type="TextureRect" parent="."]
-offset_left = -597.0
-offset_top = 189.0
-offset_right = 803.0
-offset_bottom = 568.0
-texture = ExtResource("12_tbi5t")
-
-[node name="Label3" type="Label" parent="Panel3"]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 56.0
-offset_right = 1159.0
-offset_bottom = 221.0
-theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel4" type="TextureRect" parent="."]
-offset_left = -597.0
-offset_top = 189.0
-offset_right = 803.0
-offset_bottom = 568.0
-texture = ExtResource("12_tbi5t")
-
-[node name="Label4" type="Label" parent="Panel4"]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 56.0
-offset_right = 1159.0
-offset_bottom = 221.0
-theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-uppercase = true
-metadata/_edit_use_anchors_ = true
+[node name="Label" type="Label" parent="Node2D11"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_d0p7q")

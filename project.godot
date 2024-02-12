@@ -22,6 +22,7 @@ CharacterManager="*res://CharacterManager.gd"
 
 window/size/viewport_width=1800
 window/size/viewport_height=1200
+window/stretch/aspect="expand"
 
 [rendering]
 

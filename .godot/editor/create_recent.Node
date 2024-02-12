@@ -1,7 +1,9 @@
+Label
+Node2D
+AnimatedSprite2D
 AnimationPlayer
 PanelContainer
 Sprite2D
-Node2D
 VBoxContainer
 Node
 Button
