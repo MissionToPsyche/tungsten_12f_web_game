@@ -21,6 +21,7 @@ grow_vertical = 0
 text = "PLAY MINI GAME"
 
 [node name="Quit" type="Button" parent="."]
+visible = false
 offset_left = 455.0
 offset_top = 330.0
 offset_right = 682.0

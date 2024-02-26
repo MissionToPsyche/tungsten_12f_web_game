@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
 
-var scrolling_speed = 80 
+var scrolling_speed = 10 
 
 
 
