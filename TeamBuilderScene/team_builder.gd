@@ -1,131 +1,92 @@
 extends Node2D
 
-# Preload sprite textures and their corresponding names and stats
-var sprite_scenes = [
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Alexa.png"), "name": "Alexa", "stats": {"Strength": 10, "Intelligence": 8}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Alexandra.png"), "name": "Alexandra", "stats": {"Strength": 9, "Intelligence": 9}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Andrew.png"), "name": "Andrew", "stats": {"Strength": 8, "Intelligence": 10}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Ava.png"), "name": "Ava", "stats": {"Strength": 7, "Intelligence": 9}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Caleb.png"), "name": "Caleb", "stats": {"Strength": 6, "Intelligence": 8}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Carter.png"), "name": "Carter", "stats": {"Strength": 8, "Intelligence": 7}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Emma.png"), "name": "Emma", "stats": {"Strength": 5, "Intelligence": 9}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Hannah.png"), "name": "Hannah", "stats": {"Strength": 9, "Intelligence": 6}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/John.png"), "name": "John", "stats": {"Strength": 7, "Intelligence": 8}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Jordan.png"), "name": "Jordan", "stats": {"Strength": 8, "Intelligence": 7}},
-	{"texture": preload("res://assets/sprites/team_builder_sprites/Nick.png"), "name": "Nick", "stats": {"Strength": 10, "Intelligence": 5}}
-]
+# Assuming you have a predefined list of character names
+var character_names := ["Alexa", "Andrew", "Ava", "Caleb", "Carter", "Emma", "Haley", "Hannah", "John", "Jordan", "Nick"]
 
-var selected_character_names = []
-var all_sprites = []
-var team_count = 0
+# Path to character sprites
+var sprite_path = "res://assets/sprites/team_builder_sprites/"
+var screen_positions = [Vector2(), Vector2(), Vector2()]  # Placeholder for screen positions to be calculated
+var team_members_chosen := 0
+var chosen_characters = []
+var ignore_clicks = false
 
-func _ready() -> void:
-	display_initial_characters()
+func _ready():
+	$TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
+	display_random_characters()
 
+func display_random_characters():
+	# Shuffle the array of names in-place
+	character_names.shuffle()
+	
+	# Clear previous characters if any
+	var hbox_container = $CharactersContainer
+	hbox_container.queue_free_children()  # Custom function to free children
+	# Load and instance the first 3 characters after shuffling
+	for i in range(3):
+		var character_name = character_names[i]
+		var character_instance = preload("res://character.tscn").instantiate()
+		character_instance.character_name = character_name  # Set character's name
+		
+		# Optionally set the character sprite based on the character name if necessary
+		var sprite = character_instance.get_node("CharacterSprite")  # Adjust path as necessary
+		sprite.texture = load(sprite_path + character_name + ".png")
+		
+		var character_label = character_instance.get_node("CharacterLabel")
+		character_label.text = character_name
+		
+		set_character_position_and_size(character_instance, i)
+		
+		character_instance.sprite_selected.connect(_on_character_selected)
+		# Add the character instance to the HBoxContainer
+		hbox_container.add_child(character_instance)
 
-func calculate_positions() -> Array:
-	var screen_width = get_viewport_rect().size.x
-	return [
-		Vector2(screen_width / 4, get_viewport_rect().size.y / 2),
-		Vector2(screen_width / 2, get_viewport_rect().size.y / 2),
-		Vector2(3 * screen_width / 4, get_viewport_rect().size.y / 2)
+func _on_character_selected(name, info):
+		team_members_chosen += 1
+		$TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
+		chosen_characters.append(info)
+		character_names.erase(name)
+		if team_members_chosen < 3:
+			display_random_characters()
+		else:
+			var hbox_container = $CharactersContainer
+			hbox_container.queue_free_children()
+			var character_index = 0
+			for character_info in chosen_characters:
+				var character_instance = preload("res://character.tscn").instantiate()
+				character_instance.character_name = character_info["name"]
+				var sprite = character_instance.get_node("CharacterSprite")
+				sprite.texture = load(sprite_path + character_info["name"] +".png")
+				
+				var character_label = character_instance.get_node("CharacterLabel")
+				character_label.text = character_info["name"]
+				
+				
+				set_character_position_and_size(character_instance, character_index)
+				hbox_container.add_child(character_instance)
+				character_index += 1
+			
+			Global.set_input_allowed(false) #no clicking
+			# Show congratulations message and transition to next scene after delay
+			$ConfirmationLabel.text = "Congratulations, you have your team"
+			$ConfirmationLabel.show()
+			await get_tree().create_timer(3.0).timeout
+			Global.set_input_allowed(true)
+			get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
+			#completion label and switch scenes
+
+func set_character_position_and_size(character_instance, position_index):
+	var screen_size = get_viewport_rect().size
+	var target_height = screen_size.y / 2
+	var sprite = character_instance.get_node("CharacterSprite")
+
+	# Calculate and apply scale to maintain aspect ratio and match target height
+	var scale_factor = target_height / sprite.texture.get_height()
+	sprite.scale = Vector2(scale_factor, scale_factor)
+
+	# Set the position based on the index
+	var positions = [
+		Vector2(screen_size.x / 4, screen_size.y / 2),
+		Vector2(screen_size.x / 2, screen_size.y / 2),
+		Vector2(screen_size.x * 3 / 4, screen_size.y / 2)
 	]
-
-func pick_random_sprites(amount: int) -> Array:
-	var picked = []
-	var available_indices = Array(range(sprite_scenes.size()))
-	while picked.size() < amount:
-		var index = available_indices[randi() % available_indices.size()]
-		available_indices.erase(index)
-		picked.append(sprite_scenes[index])
-	return picked
-
-func display_initial_characters():
-	var positions = calculate_positions()
-	var selected_sprites = pick_random_sprites(3)
-	display_sprites(selected_sprites, positions)
-
-func display_sprites(sprites: Array, positions: Array) -> void:
-	# Cleanup previous character nodes if any
-	for child in get_children():
-		if child is Node2D:  # Check if it's the kind of Node2D we're using for characters
-			remove_child(child)
-		child.queue_free()
-	all_sprites.clear()  # Adjust this as necessary for your new structure
-
-	# Display new characters and setup labels
-	for i in range(sprites.size()):
-		var sprite_info = sprites[i]
-		var character_node = Node2D.new()
-		add_child(character_node)
-
-		# Create and configure the sprite
-		var character_sprite = Sprite2D.new()
-		character_sprite.texture = sprite_info["texture"]
-		# Load and assign the script dynamically based on the character's name
-		var script_path = "res://TeamBuilderScene/character" + str(i + 1) + ".gd"
-		character_sprite.set_script(load(script_path))
-		character_node.add_child(character_sprite)
-		character_sprite.sprite_selected.connect(_on_character_selected)
-
-		await get_tree().process_frame
-		var character_info = character_sprite.call("get_character_info")
-		print("Character info for sprite: ", character_info)
-
-		# Create and configure the label
-		var character_label = Label.new()
-		# Combine name and stats into the label text
-		var stats_text = character_stats_to_text(character_info["stats"])  # Convert stats to text
-		character_label.text = character_info["name"] + "\n" + stats_text
-		character_node.add_child(character_label)
-		character_label.global_position = Vector2(0, 350)  # Position label above sprite
-
-		# Initial position off-screen to the right
-		character_node.position = positions[i] + Vector2(1000, 0)
-
-		# Use Godot 4's tween system for the animation
-		var tween: = character_node.create_tween()
-		tween.tween_property(character_node, "position", positions[i], 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-		# If you want to animate the modulate property for a fade-in effect
-		var target_color = Color(1, 1, 1, 1)  # Fully opaque white
-		tween.tween_property(character_node, "modulate", target_color, 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
-		# Optionally, store a reference to the character_node for future use
-		all_sprites.append(character_node)  # Consider adjusting 'all_sprites' as needed
-
-
-func _on_character_selected(character_name: String, character_info: Dictionary) -> void:
-	# Assuming there's a way to identify which label corresponds to the selected sprite,
-	# For example, if labels are stored in an array or if you can identify them by name or position.
-	for character_node in all_sprites:
-		var label = character_node.get_node(("/team_builder/Node2D" + str(character_node+1) + "/Label"))#error here
-		if label:  # If the label is found
-			var stats_text = character_stats_to_text(character_info["stats"])
-			label.text = character_name + "\n" + stats_text
-
-
-func animate_sprites_off_screen():
-	for sprite in all_sprites:
-		var tween = sprite.create_tween()
-		tween.tween_property(sprite, "position", sprite.position - Vector2(1000, 0), 1.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
-
-var tweens_completed = 0
-
-func _on_sprites_off_screen(_tween, _key):
-	tweens_completed += 1
-	if tweens_completed == all_sprites.size():
-		tweens_completed = 0  # Reset the counter for the next round
-		display_initial_characters()  # Load and display new characters
-
-func find_sprite_index(character_name: String) -> int:
-	for i in range(all_sprites.size()):
-		if all_sprites[i].name == character_name:
-			return i
-	return -1 
-
-func character_stats_to_text(stats: Dictionary) -> String:
-	var stats_text = ""
-	for key in stats.keys():
-		stats_text += key + ": " + str(stats[key]) + "\n"
-	return stats_text
+	character_instance.position = positions[position_index]

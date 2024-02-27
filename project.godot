@@ -16,13 +16,11 @@ config/features=PackedStringArray("4.1", "Mobile")
 
 [autoload]
 
-CharacterManager="*res://CharacterManager.gd"
+Global="*res://Global.gd"
 
 [display]
 
-window/size/viewport_width=1800
-window/size/viewport_height=1200
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [rendering]
 

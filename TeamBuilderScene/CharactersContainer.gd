@@ -1,4 +1,4 @@
-extends TextureProgressBar
+extends HBoxContainer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,5 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-# Assuming your stat is a number between 0 and 10
-#$Progress_Robotics.value = stats["Robotics and Automation"]
+
+func queue_free_children():
+	# This is a helper function to clear the HBoxContainer children
+	for child in get_children():
+		child.queue_free()

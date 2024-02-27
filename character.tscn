@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1dj6sw2v8w2d"]
+
+[ext_resource type="Script" path="res://Character.gd" id="1_xoapc"]
+[ext_resource type="Texture2D" uid="uid://nf8hia7ll8w2" path="res://assets/sprites/stats_bar.png" id="2_4fw63"]
+[ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_50ha6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgw8c"]
+atlas = ExtResource("2_4fw63")
+region = Rect2(4, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyapo"]
+atlas = ExtResource("2_4fw63")
+region = Rect2(52, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lngc2"]
+atlas = ExtResource("2_4fw63")
+region = Rect2(100, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il6fo"]
+atlas = ExtResource("2_4fw63")
+region = Rect2(148, 1, 43, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb6dq"]
+atlas = ExtResource("2_4fw63")
+region = Rect2(196, 1, 43, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofg7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgw8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyapo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lngc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il6fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb6dq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Character" type="Node2D"]
+position = Vector2(620, 241)
+script = ExtResource("1_xoapc")
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
+
+[node name="CharacterLabel" type="Label" parent="."]
+offset_left = -88.0
+offset_top = -190.0
+offset_right = 91.0
+offset_bottom = -135.0
+theme_override_fonts/font = ExtResource("2_50ha6")
+
+[node name="Skill1" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.00002, 177)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ofg7l")
+
+[node name="Skill2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 220)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ofg7l")

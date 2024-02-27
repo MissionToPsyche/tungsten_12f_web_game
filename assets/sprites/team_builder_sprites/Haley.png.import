@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwefxo5yplqfw"
-path="res://.godot/imported/Alexandra.png-867a4e341b9e45f86a0bc633b2b0d3bd.ctex"
+path="res://.godot/imported/Haley.png-c7e03bdc9116a55ada970405b4e27901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/team_builder_sprites/Alexandra.png"
-dest_files=["res://.godot/imported/Alexandra.png-867a4e341b9e45f86a0bc633b2b0d3bd.ctex"]
+source_file="res://assets/sprites/team_builder_sprites/Haley.png"
+dest_files=["res://.godot/imported/Haley.png-c7e03bdc9116a55ada970405b4e27901.ctex"]
 
 [params]
 
