@@ -803,25 +803,11 @@ vertical_alignment = 1
 position = Vector2(2155, 35)
 script = ExtResource("11_c8pq2")
 
-[node name="TextureRect" type="TextureRect" parent="Finish"]
-visible = false
-offset_left = -37.0
-offset_top = 339.0
-offset_right = 269.0
-offset_bottom = 403.0
-
 [node name="message_label" type="Label" parent="Finish"]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -42.0
-offset_top = 332.0
-offset_right = -33.0
-offset_bottom = 387.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+offset_left = -485.0
+offset_top = 229.0
+offset_right = -113.0
+offset_bottom = 341.0
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
