@@ -1,7 +1,10 @@
+TabBar
+TabContainer
+ItemList
+Panel
 MenuButton
 MenuBar
 HBoxContainer
-ItemList
 Control
 VBoxContainer
 Sprite2D
