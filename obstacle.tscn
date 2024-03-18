@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://mvkga0wriwed"]
+
+[ext_resource type="Script" path="res://obstacle.gd" id="1_rt5f3"]
+[ext_resource type="Texture2D" uid="uid://dj5hcllheskkg" path="res://Props/plant-2.png" id="1_won1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsvou"]
+atlas = ExtResource("1_won1a")
+region = Rect2(0, 0, 35, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtys0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsvou")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sol6n"]
+radius = 28.0
+
+[node name="obstacle" type="Area2D"]
+script = ExtResource("1_rt5f3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 62)
+scale = Vector2(2.15, 2.17308)
+sprite_frames = SubResource("SpriteFrames_rtys0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(73, 65)
+shape = SubResource("CircleShape2D_sol6n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
