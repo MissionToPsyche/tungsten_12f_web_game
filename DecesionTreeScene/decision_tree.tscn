@@ -1,72 +1,166 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8jswe4xhc31f"]
+[gd_scene load_steps=14 format=3 uid="uid://c8jswe4xhc31f"]
 
-[ext_resource type="Texture2D" uid="uid://c2117wg8ttbtj" path="res://assets/sprites/decision_tree_sprites/muted_space_tree1.png" id="1_4k8kw"]
 [ext_resource type="Script" path="res://DecesionTreeScene/decision_tree.gd" id="1_l7wpw"]
-[ext_resource type="Script" path="res://DecesionTreeScene/Control.gd" id="2_dbo32"]
 [ext_resource type="Texture2D" uid="uid://p5ab88ma5evx" path="res://assets/sprites/decision_tree_sprites/mystery.png" id="2_kopy0"]
 [ext_resource type="Texture2D" uid="uid://dmbtrsfc6l4x" path="res://assets/sprites/decision_tree_sprites/mystery2.png" id="3_o0ioa"]
 [ext_resource type="Texture2D" uid="uid://hnqqk6twk6fq" path="res://assets/sprites/decision_tree_sprites/marketing.png" id="4_vgv8q"]
 [ext_resource type="Texture2D" uid="uid://8k856v7my5wx" path="res://assets/sprites/decision_tree_sprites/marketing2.png" id="5_ox4tu"]
-[ext_resource type="Script" path="res://DecesionTreeScene/mystery.gd" id="6_dultl"]
 [ext_resource type="Texture2D" uid="uid://dsj4urf0wvxom" path="res://assets/sprites/decision_tree_sprites/simulator.png" id="6_svm5m"]
 [ext_resource type="Texture2D" uid="uid://w4tnbvdhg0b1" path="res://assets/sprites/decision_tree_sprites/simulator2.png" id="7_wqkce"]
 [ext_resource type="Texture2D" uid="uid://bnhtud648q17p" path="res://assets/sprites/decision_tree_sprites/raw_ore.png" id="8_fono6"]
 [ext_resource type="Texture2D" uid="uid://cah0a1fqtr7at" path="res://assets/sprites/decision_tree_sprites/raw_ore2.png" id="9_7gbh0"]
-[ext_resource type="Script" path="res://DecesionTreeScene/marketing.gd" id="9_sid5g"]
-[ext_resource type="Script" path="res://DecesionTreeScene/simulation.gd" id="12_1hvnc"]
-[ext_resource type="Script" path="res://DecesionTreeScene/ore.gd" id="15_ru5mj"]
+[ext_resource type="Script" path="res://DecesionTreeScene/ButtonScripts.gd" id="10_dt8al"]
+[ext_resource type="Texture2D" uid="uid://uhddq1lnpwad" path="res://assets/sprites/decision_tree_sprites/muted_space.png" id="11_6ori3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arrow_active.png" id="12_c04pp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arrow_inactive.png" id="13_fnpjq"]
 
 [node name="decision_tree" type="Node2D"]
 script = ExtResource("1_l7wpw")
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StartLabel" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ButtonContainer" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_dbo32")
 
-[node name="tree_background" type="Sprite2D" parent="."]
-position = Vector2(2770, 1550)
-scale = Vector2(3.08259, 3.01367)
-texture = ExtResource("1_4k8kw")
-
-[node name="mystery" type="TextureButton" parent="."]
-offset_left = 7018.0
-offset_top = 2278.0
-offset_right = 7774.0
-offset_bottom = 3035.0
+[node name="Mystery" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 1585.0
+offset_top = -1.0
+offset_right = 2341.0
+offset_bottom = 761.0
 texture_normal = ExtResource("3_o0ioa")
 texture_pressed = ExtResource("3_o0ioa")
 texture_disabled = ExtResource("2_kopy0")
-script = ExtResource("6_dultl")
 
-[node name="marketing" type="TextureButton" parent="."]
-offset_left = 2138.0
-offset_top = 586.0
-offset_right = 2848.0
-offset_bottom = 1262.0
+[node name="Marketing" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 466.0
+offset_right = 2287.0
+offset_bottom = 1142.0
 texture_normal = ExtResource("5_ox4tu")
 texture_pressed = ExtResource("5_ox4tu")
 texture_disabled = ExtResource("4_vgv8q")
-script = ExtResource("9_sid5g")
 
-[node name="simulation" type="TextureButton" parent="."]
-offset_left = 1329.0
-offset_top = 1428.0
-offset_right = 2078.0
-offset_bottom = 2216.0
+[node name="Simulation" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 767.0
+offset_right = 1002.0
+offset_bottom = 1553.0
 texture_normal = ExtResource("7_wqkce")
 texture_pressed = ExtResource("7_wqkce")
 texture_disabled = ExtResource("6_svm5m")
-script = ExtResource("12_1hvnc")
 
-[node name="ore" type="TextureButton" parent="."]
-offset_left = 2784.0
-offset_top = 2016.0
-offset_right = 3514.0
-offset_bottom = 2743.0
+[node name="Ore" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 987.0
+offset_top = 962.0
+offset_right = 1717.0
+offset_bottom = 1690.0
 texture_normal = ExtResource("9_7gbh0")
 texture_pressed = ExtResource("9_7gbh0")
 texture_disabled = ExtResource("8_fono6")
-script = ExtResource("15_ru5mj")
+
+[node name="ButtonScripts" type="Node2D" parent="UI"]
+script = ExtResource("10_dt8al")
+
+[node name="TreeBackground" type="Sprite2D" parent="UI"]
+position = Vector2(574, 322)
+scale = Vector2(0.648, 0.64)
+texture = ExtResource("11_6ori3")
+
+[node name="ArrowActive1" type="Sprite2D" parent="UI"]
+position = Vector2(169, 238)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive1" type="Sprite2D" parent="UI"]
+position = Vector2(325, 694)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive2" type="Sprite2D" parent="UI"]
+position = Vector2(239, 466)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive2" type="Sprite2D" parent="UI"]
+position = Vector2(315, 675)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive3" type="Sprite2D" parent="UI"]
+position = Vector2(538, 493)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive3" type="Sprite2D" parent="UI"]
+position = Vector2(314, 691)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive4" type="Sprite2D" parent="UI"]
+position = Vector2(449, 272)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive4" type="Sprite2D" parent="UI"]
+position = Vector2(273, 698)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive5" type="Sprite2D" parent="UI"]
+position = Vector2(488, 377)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive5" type="Sprite2D" parent="UI"]
+position = Vector2(253, 712)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive6" type="Sprite2D" parent="UI"]
+position = Vector2(488, 377)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive6" type="Sprite2D" parent="UI"]
+position = Vector2(253, 712)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive7" type="Sprite2D" parent="UI"]
+position = Vector2(488, 377)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive7" type="Sprite2D" parent="UI"]
+position = Vector2(253, 712)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="pos1" type="Marker2D" parent="UI"]
+position = Vector2(289, 184)
+
+[node name="pos2" type="Marker2D" parent="UI"]
+position = Vector2(397, 493)
+
+[node name="pos3" type="Marker2D" parent="UI"]
+position = Vector2(581, 300)
+
+[node name="pos4" type="Marker2D" parent="UI"]
+position = Vector2(635, 446)
+
+[node name="pos5" type="Marker2D" parent="UI"]
+position = Vector2(812, 203)
+
+[node name="pos6" type="Marker2D" parent="UI"]
+position = Vector2(931, 432)
