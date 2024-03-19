@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1dj6sw2v8w2d"]
+[gd_scene load_steps=11 format=3 uid="uid://cvxa20rurw0sy"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_xoapc"]
-[ext_resource type="Texture2D" uid="uid://nf8hia7ll8w2" path="res://assets/sprites/stats_bar.png" id="2_4fw63"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stats_bar.png" id="2_4fw63"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_50ha6"]
 [ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="4_g1q7e"]
 
