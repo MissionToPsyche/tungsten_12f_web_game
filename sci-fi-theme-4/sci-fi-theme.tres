@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=96 format=3 uid="uid://c0re1bitbft18"]
 
-[ext_resource type="FontFile" uid="uid://bdm45b6uw5sic" path="Pixel Square 10.ttf" id="1"]
-[ext_resource type="Texture2D" uid="uid://c5pgo7sonlcw5" path="sci-fi.png" id="2"]
+[ext_resource type="FontFile" uid="uid://bdm45b6uw5sic" path="res://sci-fi-theme-4/Pixel Square 10.ttf" id="1"]
+[ext_resource type="Texture2D" uid="uid://c5pgo7sonlcw5" path="res://sci-fi-theme-4/sci-fi.png" id="2"]
 
 [sub_resource type="StyleBoxTexture" id="1"]
 texture = ExtResource("2")

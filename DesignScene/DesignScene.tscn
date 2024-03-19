@@ -1,62 +1,135 @@
-[gd_scene load_steps=4 format=3 uid="uid://dulom3bo5jjfd"]
+[gd_scene load_steps=2 format=3 uid="uid://dajx6uj4fc6mq"]
 
-[ext_resource type="Texture2D" uid="uid://d1oqq2lqbs16e" path="res://DesignScene/Assets/terminal-background.jpg" id="1_mm0ry"]
-[ext_resource type="Script" path="res://DesignScene/DesignScene.gd" id="1_u7iyn"]
-[ext_resource type="Texture2D" uid="uid://b4prybdin5r7i" path="res://DesignScene/Assets/satellite-image.png" id="3_sbla5"]
+[ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="1_w7s7m"]
 
-[node name="DesignScene" type="Node2D"]
-script = ExtResource("1_u7iyn")
-
-[node name="black-background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(576, 324)
-scale = Vector2(1.44, 1.44)
-texture = ExtResource("1_mm0ry")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(538, 309)
-scale = Vector2(0.333984, 0.321777)
-texture = ExtResource("3_sbla5")
-
-[node name="Control" type="Control" parent="."]
+[node name="DesignScene" type="Control"]
 layout_mode = 3
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w7s7m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuBar" type="MenuBar" parent="Control"]
-modulate = Color(0.447059, 0.760784, 0.611765, 1)
-layout_mode = 1
+[node name="CartPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 122.0
+offset_right = 758.0
+offset_bottom = 521.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MenuBar"]
-modulate = Color(0.0666667, 0.784314, 0.498039, 1)
-self_modulate = Color(0.760784, 0.92549, 0.886275, 1)
-layout_mode = 1
-offset_right = 640.0
-offset_bottom = 31.0
+[node name="ItemList" type="ItemList" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 65.0
+offset_right = 299.0
+offset_bottom = 265.0
 
-[node name="Satellite" type="MenuButton" parent="Control/MenuBar/HBoxContainer"]
-layout_mode = 2
-text = "Satellite"
+[node name="CartLabel" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 28.0
+offset_right = 198.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 18
+text = "Cart"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Communication" type="MenuButton" parent="Control/MenuBar/HBoxContainer"]
-layout_mode = 2
+[node name="TotalLabel" type="Label" parent="Panel/CartPanel"]
+offset_left = 92.0
+offset_top = 349.0
+offset_right = 155.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 18
+text = "Total:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemoveFromCartButton" type="Button" parent="Panel/CartPanel"]
+offset_left = 108.0
+offset_top = 284.0
+offset_right = 228.0
+offset_bottom = 323.0
+text = "Remove From Cart"
+
+[node name="PriceButton" type="Label" parent="Panel/CartPanel"]
+offset_left = 163.0
+offset_top = 349.0
+offset_right = 274.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="ShopPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 40.0
+offset_right = 380.0
+offset_bottom = 597.0
+
+[node name="ItemList" type="ItemList" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 159.0
+offset_right = 316.0
+offset_bottom = 499.0
+
+[node name="CommunicationsButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 112.0
+offset_right = 232.0
+offset_bottom = 151.0
 text = "Communications"
 
-[node name="PowerSystem" type="MenuButton" parent="Control/MenuBar/HBoxContainer"]
-layout_mode = 2
-text = "Power Systems"
+[node name="ThrustersButton" type="Button" parent="Panel/ShopPanel"]
+offset_left = 185.0
+offset_top = 17.0
+offset_right = 291.0
+offset_bottom = 56.0
+text = "Thruster"
 
-[node name="Propulsion" type="MenuButton" parent="Control/MenuBar/HBoxContainer"]
-layout_mode = 2
-text = "Propulsion"
+[node name="PowerButton" type="Button" parent="Panel/ShopPanel"]
+offset_left = 66.0
+offset_top = 17.0
+offset_right = 172.0
+offset_bottom = 56.0
+text = "Power System"
 
-[node name="SpacecraftBus" type="MenuButton" parent="Control/MenuBar/HBoxContainer"]
-layout_mode = 2
+[node name="HullButton" type="Button" parent="Panel/ShopPanel"]
+offset_left = 66.0
+offset_top = 66.0
+offset_right = 172.0
+offset_bottom = 105.0
 text = "Spacecraft Bus"
 
-[node name="Payload" type="MenuButton" parent="Control/MenuBar/HBoxContainer"]
-layout_mode = 2
-text = "Payload"
+[node name="PayloadButton" type="Button" parent="Panel/ShopPanel"]
+offset_left = 185.0
+offset_top = 66.0
+offset_right = 291.0
+offset_bottom = 105.0
+text = "Payloads"
+
+[node name="AddtoCartButton" type="Button" parent="Panel/ShopPanel"]
+offset_left = 123.0
+offset_top = 506.0
+offset_right = 229.0
+offset_bottom = 545.0
+text = "Add 2 Cart"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 14.0
+offset_right = 642.0
+offset_bottom = 36.0
+text = "Back "
