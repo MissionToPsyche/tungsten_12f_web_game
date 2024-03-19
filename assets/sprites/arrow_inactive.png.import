@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xjajf5epfojg"
-path="res://.godot/imported/office_b.png-87ab8cd22f9dbce5271f91eb1e7bedf7.ctex"
+uid="uid://c7i3nl35vqui1"
+path="res://.godot/imported/arrow_inactive.png-41a55a6abe71be7f854b2e637c17a99c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/team_builder_sprites/office_b.png"
-dest_files=["res://.godot/imported/office_b.png-87ab8cd22f9dbce5271f91eb1e7bedf7.ctex"]
+source_file="res://assets/sprites/arrow_inactive.png"
+dest_files=["res://.godot/imported/arrow_inactive.png-41a55a6abe71be7f854b2e637c17a99c.ctex"]
 
 [params]
 

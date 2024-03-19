@@ -1,18 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://lni8epmn27mb"]
+[gd_scene load_steps=9 format=3 uid="uid://lni8epmn27mb"]
 
 [ext_resource type="Script" path="res://TeamBuilderScene/team_builder.gd" id="1_6typq"]
 [ext_resource type="PackedScene" uid="uid://b1dj6sw2v8w2d" path="res://character.tscn" id="2_5pl5d"]
 [ext_resource type="Script" path="res://TeamBuilderScene/CharactersContainer.gd" id="2_8xonn"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_bican"]
-[ext_resource type="Texture2D" uid="uid://xjajf5epfojg" path="res://assets/sprites/team_builder_sprites/office_b.png" id="5_l4y0u"]
+[ext_resource type="Texture2D" uid="uid://blwoocx44obvp" path="res://assets/sprites/team_builder_sprites/office_team.jpg" id="2_gtksu"]
+[ext_resource type="Texture2D" uid="uid://c4oycrhuu8kia" path="res://assets/sprites/red_panel_large.png" id="5_40vxr"]
+[ext_resource type="Texture2D" uid="uid://l7tv00qqe3fo" path="res://assets/sprites/panel_small.png" id="5_gy6bu"]
+[ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="8_x5o71"]
 
 [node name="team_builder" type="Node2D"]
 script = ExtResource("1_6typq")
 
 [node name="OfficeB" type="Sprite2D" parent="."]
-position = Vector2(574, 329)
-scale = Vector2(1.11531, 1.10584)
-texture = ExtResource("5_l4y0u")
+position = Vector2(589, 330)
+scale = Vector2(0.675699, 0.665962)
+texture = ExtResource("2_gtksu")
 
 [node name="InstructionsLabel" type="Label" parent="."]
 offset_left = 159.0
@@ -30,22 +33,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_8xonn")
 
-[node name="ConfirmationLabel" type="Label" parent="."]
-offset_left = 183.0
-offset_top = 417.0
-offset_right = 972.0
-offset_bottom = 578.0
-theme_override_fonts/font = ExtResource("2_bican")
-theme_override_font_sizes/font_size = 50
+[node name="ConfirmationContainer" type="TextureRect" parent="."]
+offset_left = 380.0
+offset_top = 533.0
+offset_right = 839.0
+offset_bottom = 610.0
+texture = ExtResource("5_40vxr")
 
-[node name="TeamStatus" type="Label" parent="."]
-offset_left = 798.0
-offset_top = 32.0
-offset_right = 1128.0
-offset_bottom = 96.0
+[node name="ConfirmationLabel" type="Label" parent="ConfirmationContainer"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 394.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_bican")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TeamStatusContainer" type="TextureRect" parent="."]
+offset_left = 677.0
+offset_top = 26.0
+offset_right = 1058.0
+offset_bottom = 145.0
+texture = ExtResource("5_gy6bu")
+
+[node name="TeamStatus" type="Label" parent="TeamStatusContainer"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 33.0
+offset_right = 361.0
+offset_bottom = 94.0
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.337255, 0.764706, 0.92549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_bican")
 theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Character" parent="." instance=ExtResource("2_5pl5d")]
 position = Vector2(244, 715)
+
+[node name="TutorialWoman" type="Sprite2D" parent="."]
+position = Vector2(-188, 464)
+scale = Vector2(0.46627, 0.443252)
+texture = ExtResource("8_x5o71")

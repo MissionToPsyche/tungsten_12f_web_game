@@ -11,8 +11,11 @@ var chosen_characters = []
 var ignore_clicks = false
 
 func _ready():
-	$TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
+	$TeamStatusContainer/TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
+	$ConfirmationContainer.show()
+	$ConfirmationContainer/ConfirmationLabel.text = "Who do you want to join your team?"
 	display_random_characters()
+	$TutorialWoman.show()
 
 func display_random_characters():
 	# Shuffle the array of names in-place
@@ -42,7 +45,9 @@ func display_random_characters():
 
 func _on_character_selected(name, info):
 		team_members_chosen += 1
-		$TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
+		$TutorialWoman.hide()
+		$ConfirmationContainer.hide()
+		$TeamStatusContainer/TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
 		chosen_characters.append(info)
 		character_names.erase(name)
 		if team_members_chosen < 3:
@@ -67,8 +72,9 @@ func _on_character_selected(name, info):
 			
 			Global.set_input_allowed(false) #no clicking
 			# Show congratulations message and transition to next scene after delay
-			$ConfirmationLabel.text = "Congratulations, you have your team"
-			$ConfirmationLabel.show()
+			$ConfirmationContainer/ConfirmationLabel.text = "Congratulations, you have your team"
+			$ConfirmationContainer/ConfirmationLabel.show()
+			$ConfirmationContainer.show()
 			await get_tree().create_timer(3.0).timeout
 			Global.set_input_allowed(true)
 			get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")

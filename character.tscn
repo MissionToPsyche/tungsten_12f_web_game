@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1dj6sw2v8w2d"]
+[gd_scene load_steps=11 format=3 uid="uid://b1dj6sw2v8w2d"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_xoapc"]
 [ext_resource type="Texture2D" uid="uid://nf8hia7ll8w2" path="res://assets/sprites/stats_bar.png" id="2_4fw63"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_50ha6"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="4_g1q7e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgw8c"]
 atlas = ExtResource("2_4fw63")
@@ -54,18 +55,40 @@ script = ExtResource("1_xoapc")
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 
 [node name="CharacterLabel" type="Label" parent="."]
-offset_left = -88.0
-offset_top = -190.0
-offset_right = 91.0
-offset_bottom = -135.0
+offset_left = -211.0
+offset_top = 572.0
+offset_right = -104.0
+offset_bottom = 630.0
 theme_override_fonts/font = ExtResource("2_50ha6")
 
 [node name="Skill1" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.00002, 177)
-scale = Vector2(2, 2)
+position = Vector2(-82.625, 65)
+scale = Vector2(1.51744, 2.5625)
 sprite_frames = SubResource("SpriteFrames_ofg7l")
 
 [node name="Skill2" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, 220)
-scale = Vector2(2, 2)
+position = Vector2(-83.625, 118)
+scale = Vector2(1.47093, 2.3125)
 sprite_frames = SubResource("SpriteFrames_ofg7l")
+
+[node name="Skill1Label" type="Label" parent="."]
+offset_left = -102.0
+offset_top = 17.0
+offset_right = -4.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(1, 0.592157, 0.203922, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_g1q7e")
+theme_override_font_sizes/font_size = 36
+text = "Simulator Training"
+
+[node name="Skill2Label" type="Label" parent="."]
+offset_left = -103.0
+offset_top = 76.0
+offset_right = 46.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.101961, 0.780392, 0.952941, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_g1q7e")
+theme_override_font_sizes/font_size = 35
+text = "Rocket Engineering"

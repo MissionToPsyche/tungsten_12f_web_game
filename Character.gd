@@ -22,10 +22,17 @@ func _ready():
 	skill1_sprite = $Skill1  # Adjust the path to match your node structure
 	skill2_sprite = $Skill2  # Adjust the path to match your node structure
 	character_label = $CharacterLabel
-	
+	#$Skill1Label.hide()
+	#$Skill2Label.hide()
+	#$Skill1.hide()
+	#$Skill2.hide()
 	# Set the frames based on stats
 	update_skill_frames()
-
+	#await get_tree().create_timer(5.0).timeout
+	#$Skill1Label.show()
+	#$Skill2Label.show()
+	#$Skill1.show()
+	#$Skill2.show()
 	# Ensure the sprite can receive input events
 	character_sprite.set_process_input(true)
 	# Defer setting the Sprite's name property
