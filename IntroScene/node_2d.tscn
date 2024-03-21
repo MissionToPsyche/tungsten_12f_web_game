@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://IntroScene/Intro.gd" id="1_n6qel"]
 [ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="2_acnra"]
-[ext_resource type="Texture2D" path="res://assets/sprites/team_builder_sprites/office.jpg" id="2_f8opm"]
+[ext_resource type="Texture2D" uid="uid://dpoe0x7hi2tex" path="res://assets/sprites/team_builder_sprites/office.jpg" id="2_f8opm"]
 [ext_resource type="Texture2D" uid="uid://bwop8desr3gxc" path="res://assets/sprites/male_nasa_scientist.png" id="3_gtqg4"]
 [ext_resource type="Texture2D" uid="uid://b4dryme7hm7h4" path="res://assets/sprites/no_button.png" id="5_2aqcg"]
 [ext_resource type="Texture2D" uid="uid://w3x668sbd1k5" path="res://assets/sprites/sound_on.png" id="5_gicql"]
-[ext_resource type="Texture2D" path="res://assets/sprites/panel_large.png" id="5_vktxh"]
+[ext_resource type="Texture2D" uid="uid://bew13dphnnfmg" path="res://assets/sprites/panel_large.png" id="5_vktxh"]
 [ext_resource type="Texture2D" uid="uid://bdxk14ek7ssp6" path="res://assets/sprites/yes_button.png" id="6_ayx38"]
 [ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/sound_off.png" id="6_kwpim"]
 [ext_resource type="Script" path="res://IntroScene/sound.gd" id="7_uhfwe"]

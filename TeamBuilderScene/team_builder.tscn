@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cvxa20rurw0sy" path="res://character.tscn" id="2_5pl5d"]
 [ext_resource type="Script" path="res://TeamBuilderScene/CharactersContainer.gd" id="2_8xonn"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_bican"]
-[ext_resource type="Texture2D" path="res://assets/sprites/team_builder_sprites/office_team.jpg" id="2_gtksu"]
-[ext_resource type="Texture2D" path="res://assets/sprites/red_panel_large.png" id="5_40vxr"]
-[ext_resource type="Texture2D" path="res://assets/sprites/panel_small.png" id="5_gy6bu"]
+[ext_resource type="Texture2D" uid="uid://blwoocx44obvp" path="res://assets/sprites/team_builder_sprites/office_team.jpg" id="2_gtksu"]
+[ext_resource type="Texture2D" uid="uid://c4oycrhuu8kia" path="res://assets/sprites/red_panel_large.png" id="5_40vxr"]
+[ext_resource type="Texture2D" uid="uid://l7tv00qqe3fo" path="res://assets/sprites/panel_small.png" id="5_gy6bu"]
 [ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="8_x5o71"]
 
 [node name="team_builder" type="Node2D"]

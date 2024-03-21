@@ -21,14 +21,13 @@ func _ready():
 	var category_buttons = get_node("Control/Categories")
 	for button in category_buttons.get_children():
 		if button is Button:
-<<<<<<< HEAD
-			button.connect("pressed", self, "_on_CategoryButton_pressed")
-=======
+
+			# button.pressed.connect("pressed", self, "_on_CategoryButton_pressed")
+
 			# button.connect("pressed", self, "_on_CategoryButton_pressed", [button.name])
 			# button.pressed.connect(self._on_CategoryButton_pressed)
-			button.pressed.connect(self._on_CategoryButton_pressed.bind(button.name))
-
->>>>>>> afabba8c96cf69b29747cb78e0470300164c635e
+			# button.pressed.connect(self._on_CategoryButton_pressed.bind(button.name))
+			var placeholder = 0
 	initialize_parts()
 	update_ui()
 
@@ -64,13 +63,9 @@ func initialize_parts():
 						# Create a button for the part
 						var part_button = Button.new()
 						part_button.text = part_data["name"]
-<<<<<<< HEAD
-						part_button.connect("pressed", self, "_on_PartButton_pressed")
+						#part_button.connect("pressed", self, "_on_PartButton_pressed")
+						#part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
 
-
-=======
-						part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
->>>>>>> afabba8c96cf69b29747cb78e0470300164c635e
 						
 						# Add the button to the VBoxContainer
 						category_vbox.add_child(part_button)

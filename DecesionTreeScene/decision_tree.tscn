@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8jswe4xhc31f"]
+[gd_scene load_steps=16 format=3 uid="uid://c8jswe4xhc31f"]
 
 [ext_resource type="Script" path="res://DecesionTreeScene/decision_tree.gd" id="1_l7wpw"]
 [ext_resource type="Texture2D" uid="uid://p5ab88ma5evx" path="res://assets/sprites/decision_tree_sprites/mystery.png" id="2_kopy0"]
@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cah0a1fqtr7at" path="res://assets/sprites/decision_tree_sprites/raw_ore2.png" id="9_7gbh0"]
 [ext_resource type="Script" path="res://DecesionTreeScene/ButtonScripts.gd" id="10_dt8al"]
 [ext_resource type="Texture2D" uid="uid://uhddq1lnpwad" path="res://assets/sprites/decision_tree_sprites/muted_space.png" id="11_6ori3"]
-[ext_resource type="Texture2D" path="res://assets/sprites/arrow_active.png" id="12_c04pp"]
-[ext_resource type="Texture2D" path="res://assets/sprites/arrow_inactive.png" id="13_fnpjq"]
+[ext_resource type="Texture2D" uid="uid://btk20pv7chjrf" path="res://assets/sprites/arrow_active.png" id="12_c04pp"]
+[ext_resource type="Texture2D" uid="uid://c7i3nl35vqui1" path="res://assets/sprites/arrow_inactive.png" id="13_fnpjq"]
+[ext_resource type="Texture2D" uid="uid://cqj8k6i6cfc7o" path="res://assets/sprites/decision_tree_sprites/start.png" id="14_x6bah"]
+[ext_resource type="Texture2D" uid="uid://crauckbreb8eu" path="res://assets/sprites/decision_tree_sprites/end.png" id="15_65jos"]
 
 [node name="decision_tree" type="Node2D"]
 script = ExtResource("1_l7wpw")
@@ -22,6 +24,11 @@ script = ExtResource("1_l7wpw")
 [node name="StartLabel" type="Label" parent="UI"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="TreeBackground" type="Sprite2D" parent="UI"]
+position = Vector2(574, 322)
+scale = Vector2(0.648, 0.64)
+texture = ExtResource("11_6ori3")
 
 [node name="ButtonContainer" type="Control" parent="UI"]
 layout_mode = 3
@@ -39,7 +46,27 @@ texture_normal = ExtResource("3_o0ioa")
 texture_pressed = ExtResource("3_o0ioa")
 texture_disabled = ExtResource("2_kopy0")
 
+[node name="Mystery2" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 3170.0
+offset_top = -2.0
+offset_right = 3926.0
+offset_bottom = 760.0
+texture_normal = ExtResource("3_o0ioa")
+texture_pressed = ExtResource("3_o0ioa")
+texture_disabled = ExtResource("2_kopy0")
+
 [node name="Marketing" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 466.0
+offset_right = 2287.0
+offset_bottom = 1142.0
+texture_normal = ExtResource("5_ox4tu")
+texture_pressed = ExtResource("5_ox4tu")
+texture_disabled = ExtResource("4_vgv8q")
+
+[node name="Marketing2" type="TextureButton" parent="UI/ButtonContainer"]
 layout_mode = 0
 offset_left = 1577.0
 offset_top = 466.0
@@ -59,6 +86,16 @@ texture_normal = ExtResource("7_wqkce")
 texture_pressed = ExtResource("7_wqkce")
 texture_disabled = ExtResource("6_svm5m")
 
+[node name="Simulation2" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 767.0
+offset_right = 1002.0
+offset_bottom = 1553.0
+texture_normal = ExtResource("7_wqkce")
+texture_pressed = ExtResource("7_wqkce")
+texture_disabled = ExtResource("6_svm5m")
+
 [node name="Ore" type="TextureButton" parent="UI/ButtonContainer"]
 layout_mode = 0
 offset_left = 987.0
@@ -69,56 +106,61 @@ texture_normal = ExtResource("9_7gbh0")
 texture_pressed = ExtResource("9_7gbh0")
 texture_disabled = ExtResource("8_fono6")
 
+[node name="Ore2" type="TextureButton" parent="UI/ButtonContainer"]
+layout_mode = 0
+offset_left = 1974.0
+offset_top = 1924.0
+offset_right = 2704.0
+offset_bottom = 2652.0
+texture_normal = ExtResource("9_7gbh0")
+texture_pressed = ExtResource("9_7gbh0")
+texture_disabled = ExtResource("8_fono6")
+
 [node name="ButtonScripts" type="Node2D" parent="UI"]
 script = ExtResource("10_dt8al")
 
-[node name="TreeBackground" type="Sprite2D" parent="UI"]
-position = Vector2(574, 322)
-scale = Vector2(0.648, 0.64)
-texture = ExtResource("11_6ori3")
-
 [node name="ArrowActive1" type="Sprite2D" parent="UI"]
-position = Vector2(169, 238)
+position = Vector2(425, -210)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
 [node name="ArrowInactive1" type="Sprite2D" parent="UI"]
-position = Vector2(325, 694)
+position = Vector2(342, 734)
 scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
 [node name="ArrowActive2" type="Sprite2D" parent="UI"]
-position = Vector2(239, 466)
+position = Vector2(261, -143)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
 [node name="ArrowInactive2" type="Sprite2D" parent="UI"]
-position = Vector2(315, 675)
+position = Vector2(342, 743)
 scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
 [node name="ArrowActive3" type="Sprite2D" parent="UI"]
-position = Vector2(538, 493)
+position = Vector2(538, -148)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
 [node name="ArrowInactive3" type="Sprite2D" parent="UI"]
-position = Vector2(314, 691)
+position = Vector2(342, 746)
 scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
 [node name="ArrowActive4" type="Sprite2D" parent="UI"]
-position = Vector2(449, 272)
+position = Vector2(665, -245)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
 [node name="ArrowInactive4" type="Sprite2D" parent="UI"]
-position = Vector2(273, 698)
+position = Vector2(293, 739)
 scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
 [node name="ArrowActive5" type="Sprite2D" parent="UI"]
-position = Vector2(488, 377)
+position = Vector2(465, -91)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
@@ -128,7 +170,7 @@ scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
 [node name="ArrowActive6" type="Sprite2D" parent="UI"]
-position = Vector2(488, 377)
+position = Vector2(465, -201)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
@@ -138,7 +180,7 @@ scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
 [node name="ArrowActive7" type="Sprite2D" parent="UI"]
-position = Vector2(488, 377)
+position = Vector2(477, -87)
 scale = Vector2(0.268832, 0.20751)
 texture = ExtResource("12_c04pp")
 
@@ -147,20 +189,90 @@ position = Vector2(253, 712)
 scale = Vector2(0.263012, 0.205039)
 texture = ExtResource("13_fnpjq")
 
+[node name="ArrowActive8" type="Sprite2D" parent="UI"]
+position = Vector2(455, -130)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive8" type="Sprite2D" parent="UI"]
+position = Vector2(253, 712)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive9" type="Sprite2D" parent="UI"]
+position = Vector2(352, -157)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive9" type="Sprite2D" parent="UI"]
+position = Vector2(253, 712)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="ArrowActive10" type="Sprite2D" parent="UI"]
+position = Vector2(214, -225)
+scale = Vector2(0.268832, 0.20751)
+texture = ExtResource("12_c04pp")
+
+[node name="ArrowInactive10" type="Sprite2D" parent="UI"]
+position = Vector2(281, 779)
+scale = Vector2(0.263012, 0.205039)
+texture = ExtResource("13_fnpjq")
+
+[node name="start" type="Sprite2D" parent="UI"]
+position = Vector2(77, 361)
+scale = Vector2(0.188477, 0.185059)
+texture = ExtResource("14_x6bah")
+
+[node name="end" type="Sprite2D" parent="UI"]
+position = Vector2(1072, 373)
+scale = Vector2(0.227796, 0.233536)
+texture = ExtResource("15_65jos")
+
 [node name="pos1" type="Marker2D" parent="UI"]
-position = Vector2(289, 184)
+position = Vector2(239, 162)
 
 [node name="pos2" type="Marker2D" parent="UI"]
-position = Vector2(397, 493)
+position = Vector2(239, 456)
 
 [node name="pos3" type="Marker2D" parent="UI"]
-position = Vector2(581, 300)
+position = Vector2(525, 162)
 
 [node name="pos4" type="Marker2D" parent="UI"]
-position = Vector2(635, 446)
+position = Vector2(525, 456)
 
 [node name="pos5" type="Marker2D" parent="UI"]
-position = Vector2(812, 203)
+position = Vector2(802, 162)
 
 [node name="pos6" type="Marker2D" parent="UI"]
-position = Vector2(931, 432)
+position = Vector2(802, 456)
+
+[node name="arrowpos1" type="Marker2D" parent="UI"]
+position = Vector2(174, 279)
+
+[node name="arrowpos2" type="Marker2D" parent="UI"]
+position = Vector2(182, 456)
+
+[node name="arrowpos3" type="Marker2D" parent="UI"]
+position = Vector2(437, 210)
+
+[node name="arrowpos4" type="Marker2D" parent="UI"]
+position = Vector2(453, 365)
+
+[node name="arrowpos5" type="Marker2D" parent="UI"]
+position = Vector2(437, 509)
+
+[node name="arrowpos6" type="Marker2D" parent="UI"]
+position = Vector2(717, 210)
+
+[node name="arrowpos7" type="Marker2D" parent="UI"]
+position = Vector2(717, 365)
+
+[node name="arrowpos8" type="Marker2D" parent="UI"]
+position = Vector2(717, 509)
+
+[node name="arrowpos9" type="Marker2D" parent="UI"]
+position = Vector2(971, 292)
+
+[node name="arrowpos10" type="Marker2D" parent="UI"]
+position = Vector2(971, 466)
