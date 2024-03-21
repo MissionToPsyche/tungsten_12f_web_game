@@ -23,10 +23,10 @@ grow_vertical = 2
 
 [node name="CartPanel" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 774.0
-offset_top = 119.0
-offset_right = 1105.0
-offset_bottom = 518.0
+offset_left = 427.0
+offset_top = 122.0
+offset_right = 758.0
+offset_bottom = 521.0
 
 [node name="CartItemList" type="ItemList" parent="Panel/CartPanel"]
 layout_mode = 0
@@ -48,12 +48,13 @@ vertical_alignment = 1
 
 [node name="TotalLabel" type="Label" parent="Panel/CartPanel"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 350.0
-offset_right = 308.0
-offset_bottom = 370.0
+offset_left = 92.0
+offset_top = 349.0
+offset_right = 155.0
+offset_bottom = 369.0
 theme_override_font_sizes/font_size = 18
-text = "Total: $0.00"
+text = "Total:"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RemoveFromCartButton" type="Button" parent="Panel/CartPanel"]
@@ -64,11 +65,20 @@ offset_right = 228.0
 offset_bottom = 323.0
 text = "Remove From Cart"
 
+[node name="PriceButton" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 349.0
+offset_right = 274.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
 [node name="ShopPanel" type="Panel" parent="Panel"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 40.0
-offset_right = 627.0
+offset_right = 380.0
 offset_bottom = 597.0
 
 [node name="ShopItemList" type="ItemList" parent="Panel/ShopPanel"]
@@ -85,6 +95,7 @@ offset_top = 112.0
 offset_right = 232.0
 offset_bottom = 151.0
 text = "Communications"
+script = ExtResource("2_w8gbn")
 
 [node name="PropulsionButton" type="Button" parent="Panel/ShopPanel"]
 layout_mode = 0
@@ -126,13 +137,6 @@ offset_right = 229.0
 offset_bottom = 545.0
 text = "Add 2 Cart"
 
-[node name="DescriptionLabel" type="Label" parent="Panel/ShopPanel"]
-offset_left = 352.0
-offset_top = 167.0
-offset_right = 539.0
-offset_bottom = 490.0
-theme_override_font_sizes/font_size = 18
-
 [node name="BackButton" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 519.0
@@ -141,12 +145,4 @@ offset_right = 642.0
 offset_bottom = 36.0
 text = "Back "
 
-[connection signal="pressed" from="Panel/CartPanel/RemoveFromCartButton" to="." method="_on_remove_from_cart_button_pressed"]
-[connection signal="item_selected" from="Panel/ShopPanel/ShopItemList" to="." method="_on_shop_item_selected"]
 [connection signal="pressed" from="Panel/ShopPanel/CommunicationButton" to="." method="_on_communication_button_pressed"]
-[connection signal="pressed" from="Panel/ShopPanel/PropulsionButton" to="." method="_on_propulsion_button_pressed"]
-[connection signal="pressed" from="Panel/ShopPanel/PowerSystemButton" to="." method="_on_power_system_button_pressed"]
-[connection signal="pressed" from="Panel/ShopPanel/SpacecraftBusButton" to="." method="_on_spacecraft_bus_button_pressed"]
-[connection signal="pressed" from="Panel/ShopPanel/PayloadButton" to="." method="_on_payload_button_pressed"]
-[connection signal="pressed" from="Panel/ShopPanel/AddtoCartButton" to="." method="_on_add_to_cart_button_pressed"]
-[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]

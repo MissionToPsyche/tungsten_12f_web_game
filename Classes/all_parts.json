@@ -1,0 +1,47 @@
+{
+  "Payload": [
+	{
+	  "name": "Hyperspectral Imager",
+	  "weight": 10,
+	  "cost": 1200000.00,
+	  "base_health": 100,
+	  "research_ability": "Surface Composition Mapping"
+	}
+  ],
+  "Communications": [
+	{
+	  "name": "X-Band Transceiver",
+	  "weight": 5,
+	  "cost": 450000.00,
+	  "base_health": 50
+	}
+  ],
+  "PowerSystem": [
+	{
+	  "name": "Solar Panels",
+	  "weight": 100,
+	  "cost": 500000.00,
+	  "base_health": 200,
+	  "fuel": 100
+	}
+  ],
+  "Propulsion": [
+	{
+	  "name": "Ion Thrusters",
+	  "weight": 20,
+	  "cost": 2000000.00,
+	  "base_health": 150,
+	  "fuel_consumption": 0.2,
+	  "thrust": 0.5
+	}
+  ],
+  "SpacecraftBus": [
+	{
+	  "name": "Standard Bus",
+	  "weight": 500,
+	  "cost": 2500000.00,
+	  "base_health": 500,
+	  "bonus_health": 300
+	}
+  ]
+}

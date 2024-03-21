@@ -2,3 +2,8 @@ res://BuilderScene/satellite-lab.tscn
 res://sci-fi-theme-4/sci-fi-theme.tres
 res://Intro/Game_Intro.tscn
 res://DesignScene/DesignScene.tscn
+res://DesignScene/all_parts.json
+res://DesignScene/DesignScene.gd
+res://Classes/SatellitePart.gd
+res://Classes/all_parts.json
+res://BuilderScene/satellite-lab.gd
