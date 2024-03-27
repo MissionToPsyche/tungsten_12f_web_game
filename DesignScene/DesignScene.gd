@@ -18,6 +18,7 @@ var data_file_path = "res://Classes/all_parts.json"
 func _ready():
 	load_json_file(data_file_path)
 	update_total_cost()  # Initialize the total cost label
+	print(Global.current_satellite.get_string_representation())
 	
 func load_json_file(filePath: String) -> Dictionary:
 	if FileAccess.file_exists(filePath):
@@ -150,6 +151,40 @@ func update_total_cost():
 	var total_cost_str = "%.2f" % total_cost
 	$Panel/CartPanel/TotalLabel.text = "Total: $" + total_cost_str
 
+# This method checks if all categories are represented in the cart
+# This method checks if all required categories have at least one part in the cart
+func are_all_categories_represented() -> bool:
+	# Define the required categories
+	var required_categories = ["Communications", "Payload", "Power System", "Propulsion", "Spacecraft Bus"]
+	
+	# List to keep track of categories present in the cart
+	var categories_in_cart = []
+
+	# Iterate over each item in the CartItemList
+	for i in range($Panel/CartPanel/CartItemList.get_item_count()):
+		var part_name = $Panel/CartPanel/CartItemList.get_item_text(i)
+		var part = find_part_by_name(part_name)
+		if part:
+			var category = part.get_category()
+			if category not in categories_in_cart:
+				categories_in_cart.append(category)
+	print(categories_in_cart)
+	# Check if each required category is present in the categories_in_cart list
+	for category in required_categories:
+		if category not in categories_in_cart:
+			return false  # A required category is missing
+
+	return true  # All required categories are represented
+
+# This method constructs the satellite from selected parts
+func build_satellite() -> Satellite:
+	var satellite = Satellite.new()
+	for category in parts_in_cart.keys():
+		var part_name = parts_in_cart[category]
+		var part = find_part_by_name(part_name)
+		satellite.add_part(part)
+	return satellite  # Return the constructed satellite object
+
 # Shopping ItemList Populating Functions
 
 func _on_communication_button_pressed():
@@ -167,8 +202,28 @@ func _on_spacecraft_bus_button_pressed():
 func _on_payload_button_pressed():
 	load_parts_into_shop_item_list("Payload")
 	
+# This method is called when the CheckoutButton is pressed
+func _on_checkout_button_pressed():
+	if not are_all_categories_represented():
+		$Panel/CartPanel/WarningLabel.text = "Need one part from every category!"
+	else:
+		$Panel/CartPanel/WarningLabel.text = ""
+		$Panel/ConfirmPanel.show()
+
+# This method is called when the NoButton inside ConfirmPanel is pressed
+func _on_no_button_pressed():
+	$Panel/ConfirmPanel.hide()
+
+# This method is called when the YesButton inside ConfirmPanel is pressed
+func _on_yes_button_pressed():
+	var satellite = build_satellite()  # Construct the satellite and store it in a local variable
+	Global.current_satellite = satellite  # Assign the constructed satellite to the global variable
+	print(Global.current_satellite.get_string_representation())  # Optional: Print the satellite details for debugging
+	get_tree().change_scene_to_file("res://BuilderScene/satellite-lab.tscn")
+	
 # Scene Navigation
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://BuilderScene/satellite-lab.tscn")
+
 

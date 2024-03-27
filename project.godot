@@ -14,6 +14,10 @@ config/name="NASA Psyche Mission 12F"
 run/main_scene="res://Intro/Game_Intro.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/stretch/aspect="ignore"

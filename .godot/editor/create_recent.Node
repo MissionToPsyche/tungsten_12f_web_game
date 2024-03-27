@@ -1,12 +1,12 @@
-Label
 Button
+Label
+ColorRect
+Panel
 GridContainer
 ItemList
-Panel
 VBoxContainer
 Container
 TabContainer
-ColorRect
 MarginContainer
 HBoxContainer
 PanelContainer

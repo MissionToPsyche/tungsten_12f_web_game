@@ -1,3 +1,4 @@
+# satellite_lab.gd
 extends Node2D
 
 
