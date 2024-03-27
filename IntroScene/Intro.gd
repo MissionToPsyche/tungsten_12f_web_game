@@ -1,34 +1,29 @@
 extends Node2D
 
 var fade_in: AnimationPlayer
+var typing_speed = 0.05
 
 func _ready():
 	fade_in = $AnimationPlayer
-	$yes.visible = false
-	$no.visible = false
-	$male_nasa_scientist.visible = false
+	$ContinueButton.visible = false
+	$ContinueButton.pressed.connect(self._on_ContinueButton_pressed)
 	start_sequence()
 
 func start_sequence():
-	var timer = Timer.new()  # It's good practice to declare local variables with 'var'
-	timer.wait_time = 5  # Wait time before starting the fade-in effect
-	timer.one_shot = true
-	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-	add_child(timer)
-	timer.start()
-
-func _on_timer_timeout():
-	fade_in.play("Black_in")  # Play the fade-in animation
-	await get_tree().create_timer(0).timeout
+	$Panel/Label.visible_characters = 0
+	fade_in.play("Black_in")
+	await get_tree().create_timer(fade_in.current_animation_length).timeout
+	animate_text()
+	await get_tree().create_timer(5.0).timeout
+	$ContinueButton.visible = true
 	
-	# After fade-in animation starts, set up a delay to change the scene
-	# Adjust the delay to match your animation length or use the animation_finished signal
-	var scene_change_timer = Timer.new()
-	scene_change_timer.wait_time = 1.5  # Adjust based on the length of your fade-in animation
-	scene_change_timer.one_shot = true
-	scene_change_timer.connect("timeout", Callable(self, "_on_intro_end"))
-	add_child(scene_change_timer)
-	scene_change_timer.start()
 
-func _on_intro_end():
+func animate_text():
+	var text = "Hi there, space explorer! Let's assemble our star team and unlock the secrets of how planets are made with the exciting Psyche mission!"
+	for i in range(text.length()):
+		$Panel/Label.visible_characters = i + 1
+		await get_tree().create_timer(typing_speed).timeout
+	
+func _on_ContinueButton_pressed():
+	print("Button pressed")  # Debug statement
 	get_tree().change_scene_to_file("res://TeamBuilderScene/team_builder.tscn")

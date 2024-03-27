@@ -4,6 +4,7 @@ var button_positions = []
 var current_position = "start"
 var path_history = [] # To keep track of the paths taken
 var button_to_position_map = {}
+var button_tweens = {}
 var progression_paths = {
 	"start": {"next": ["pos1", "pos2"], "arrows": {"pos1": 1, "pos2": 2}},
 	"pos1": {"next": ["pos3", "pos4"], "arrows": {"pos3": 3, "pos4": 4}},
@@ -178,6 +179,11 @@ func enable_buttons_for_current_position():
 	# Disable all buttons first
 	for button in $UI/ButtonContainer.get_children():
 		button.disabled = true
+		
+		if button.name in button_tweens:
+			var tween = button_tweens[button.name]
+			tween.kill()  # Stop and free the tween
+			button_tweens.erase(button.name)
 
 	# Enable buttons that are reachable from the current position
 	for next_pos in progression_paths[current_position]["next"]:
@@ -185,11 +191,27 @@ func enable_buttons_for_current_position():
 			if button_to_position_map[button_name] == next_pos:
 				var button_node = $UI/ButtonContainer.get_node(button_name)
 				button_node.disabled = false
+				# Start the button vibration animation
+				var tween = create_tween()
+				tween.set_loops(-1)  # Set the animation to loop indefinitely
+				tween.tween_property(button_node, "rotation_degrees", -5, 0.2)
+				tween.tween_property(button_node, "rotation_degrees", 10, 0.2)
+				tween.tween_property(button_node, "rotation_degrees", -5, 0.2)
+				tween.tween_property(button_node, "rotation_degrees", 0, 0.2)
+				tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)  # Pause the animation when the button is disabled
+				
+				# Connect the button's pressed signal to stop the animation for all buttons
+				button_node.pressed.connect(tween.kill)
+
+				# Store the tween as a child of the button node
+				button_tweens[button_node.name] = tween
 
 
 func _on_Button_Pressed(button_name):
 	if button_name in button_to_position_map:
 		var next_position = button_to_position_map[button_name]
+		for button in $UI/ButtonContainer.get_children():
+			button.rotation_degrees = 0
 		handle_progression(next_position)
 	else:
 		print("Error: Button name not found in current mapping.")

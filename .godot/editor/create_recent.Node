@@ -1,8 +1,13 @@
+Label
+Panel
+TextureButton
+Button
+Timer
+WorldEnvironment
 Marker2D
 Sprite2D
 AnimatedSprite2D
 RichTextLabel
-Label
 TextureRect
 CanvasLayer
 Node2D
@@ -14,7 +19,6 @@ HBoxContainer
 VBoxContainer
 PanelContainer
 Node
-Button
 MenuButton
 MenuBar
 ItemList

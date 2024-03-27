@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbmuj8ffn8wq0"
-path="res://.godot/imported/team_builder_office.jpg-375746b913ad3a39f37f818e80cc5846.ctex"
+uid="uid://1yn6h484qkby"
+path="res://.godot/imported/continue_sprite.png-05edfc850f50f68bfebe1275985ca194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/team_builder_sprites/team_builder_office.jpg"
-dest_files=["res://.godot/imported/team_builder_office.jpg-375746b913ad3a39f37f818e80cc5846.ctex"]
+source_file="res://assets/sprites/continue_sprite.png"
+dest_files=["res://.godot/imported/continue_sprite.png-05edfc850f50f68bfebe1275985ca194.ctex"]
 
 [params]
 

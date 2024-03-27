@@ -9,13 +9,22 @@ var screen_positions = [Vector2(), Vector2(), Vector2()]  # Placeholder for scre
 var team_members_chosen := 0
 var chosen_characters = []
 var ignore_clicks = false
+var vibration_enabled = true
 
 func _ready():
 	$TeamStatusContainer/TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
 	$ConfirmationContainer.show()
-	$ConfirmationContainer/ConfirmationLabel.text = "Who do you want to join your team?"
+	animate_confirmation_label("You can click on a player to add them to your team.")
 	display_random_characters()
-	$TutorialWoman.show()
+
+func animate_confirmation_label(text):
+	var typing_speed = 0.05
+	$ConfirmationContainer/ConfirmationLabel.visible_characters = 0
+	$ConfirmationContainer/ConfirmationLabel.text = text
+	for i in range(text.length()):
+		$ConfirmationContainer/ConfirmationLabel.visible_characters = i + 1
+		await get_tree().create_timer(typing_speed).timeout
+
 
 func display_random_characters():
 	# Shuffle the array of names in-place
@@ -42,43 +51,68 @@ func display_random_characters():
 		character_instance.sprite_selected.connect(_on_character_selected)
 		# Add the character instance to the HBoxContainer
 		hbox_container.add_child(character_instance)
+		
+		if vibration_enabled:
+			start_vibration(character_instance, i)
+
+func start_vibration(character_instance, index):
+	await get_tree().create_timer(index).timeout
+	while true and vibration_enabled:
+		if is_instance_valid(character_instance):
+			character_instance.rotation_degrees = -5
+			await get_tree().create_timer(0.2).timeout
+
+		if is_instance_valid(character_instance):
+			character_instance.rotation_degrees = 10
+			await get_tree().create_timer(0.2).timeout
+
+		if is_instance_valid(character_instance):
+			character_instance.rotation_degrees = -5
+			await get_tree().create_timer(0.2).timeout
+
+		if is_instance_valid(character_instance):
+			character_instance.rotation_degrees = 0
+			await get_tree().create_timer(9.4).timeout
+		else:
+			break
 
 func _on_character_selected(name, info):
-		team_members_chosen += 1
-		$TutorialWoman.hide()
-		$ConfirmationContainer.hide()
-		$TeamStatusContainer/TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
-		chosen_characters.append(info)
-		character_names.erase(name)
-		if team_members_chosen < 3:
-			display_random_characters()
-		else:
-			var hbox_container = $CharactersContainer
-			hbox_container.queue_free_children()
-			var character_index = 0
-			for character_info in chosen_characters:
-				var character_instance = preload("res://character.tscn").instantiate()
-				character_instance.character_name = character_info["name"]
-				var sprite = character_instance.get_node("CharacterSprite")
-				sprite.texture = load(sprite_path + character_info["name"] +".png")
-				
-				var character_label = character_instance.get_node("CharacterLabel")
-				character_label.text = character_info["name"]
-				
-				
-				set_character_position_and_size(character_instance, character_index)
-				hbox_container.add_child(character_instance)
-				character_index += 1
+	vibration_enabled = false
+	team_members_chosen += 1
+	$ConfirmationContainer.hide()
+	$TeamStatusContainer/TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
+	chosen_characters.append(info)
+	character_names.erase(name)
+	if team_members_chosen < 3:
+		display_random_characters()
+	else:
+		var hbox_container = $CharactersContainer
+		hbox_container.queue_free_children()
+		var character_index = 0
+		for character_info in chosen_characters:
+			var character_instance = preload("res://character.tscn").instantiate()
+			character_instance.character_name = character_info["name"]
+			var sprite = character_instance.get_node("CharacterSprite")
+			sprite.texture = load(sprite_path + character_info["name"] +".png")
 			
-			Global.set_input_allowed(false) #no clicking
-			# Show congratulations message and transition to next scene after delay
-			$ConfirmationContainer/ConfirmationLabel.text = "Congratulations, you have your team"
-			$ConfirmationContainer/ConfirmationLabel.show()
-			$ConfirmationContainer.show()
-			await get_tree().create_timer(3.0).timeout
-			Global.set_input_allowed(true)
-			get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
-			#completion label and switch scenes
+			var character_label = character_instance.get_node("CharacterLabel")
+			character_label.text = character_info["name"]
+			
+			
+			set_character_position_and_size(character_instance, character_index)
+			hbox_container.add_child(character_instance)
+			character_index += 1
+		
+		Global.set_input_allowed(false) #no clicking
+		# Show congratulations message and transition to next scene after delay
+		$ConfirmationContainer/ConfirmationLabel.text = "Congratulations, you have your team"
+		$ConfirmationContainer/ConfirmationLabel.show()
+		$ConfirmationContainer.show()
+		await get_tree().create_timer(3.0).timeout
+		Global.set_input_allowed(true)
+		get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
+		#completion label and switch scenes
+
 
 func set_character_position_and_size(character_instance, position_index):
 	var screen_size = get_viewport_rect().size

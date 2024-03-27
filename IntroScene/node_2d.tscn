@@ -1,19 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1eovyd6y7e0u"]
+[gd_scene load_steps=15 format=3 uid="uid://c1eovyd6y7e0u"]
 
 [ext_resource type="Script" path="res://IntroScene/Intro.gd" id="1_n6qel"]
 [ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/female_nasa_scientist.png" id="2_acnra"]
 [ext_resource type="Texture2D" uid="uid://dpoe0x7hi2tex" path="res://assets/sprites/team_builder_sprites/office.jpg" id="2_f8opm"]
-[ext_resource type="Texture2D" uid="uid://bwop8desr3gxc" path="res://assets/sprites/male_nasa_scientist.png" id="3_gtqg4"]
-[ext_resource type="Texture2D" uid="uid://b4dryme7hm7h4" path="res://assets/sprites/no_button.png" id="5_2aqcg"]
 [ext_resource type="Texture2D" uid="uid://w3x668sbd1k5" path="res://assets/sprites/sound_on.png" id="5_gicql"]
 [ext_resource type="Texture2D" uid="uid://bew13dphnnfmg" path="res://assets/sprites/panel_large.png" id="5_vktxh"]
-[ext_resource type="Texture2D" uid="uid://bdxk14ek7ssp6" path="res://assets/sprites/yes_button.png" id="6_ayx38"]
 [ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/sound_off.png" id="6_kwpim"]
 [ext_resource type="Script" path="res://IntroScene/sound.gd" id="7_uhfwe"]
-[ext_resource type="Script" path="res://IntroScene/yes.gd" id="8_4ypkp"]
 [ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
 [ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="9_s84ku"]
-[ext_resource type="Script" path="res://IntroScene/points_label.gd" id="10_3x6ki"]
+[ext_resource type="Texture2D" uid="uid://1yn6h484qkby" path="res://assets/sprites/continue_sprite.png" id="15_hk4fi"]
 
 [sub_resource type="Animation" id="Animation_5mkt4"]
 resource_name = "Black-out"
@@ -60,69 +56,49 @@ _data = {
 position = Vector2(911, 572)
 script = ExtResource("1_n6qel")
 
-[node name="lab_background" type="Sprite2D" parent="."]
+[node name="LabBackground" type="Sprite2D" parent="."]
 position = Vector2(-322, -254)
 scale = Vector2(0.813249, 0.787433)
 texture = ExtResource("2_f8opm")
 
-[node name="female_nasa_scientist" type="Sprite2D" parent="."]
+[node name="NasaScientist" type="Sprite2D" parent="."]
 position = Vector2(-771, -127)
 scale = Vector2(0.467121, 0.445808)
 texture = ExtResource("2_acnra")
 
-[node name="male_nasa_scientist" type="Sprite2D" parent="."]
-position = Vector2(-1258, -1033)
-scale = Vector2(0.360212, 0.351074)
-texture = ExtResource("3_gtqg4")
-
-[node name="Panel1" type="TextureRect" parent="."]
-offset_left = -562.0
-offset_top = -129.0
-offset_right = 251.0
-offset_bottom = 72.0
+[node name="Panel" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = -84.0
+offset_right = 192.0
+offset_bottom = 64.0
 texture = ExtResource("5_vktxh")
 expand_mode = 1
 
-[node name="Label1" type="Label" parent="Panel1"]
+[node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.538
-anchor_top = 0.5
-anchor_right = 0.538
-anchor_bottom = 0.5
+anchor_left = 0.537888
+anchor_top = 1.02365
+anchor_right = 0.565772
+anchor_bottom = 1.02365
 offset_left = -408.394
 offset_top = -129.5
-offset_right = 361.606
-offset_bottom = 119.5
+offset_right = 344.606
+offset_bottom = -15.5
 theme_type_variation = &"HeaderLarge"
 theme_override_fonts/font = ExtResource("9_s84ku")
 theme_override_font_sizes/font_size = 35
 text = "Hi there, space explorer! Let's assemble our star team and unlock the secrets of how planets are made with the exciting Psyche mission!"
-horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="no" type="TextureButton" parent="."]
-offset_left = 56.0
-offset_top = -1194.0
-offset_right = 744.0
-offset_bottom = -815.0
-texture_normal = ExtResource("5_2aqcg")
-
-[node name="yes" type="TextureButton" parent="."]
-offset_left = -808.0
-offset_top = -1209.0
-offset_right = -120.0
-offset_bottom = -830.0
-texture_normal = ExtResource("6_ayx38")
-script = ExtResource("8_4ypkp")
+[node name="Timer" type="Timer" parent="Panel/Label"]
 
 [node name="sound" type="TextureButton" parent="."]
-offset_left = -885.0
-offset_top = -565.0
-offset_right = -89.0
-offset_bottom = 229.0
+offset_left = -884.0
+offset_top = -547.0
+offset_right = -88.0
+offset_bottom = 247.0
 toggle_mode = true
 texture_normal = ExtResource("5_gicql")
 texture_pressed = ExtResource("6_kwpim")
@@ -131,17 +107,6 @@ script = ExtResource("7_uhfwe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ae2sr")
-
-[node name="points_label" type="RichTextLabel" parent="."]
-top_level = true
-offset_left = 1374.0
-offset_top = 72.0
-offset_right = 1738.0
-offset_bottom = 196.0
-theme_override_fonts/normal_font = ExtResource("9_s84ku")
-bbcode_enabled = true
-text = "Hello"
-script = ExtResource("10_3x6ki")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -155,5 +120,13 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_3a0sm")
 }
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+offset_left = -8.0
+offset_top = -558.0
+offset_right = 236.0
+offset_bottom = -485.0
+texture_normal = ExtResource("15_hk4fi")
+stretch_mode = 0
 
 [connection signal="pressed" from="sound" to="sound" method="_on_pressed"]

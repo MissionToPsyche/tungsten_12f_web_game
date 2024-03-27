@@ -1,11 +1,14 @@
 extends Label
 
+var typing_speed = 0.05
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	text = "Hi there, space explorer! Let's assemble our star team and unlock the secrets of how planets are made with the exciting Psyche mission!"
+	visible_characters = 0
+	$Timer.wait_time = typing_speed
+	$Timer.start()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_Timer_timeout():
+	visible_characters += 1
+	if visible_characters == text.length():
+		$Timer.stop()
