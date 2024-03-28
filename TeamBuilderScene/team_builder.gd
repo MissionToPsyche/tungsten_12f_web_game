@@ -8,6 +8,7 @@ var sprite_path = "res://assets/sprites/team_builder_sprites/"
 var screen_positions = [Vector2(), Vector2(), Vector2()]  # Placeholder for screen positions to be calculated
 var team_members_chosen := 0
 var chosen_characters = []
+var chosen_skill_frames = []
 var ignore_clicks = false
 var vibration_enabled = true
 
@@ -32,24 +33,20 @@ func display_random_characters():
 	
 	# Clear previous characters if any
 	var hbox_container = $CharactersContainer
-	hbox_container.queue_free_children()  # Custom function to free children
+	hbox_container.queue_free_children()
 	# Load and instance the first 3 characters after shuffling
 	for i in range(3):
 		var character_name = character_names[i]
 		var character_instance = preload("res://character.tscn").instantiate()
 		character_instance.character_name = character_name  # Set character's name
 		
-		# Optionally set the character sprite based on the character name if necessary
-		var sprite = character_instance.get_node("CharacterSprite")  # Adjust path as necessary
+		var sprite = character_instance.get_node("CharacterSprite")
 		sprite.texture = load(sprite_path + character_name + ".png")
-		
 		var character_label = character_instance.get_node("CharacterLabel")
 		character_label.text = character_name
 		
 		set_character_position_and_size(character_instance, i)
-		
 		character_instance.sprite_selected.connect(_on_character_selected)
-		# Add the character instance to the HBoxContainer
 		hbox_container.add_child(character_instance)
 		
 		if vibration_enabled:
@@ -83,22 +80,34 @@ func _on_character_selected(name, info):
 	$TeamStatusContainer/TeamStatus.text = "Team Members: " + str(team_members_chosen) + "/3"
 	chosen_characters.append(info)
 	character_names.erase(name)
+	var skill_frames = [info["skill1_frame"], info["skill2_frame"]]
+	print("Chosen character:", name)
+	print("Skill frames:", skill_frames)
+	chosen_skill_frames.append(skill_frames)
+	print("Chosen skill frames:", chosen_skill_frames)
 	if team_members_chosen < 3:
 		display_random_characters()
 	else:
 		var hbox_container = $CharactersContainer
 		hbox_container.queue_free_children()
 		var character_index = 0
-		for character_info in chosen_characters:
+		for i in range(3):
+			var character_info = chosen_characters[i]
 			var character_instance = preload("res://character.tscn").instantiate()
 			character_instance.character_name = character_info["name"]
-			var sprite = character_instance.get_node("CharacterSprite")
-			sprite.texture = load(sprite_path + character_info["name"] +".png")
+			character_instance.character_stats = character_info["stats"]
 			
+			var skill1_frame = chosen_skill_frames[i][0]
+			var skill2_frame = chosen_skill_frames[i][1]
+			print("Final display - Character:", character_info["name"])
+			print("Final display - Skill frames:", [skill1_frame, skill2_frame])
+			character_instance.update_final_display(skill1_frame, skill2_frame)
+
+
+			var sprite = character_instance.get_node("CharacterSprite")
+			sprite.texture = load(sprite_path + character_info["name"] + ".png")
 			var character_label = character_instance.get_node("CharacterLabel")
 			character_label.text = character_info["name"]
-			
-			
 			set_character_position_and_size(character_instance, character_index)
 			hbox_container.add_child(character_instance)
 			character_index += 1
@@ -112,7 +121,6 @@ func _on_character_selected(name, info):
 		Global.set_input_allowed(true)
 		get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
 		#completion label and switch scenes
-
 
 func set_character_position_and_size(character_instance, position_index):
 	var screen_size = get_viewport_rect().size

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clmder38b4mgw"
-path="res://.godot/imported/red_panel_small.png-5f26cbed50e16f30f6ffeb10f5496c34.ctex"
+uid="uid://bwop8desr3gxc"
+path="res://.godot/imported/male_nasa_scientist.png-2af80d1f9151b3edc611d11254c603c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/red_panel_small.png"
-dest_files=["res://.godot/imported/red_panel_small.png-5f26cbed50e16f30f6ffeb10f5496c34.ctex"]
+source_file="res://assets/sprites/intro_scene/male_nasa_scientist.png"
+dest_files=["res://.godot/imported/male_nasa_scientist.png-2af80d1f9151b3edc611d11254c603c9.ctex"]
 
 [params]
 

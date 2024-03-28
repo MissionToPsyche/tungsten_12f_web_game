@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwop8desr3gxc"
-path="res://.godot/imported/male_nasa_scientist.png-eab570f0b07f928c7d5fc1b7070a7be1.ctex"
+uid="uid://bdxk14ek7ssp6"
+path="res://.godot/imported/yes_button.png-88606f2d37f5fbc517cc514c3f4c2b0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/male_nasa_scientist.png"
-dest_files=["res://.godot/imported/male_nasa_scientist.png-eab570f0b07f928c7d5fc1b7070a7be1.ctex"]
+source_file="res://assets/sprites/intro_scene/yes_button.png"
+dest_files=["res://.godot/imported/yes_button.png-88606f2d37f5fbc517cc514c3f4c2b0a.ctex"]
 
 [params]
 

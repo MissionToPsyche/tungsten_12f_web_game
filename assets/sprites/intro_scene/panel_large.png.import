@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnvxtvvmyf3m8"
-path="res://.godot/imported/female_nasa_scientist.png-a653a3752bc6f1bc1360e2910d783f69.ctex"
+uid="uid://bew13dphnnfmg"
+path="res://.godot/imported/panel_large.png-c54c9d6523424470cda944971c854978.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/female_nasa_scientist.png"
-dest_files=["res://.godot/imported/female_nasa_scientist.png-a653a3752bc6f1bc1360e2910d783f69.ctex"]
+source_file="res://assets/sprites/intro_scene/panel_large.png"
+dest_files=["res://.godot/imported/panel_large.png-c54c9d6523424470cda944971c854978.ctex"]
 
 [params]
 

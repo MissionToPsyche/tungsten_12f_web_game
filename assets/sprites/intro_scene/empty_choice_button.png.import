@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8pc4whyg81nj"
-path="res://.godot/imported/office.jpg-4fede358cc34bd8ac4514a1221a0ec96.ctex"
+uid="uid://c2l1x78pr3w2g"
+path="res://.godot/imported/empty_choice_button.png-30fda0aca9acce2067dfe04a8f3cb37c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/office.jpg"
-dest_files=["res://.godot/imported/office.jpg-4fede358cc34bd8ac4514a1221a0ec96.ctex"]
+source_file="res://assets/sprites/intro_scene/empty_choice_button.png"
+dest_files=["res://.godot/imported/empty_choice_button.png-30fda0aca9acce2067dfe04a8f3cb37c.ctex"]
 
 [params]
 

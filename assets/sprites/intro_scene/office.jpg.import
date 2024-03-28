@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w2cdqlgfwi7"
-path="res://.godot/imported/empty_text_label.png-6a1d63a8fb56e67086c7a278813c790b.ctex"
+uid="uid://c8pc4whyg81nj"
+path="res://.godot/imported/office.jpg-91bf0d41ffac25822d3f1e66d01c2a3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/empty_text_label.png"
-dest_files=["res://.godot/imported/empty_text_label.png-6a1d63a8fb56e67086c7a278813c790b.ctex"]
+source_file="res://assets/sprites/intro_scene/office.jpg"
+dest_files=["res://.godot/imported/office.jpg-91bf0d41ffac25822d3f1e66d01c2a3d.ctex"]
 
 [params]
 

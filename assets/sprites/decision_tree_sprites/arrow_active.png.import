@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7i3nl35vqui1"
-path="res://.godot/imported/arrow_inactive.png-41a55a6abe71be7f854b2e637c17a99c.ctex"
+uid="uid://btk20pv7chjrf"
+path="res://.godot/imported/arrow_active.png-e90bfc65f0b2b5c63ae9eeaff142972d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/arrow_inactive.png"
-dest_files=["res://.godot/imported/arrow_inactive.png-41a55a6abe71be7f854b2e637c17a99c.ctex"]
+source_file="res://assets/sprites/decision_tree_sprites/arrow_active.png"
+dest_files=["res://.godot/imported/arrow_active.png-e90bfc65f0b2b5c63ae9eeaff142972d.ctex"]
 
 [params]
 

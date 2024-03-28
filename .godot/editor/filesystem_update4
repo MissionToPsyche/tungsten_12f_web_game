@@ -1,8 +1,9 @@
-res://DesignScene/DesignScene.tscn
+res://DecesionTreeScene/decision_tree.tscn
 res://Character.gd
+res://IntroScene/node_2d.tscn
+res://DesignScene/DesignScene.tscn
 res://Intro/Game_Intro.tscn
 res://TitleScene/main.tscn
-res://IntroScene/node_2d.tscn
 res://TeamBuilderScene/team_builder.tscn
 res://character.tscn
-res://DecesionTreeScene/decision_tree.tscn
+res://TeamBuilderScene/team_builder.gd

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iitp1hyrm6e3"
-path="res://.godot/imported/green_panel_large.png-ccfcaa6a4e87445b17be9870c09a63e6.ctex"
+uid="uid://c7i3nl35vqui1"
+path="res://.godot/imported/arrow_inactive.png-a816d7083047d3d967713bc11794617f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/green_panel_large.png"
-dest_files=["res://.godot/imported/green_panel_large.png-ccfcaa6a4e87445b17be9870c09a63e6.ctex"]
+source_file="res://assets/sprites/decision_tree_sprites/arrow_inactive.png"
+dest_files=["res://.godot/imported/arrow_inactive.png-a816d7083047d3d967713bc11794617f.ctex"]
 
 [params]
 

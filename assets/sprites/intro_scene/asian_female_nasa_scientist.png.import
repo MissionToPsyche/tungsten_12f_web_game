@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w3x668sbd1k5"
-path="res://.godot/imported/sound_on.png-26b4f8ff8538bd72770dd55ed5b7d9b3.ctex"
+uid="uid://b8twyjkioshp8"
+path="res://.godot/imported/asian_female_nasa_scientist.png-3540d4c337bb7d8731b7c26325312efb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sound_on.png"
-dest_files=["res://.godot/imported/sound_on.png-26b4f8ff8538bd72770dd55ed5b7d9b3.ctex"]
+source_file="res://assets/sprites/intro_scene/asian_female_nasa_scientist.png"
+dest_files=["res://.godot/imported/asian_female_nasa_scientist.png-3540d4c337bb7d8731b7c26325312efb.ctex"]
 
 [params]
 

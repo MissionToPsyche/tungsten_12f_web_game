@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1yn6h484qkby"
-path="res://.godot/imported/continue_sprite.png-05edfc850f50f68bfebe1275985ca194.ctex"
+uid="uid://clmder38b4mgw"
+path="res://.godot/imported/red_panel_small.png-8d0a494ec8e8c44fb30e95fd9f13be5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/continue_sprite.png"
-dest_files=["res://.godot/imported/continue_sprite.png-05edfc850f50f68bfebe1275985ca194.ctex"]
+source_file="res://assets/sprites/intro_scene/red_panel_small.png"
+dest_files=["res://.godot/imported/red_panel_small.png-8d0a494ec8e8c44fb30e95fd9f13be5c.ctex"]
 
 [params]
 

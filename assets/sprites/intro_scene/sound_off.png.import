@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btk20pv7chjrf"
-path="res://.godot/imported/arrow_active.png-16329a7af3d302b98be610896e5b12df.ctex"
+uid="uid://2wmaupvsb1xf"
+path="res://.godot/imported/sound_off.png-d7f0b1b2abdcc59b2504b169a38f4d5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/arrow_active.png"
-dest_files=["res://.godot/imported/arrow_active.png-16329a7af3d302b98be610896e5b12df.ctex"]
+source_file="res://assets/sprites/intro_scene/sound_off.png"
+dest_files=["res://.godot/imported/sound_off.png-d7f0b1b2abdcc59b2504b169a38f4d5f.ctex"]
 
 [params]
 

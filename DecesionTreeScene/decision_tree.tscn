@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cah0a1fqtr7at" path="res://assets/sprites/decision_tree_sprites/raw_ore2.png" id="9_7gbh0"]
 [ext_resource type="Script" path="res://DecesionTreeScene/ButtonScripts.gd" id="10_dt8al"]
 [ext_resource type="Texture2D" uid="uid://uhddq1lnpwad" path="res://assets/sprites/decision_tree_sprites/muted_space.png" id="11_6ori3"]
-[ext_resource type="Texture2D" uid="uid://btk20pv7chjrf" path="res://assets/sprites/arrow_active.png" id="12_c04pp"]
-[ext_resource type="Texture2D" uid="uid://c7i3nl35vqui1" path="res://assets/sprites/arrow_inactive.png" id="13_fnpjq"]
+[ext_resource type="Texture2D" uid="uid://btk20pv7chjrf" path="res://assets/sprites/decision_tree_sprites/arrow_active.png" id="12_pid2b"]
+[ext_resource type="Texture2D" uid="uid://c7i3nl35vqui1" path="res://assets/sprites/decision_tree_sprites/arrow_inactive.png" id="13_psgvn"]
 [ext_resource type="Texture2D" uid="uid://cqj8k6i6cfc7o" path="res://assets/sprites/decision_tree_sprites/start.png" id="14_x6bah"]
 [ext_resource type="Texture2D" uid="uid://crauckbreb8eu" path="res://assets/sprites/decision_tree_sprites/end.png" id="15_65jos"]
 
@@ -122,102 +122,102 @@ script = ExtResource("10_dt8al")
 [node name="ArrowActive1" type="Sprite2D" parent="UI"]
 position = Vector2(425, -210)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive1" type="Sprite2D" parent="UI"]
 position = Vector2(342, 734)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive2" type="Sprite2D" parent="UI"]
 position = Vector2(261, -143)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive2" type="Sprite2D" parent="UI"]
 position = Vector2(342, 743)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive3" type="Sprite2D" parent="UI"]
 position = Vector2(538, -148)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive3" type="Sprite2D" parent="UI"]
 position = Vector2(342, 746)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive4" type="Sprite2D" parent="UI"]
 position = Vector2(665, -245)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive4" type="Sprite2D" parent="UI"]
 position = Vector2(293, 739)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive5" type="Sprite2D" parent="UI"]
 position = Vector2(465, -91)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive5" type="Sprite2D" parent="UI"]
 position = Vector2(253, 712)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive6" type="Sprite2D" parent="UI"]
 position = Vector2(465, -201)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive6" type="Sprite2D" parent="UI"]
 position = Vector2(253, 712)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive7" type="Sprite2D" parent="UI"]
 position = Vector2(477, -87)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive7" type="Sprite2D" parent="UI"]
 position = Vector2(253, 712)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive8" type="Sprite2D" parent="UI"]
 position = Vector2(455, -130)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive8" type="Sprite2D" parent="UI"]
 position = Vector2(253, 712)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive9" type="Sprite2D" parent="UI"]
 position = Vector2(352, -157)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive9" type="Sprite2D" parent="UI"]
 position = Vector2(253, 712)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="ArrowActive10" type="Sprite2D" parent="UI"]
 position = Vector2(214, -225)
 scale = Vector2(0.268832, 0.20751)
-texture = ExtResource("12_c04pp")
+texture = ExtResource("12_pid2b")
 
 [node name="ArrowInactive10" type="Sprite2D" parent="UI"]
 position = Vector2(281, 779)
 scale = Vector2(0.263012, 0.205039)
-texture = ExtResource("13_fnpjq")
+texture = ExtResource("13_psgvn")
 
 [node name="start" type="Sprite2D" parent="UI"]
 position = Vector2(77, 361)

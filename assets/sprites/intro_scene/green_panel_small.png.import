@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://243ql2ef3vg0"
-path="res://.godot/imported/team_office_blur.png-1f4f0777402eb55eb71e51fd3d612926.ctex"
+uid="uid://c51y7aald6tin"
+path="res://.godot/imported/green_panel_small.png-b1ed8621433ab591a5b63a0e17d1496d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/team_office_blur.png"
-dest_files=["res://.godot/imported/team_office_blur.png-1f4f0777402eb55eb71e51fd3d612926.ctex"]
+source_file="res://assets/sprites/intro_scene/green_panel_small.png"
+dest_files=["res://.godot/imported/green_panel_small.png-b1ed8621433ab591a5b63a0e17d1496d.ctex"]
 
 [params]
 

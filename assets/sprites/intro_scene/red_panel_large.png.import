@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdxk14ek7ssp6"
-path="res://.godot/imported/yes_button.png-02a336ed851bc742968adb3f66b2d1ec.ctex"
+uid="uid://c4oycrhuu8kia"
+path="res://.godot/imported/red_panel_large.png-6a5090de05f333ae47a1b59f26a37ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/yes_button.png"
-dest_files=["res://.godot/imported/yes_button.png-02a336ed851bc742968adb3f66b2d1ec.ctex"]
+source_file="res://assets/sprites/intro_scene/red_panel_large.png"
+dest_files=["res://.godot/imported/red_panel_large.png-6a5090de05f333ae47a1b59f26a37ce5.ctex"]
 
 [params]
 
