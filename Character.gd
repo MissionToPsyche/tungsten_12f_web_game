@@ -12,21 +12,23 @@ var character_sprite: Sprite2D
 var Skill1: AnimatedSprite2D
 var Skill2: AnimatedSprite2D
 var character_label: Label
+var is_final_display = false
 
 func _ready():
-	randomize()
-	randomize_stats()  # Set random stats for this character instance
-	character_sprite = $CharacterSprite  # Assuming the Sprite2D is a direct child of this Node2D
-	Skill1 = $Skill1
-	Skill2 = $Skill2
-	var Skill1Label = $Skill1Label
-	var Skill2Label = $Skill2Label
-	print("Character name:", character_name)
-	print("Character stats:", character_stats)
-	update_skill_frames()
-	update_skill_labels()
-	character_sprite.set_process_input(true)
-	character_sprite.call_deferred("set_name", character_name)
+	if not is_final_display:
+		randomize()
+		randomize_stats()  # Set random stats for this character instance
+		character_sprite = $CharacterSprite  # Assuming the Sprite2D is a direct child of this Node2D
+		Skill1 = $Skill1
+		Skill2 = $Skill2
+		var Skill1Label = $Skill1Label
+		var Skill2Label = $Skill2Label
+		print("Character name:", character_name)
+		print("Character stats:", character_stats)
+		update_skill_frames()
+		update_skill_labels()
+		character_sprite.set_process_input(true)
+		character_sprite.call_deferred("set_name", character_name)
 
 func randomize_stats():
 	# Randomize stats here
@@ -116,7 +118,10 @@ func update_final_display(skill1_frame, skill2_frame):
 func update_skill_labels_final(skill1_frame, skill2_frame):
 	var Skill1Label = $Skill1Label
 	var Skill2Label = $Skill2Label
-
+	
+	print("Updating skill labels for final display")
+	print("Skill1 frame:", skill1_frame)
+	print("Skill2 frame:", skill2_frame)
 	# Determine the skill names based on the frames
 	var skill1 = get_skill_name(skill1_frame)
 	var skill2 = get_skill_name(skill2_frame)

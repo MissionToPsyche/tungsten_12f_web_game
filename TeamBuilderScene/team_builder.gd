@@ -91,19 +91,28 @@ func _on_character_selected(name, info):
 		var hbox_container = $CharactersContainer
 		hbox_container.queue_free_children()
 		var character_index = 0
+		print("Displaying final team")
+		print("Chosen characters:", chosen_characters)
 		for i in range(3):
+
 			var character_info = chosen_characters[i]
 			var character_instance = preload("res://character.tscn").instantiate()
 			character_instance.character_name = character_info["name"]
 			character_instance.character_stats = character_info["stats"]
 			
-			var skill1_frame = chosen_skill_frames[i][0]
-			var skill2_frame = chosen_skill_frames[i][1]
-			print("Final display - Character:", character_info["name"])
-			print("Final display - Skill frames:", [skill1_frame, skill2_frame])
-			character_instance.update_final_display(skill1_frame, skill2_frame)
+			character_instance.Skill1 = character_instance.get_node("Skill1")
+			character_instance.Skill2 = character_instance.get_node("Skill2")
+			
+			character_instance.Skill1.frame = character_info["skill1_frame"]
+			character_instance.Skill2.frame = character_info["skill2_frame"]
+			character_instance.update_skill_labels_final(character_info["skill1_frame"], character_info["skill2_frame"])
+			character_instance.is_final_display = true
+			add_child(character_instance)
 
-
+			print("Character instance created for:", character_info["name"])
+			print("Skill1 frame:", character_instance.Skill1.frame)
+			print("Skill2 frame:", character_instance.Skill2.frame)
+			
 			var sprite = character_instance.get_node("CharacterSprite")
 			sprite.texture = load(sprite_path + character_info["name"] + ".png")
 			var character_label = character_instance.get_node("CharacterLabel")
@@ -112,6 +121,7 @@ func _on_character_selected(name, info):
 			hbox_container.add_child(character_instance)
 			character_index += 1
 		
+		print("Final team displayed")
 		Global.set_input_allowed(false) #no clicking
 		# Show congratulations message and transition to next scene after delay
 		$ConfirmationContainer/ConfirmationLabel.text = "Congratulations, you have your team"
