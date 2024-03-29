@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://dajx6uj4fc6mq"]
+
+[ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="1_w7s7m"]
+[ext_resource type="Script" path="res://DesignScene/DesignScene.gd" id="2_w8gbn"]
+
+[node name="DesignScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w7s7m")
+script = ExtResource("2_w8gbn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CartPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 122.0
+offset_right = 758.0
+offset_bottom = 521.0
+
+[node name="CartItemList" type="ItemList" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 65.0
+offset_right = 299.0
+offset_bottom = 265.0
+
+[node name="CartLabel" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 28.0
+offset_right = 198.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 18
+text = "Cart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalLabel" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 349.0
+offset_right = 155.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 18
+text = "Total:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemoveFromCartButton" type="Button" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 284.0
+offset_right = 228.0
+offset_bottom = 323.0
+text = "Remove From Cart"
+
+[node name="PriceButton" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 349.0
+offset_right = 274.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="ShopPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 40.0
+offset_right = 380.0
+offset_bottom = 597.0
+
+[node name="ShopItemList" type="ItemList" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 159.0
+offset_right = 316.0
+offset_bottom = 499.0
+
+[node name="CommunicationButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 112.0
+offset_right = 232.0
+offset_bottom = 151.0
+text = "Communications"
+script = ExtResource("2_w8gbn")
+
+[node name="PropulsionButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 17.0
+offset_right = 291.0
+offset_bottom = 56.0
+text = "Thruster"
+
+[node name="PowerSystemButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 17.0
+offset_right = 172.0
+offset_bottom = 56.0
+text = "Power System"
+
+[node name="SpacecraftBusButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 66.0
+offset_right = 172.0
+offset_bottom = 105.0
+text = "Spacecraft Bus"
+
+[node name="PayloadButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 66.0
+offset_right = 291.0
+offset_bottom = 105.0
+text = "Payloads"
+
+[node name="AddtoCartButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 506.0
+offset_right = 229.0
+offset_bottom = 545.0
+text = "Add 2 Cart"
+
+[node name="BackButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 14.0
+offset_right = 642.0
+offset_bottom = 36.0
+text = "Back "
+
+[connection signal="pressed" from="Panel/ShopPanel/CommunicationButton" to="." method="add_part_to_shop_item_list"]

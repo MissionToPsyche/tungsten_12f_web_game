@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dulom3bo5jjfd"]
+
+[ext_resource type="Texture2D" uid="uid://d1oqq2lqbs16e" path="res://DesignScene/Assets/terminal-background.jpg" id="1_mm0ry"]
+[ext_resource type="Script" path="res://DesignScene/DesignScene.gd" id="1_u7iyn"]
+[ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="3_tpa1c"]
+
+[node name="DesignScene" type="Node2D"]
+script = ExtResource("1_u7iyn")
+
+[node name="black-background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("1_mm0ry")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_tpa1c")
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(0.623529, 0.941176, 0.321569, 1)
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 1
+offset_left = 5.0
+offset_top = 35.0
+offset_right = 1149.0
+offset_bottom = 600.0
+
+[node name="TabContainer" type="TabContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 1134.0
+offset_bottom = 556.0
+
+[node name="TabBar" type="TabBar" parent="Control/Panel/TabContainer"]
+layout_mode = 2
+tab_count = 1
+tab_0/title = ""
