@@ -1,3 +1,4 @@
+# satellite_lab.gd
 extends Node2D
 
 
@@ -9,3 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_design_button_pressed():
+	get_tree().change_scene_to_file("res://DesignScene/DesignScene.tscn")

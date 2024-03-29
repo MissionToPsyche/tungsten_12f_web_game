@@ -1,93 +1,229 @@
-[gd_scene load_steps=5 format=3 uid="uid://dulom3bo5jjfd"]
+[gd_scene load_steps=3 format=3 uid="uid://dajx6uj4fc6mq"]
 
-[ext_resource type="Texture2D" uid="uid://d1oqq2lqbs16e" path="res://DesignScene/Assets/terminal-background.jpg" id="1_mm0ry"]
-[ext_resource type="Script" path="res://DesignScene/DesignScene.gd" id="1_u7iyn"]
-[ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_x55oi"]
-[ext_resource type="Texture2D" uid="uid://b4prybdin5r7i" path="res://DesignScene/Assets/satellite-image.png" id="3_sbla5"]
+[ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="1_w7s7m"]
+[ext_resource type="Script" path="res://DesignScene/DesignScene.gd" id="2_w8gbn"]
 
-[node name="DesignScene" type="Node2D"]
-script = ExtResource("1_u7iyn")
-
-[node name="black-background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(576, 324)
-scale = Vector2(1.44, 1.44)
-texture = ExtResource("1_mm0ry")
-metadata/_edit_lock_ = true
-
-[node name="Control" type="Control" parent="."]
+[node name="DesignScene" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 96.0
-offset_top = 81.0
-offset_right = 136.0
-offset_bottom = 121.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w7s7m")
+script = ExtResource("2_w8gbn")
 
-[node name="Categories" type="VBoxContainer" parent="Control"]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CartPanel" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = -81.0
-offset_top = -42.0
-offset_right = 62.0
-offset_bottom = 514.0
+offset_left = 782.0
+offset_top = 75.0
+offset_right = 1113.0
+offset_bottom = 631.0
 
-[node name="Payload" type="Button" parent="Control/Categories"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
-theme_override_fonts/font = ExtResource("2_x55oi")
-text = "Payload"
-
-[node name="Payload" type="VBoxContainer" parent="Control/Categories/Payload"]
+[node name="CartItemList" type="ItemList" parent="Panel/CartPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 31.0
+offset_top = 65.0
+offset_right = 299.0
+offset_bottom = 265.0
 
-[node name="Communications" type="Button" parent="Control/Categories"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
-theme_override_fonts/font = ExtResource("2_x55oi")
+[node name="CartLabel" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 28.0
+offset_right = 198.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 18
+text = "Cart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalLabel" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 511.0
+offset_right = 314.0
+offset_bottom = 531.0
+theme_override_font_sizes/font_size = 18
+text = "Total: $0.00"
+vertical_alignment = 1
+
+[node name="RemoveFromCartButton" type="Button" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 284.0
+offset_right = 228.0
+offset_bottom = 323.0
+text = "Remove From Cart"
+
+[node name="CheckoutButton" type="Button" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 433.0
+offset_right = 226.0
+offset_bottom = 472.0
+text = "Checkout"
+
+[node name="WarningLabel" type="Label" parent="Panel/CartPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 362.0
+offset_right = 306.0
+offset_bottom = 382.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 74.0
+offset_right = 750.0
+offset_bottom = 631.0
+
+[node name="ShopItemList" type="ItemList" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 159.0
+offset_right = 316.0
+offset_bottom = 499.0
+
+[node name="CommunicationButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 112.0
+offset_right = 232.0
+offset_bottom = 151.0
 text = "Communications"
 
-[node name="Communications" type="VBoxContainer" parent="Control/Categories/Communications"]
+[node name="PropulsionButton" type="Button" parent="Panel/ShopPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 185.0
+offset_top = 17.0
+offset_right = 291.0
+offset_bottom = 56.0
+text = "Thruster"
 
-[node name="PowerSystem" type="Button" parent="Control/Categories"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
-theme_override_fonts/font = ExtResource("2_x55oi")
+[node name="PowerSystemButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 17.0
+offset_right = 172.0
+offset_bottom = 56.0
 text = "Power System"
 
-[node name="PowerSystem" type="VBoxContainer" parent="Control/Categories/PowerSystem"]
+[node name="SpacecraftBusButton" type="Button" parent="Panel/ShopPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Propulsion" type="Button" parent="Control/Categories"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
-theme_override_fonts/font = ExtResource("2_x55oi")
-text = "Propulsion"
-
-[node name="Propulsion" type="VBoxContainer" parent="Control/Categories/Propulsion"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SpacecraftBus" type="Button" parent="Control/Categories"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.396078, 0.803922, 0.588235, 1)
-theme_override_fonts/font = ExtResource("2_x55oi")
+offset_left = 66.0
+offset_top = 66.0
+offset_right = 172.0
+offset_bottom = 105.0
 text = "Spacecraft Bus"
 
-[node name="SpacecraftBus" type="VBoxContainer" parent="Control/Categories/SpacecraftBus"]
+[node name="PayloadButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 66.0
+offset_right = 291.0
+offset_bottom = 105.0
+text = "Payloads"
+
+[node name="AddtoCartButton" type="Button" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 506.0
+offset_right = 229.0
+offset_bottom = 545.0
+text = "Add 2 Cart"
+
+[node name="DescriptionLabel" type="Label" parent="Panel/ShopPanel"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 167.0
+offset_right = 702.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 14.0
+offset_right = 673.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 18
+text = "Back "
+
+[node name="ConfirmPanel" type="Panel" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 205.0
+offset_right = 809.0
+offset_bottom = 410.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ConfirmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.592157, 0.623529, 1)
+
+[node name="Label" type="Label" parent="Panel/ConfirmPanel/ColorRect"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 9.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(538, 309)
-scale = Vector2(0.333984, 0.321777)
-texture = ExtResource("3_sbla5")
+[node name="CofirmLabel" type="Label" parent="Panel/ConfirmPanel/ColorRect"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 37.0
+offset_right = 328.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 16
+text = "Confirm Satellite Design?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="YesButton" type="Button" parent="Panel/ConfirmPanel/ColorRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 95.0
+offset_right = 166.0
+offset_bottom = 137.0
+text = "YES"
+
+[node name="NoButton" type="Button" parent="Panel/ConfirmPanel/ColorRect"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 95.0
+offset_right = 339.0
+offset_bottom = 137.0
+text = "NO"
+
+[connection signal="pressed" from="Panel/CartPanel/RemoveFromCartButton" to="." method="_on_remove_from_cart_button_pressed"]
+[connection signal="pressed" from="Panel/CartPanel/CheckoutButton" to="." method="_on_checkout_button_pressed"]
+[connection signal="item_selected" from="Panel/ShopPanel/ShopItemList" to="." method="_on_shop_item_selected"]
+[connection signal="pressed" from="Panel/ShopPanel/CommunicationButton" to="." method="_on_communication_button_pressed"]
+[connection signal="pressed" from="Panel/ShopPanel/PropulsionButton" to="." method="_on_propulsion_button_pressed"]
+[connection signal="pressed" from="Panel/ShopPanel/PowerSystemButton" to="." method="_on_power_system_button_pressed"]
+[connection signal="pressed" from="Panel/ShopPanel/SpacecraftBusButton" to="." method="_on_spacecraft_bus_button_pressed"]
+[connection signal="pressed" from="Panel/ShopPanel/PayloadButton" to="." method="_on_payload_button_pressed"]
+[connection signal="pressed" from="Panel/ShopPanel/AddtoCartButton" to="." method="_on_add_to_cart_button_pressed"]
+[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/ConfirmPanel/ColorRect/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="Panel/ConfirmPanel/ColorRect/NoButton" to="." method="_on_no_button_pressed"]

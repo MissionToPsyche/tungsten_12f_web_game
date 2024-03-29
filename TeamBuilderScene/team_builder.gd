@@ -129,7 +129,7 @@ func _on_character_selected(name, info):
 		$ConfirmationContainer.show()
 		await get_tree().create_timer(3.0).timeout
 		Global.set_input_allowed(true)
-		get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
+		get_tree().change_scene_to_file("res://BuilderScene/satellite-lab.tscn")
 		#completion label and switch scenes
 
 func set_character_position_and_size(character_instance, position_index):
