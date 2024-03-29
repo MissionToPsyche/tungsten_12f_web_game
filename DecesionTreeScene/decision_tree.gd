@@ -31,7 +31,7 @@ func initialize_button_positions():
 func assign_minigames_to_buttons():
 	# Define fixed scenes for certain buttons
 	minigame_buttons["Marketing"] = 'res://marketing_minigame.tscn'
-	minigame_buttons["Simulation"] = 'res://simulation_minigame.tscn'
+	minigame_buttons["Simulation"] = 'res://main.tscn'  #greeshma mini game 
 	minigame_buttons["Simulation2"] = 'res://simulation_minigame.tscn'
 	minigame_buttons["Ore"] = 'res://ore_minigame.tscn'
 	
