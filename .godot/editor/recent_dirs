@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 res://
 res://DesignScene/Assets
+=======
+res://assets/sprites
+res://assets/sprites/decision_tree_sprites
+res://
+res://DecesionTreeScene
+res://IntroScene
+res://Intro
+>>>>>>> ae7630d24d24048725c7f68d3669b3558278e589
 res://DesignScene
 C:/Users/pimpb/OneDrive/Desktop/Capstone/tungsten_12f_web_game/DesignScene
 res://BuilderScene

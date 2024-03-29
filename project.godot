@@ -20,7 +20,11 @@ Global="*res://Global.gd"
 
 [display]
 
+<<<<<<< HEAD
 window/stretch/aspect="ignore"
+=======
+window/stretch/mode="viewport"
+>>>>>>> ae7630d24d24048725c7f68d3669b3558278e589
 
 [rendering]
 

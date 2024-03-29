@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=3 uid="uid://c1eovyd6y7e0u"]
+
+[ext_resource type="Script" path="res://IntroScene/Intro.gd" id="1_n6qel"]
+[ext_resource type="Texture2D" uid="uid://dpoe0x7hi2tex" path="res://assets/sprites/team_builder_sprites/office.jpg" id="2_f8opm"]
+[ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/intro_scene/female_nasa_scientist.png" id="3_mjj6o"]
+[ext_resource type="Texture2D" uid="uid://bew13dphnnfmg" path="res://assets/sprites/intro_scene/panel_large.png" id="4_bocyg"]
+[ext_resource type="Texture2D" uid="uid://w3x668sbd1k5" path="res://assets/sprites/intro_scene/sound_on.png" id="6_w4v18"]
+[ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/intro_scene/sound_off.png" id="7_em8fc"]
+[ext_resource type="Script" path="res://IntroScene/sound.gd" id="7_uhfwe"]
+[ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="9_s84ku"]
+[ext_resource type="Texture2D" uid="uid://1yn6h484qkby" path="res://assets/sprites/intro_scene/continue_sprite.png" id="10_gmjx1"]
+
+[sub_resource type="Animation" id="Animation_5mkt4"]
+resource_name = "Black-out"
+
+[sub_resource type="Animation" id="Animation_6o26c"]
+resource_name = "Black_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vy8iw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3a0sm"]
+_data = {
+"Black-out": SubResource("Animation_5mkt4"),
+"Black_in": SubResource("Animation_6o26c"),
+"RESET": SubResource("Animation_vy8iw")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(911, 572)
+script = ExtResource("1_n6qel")
+
+[node name="LabBackground" type="Sprite2D" parent="."]
+position = Vector2(-322, -254)
+scale = Vector2(0.813249, 0.787433)
+texture = ExtResource("2_f8opm")
+
+[node name="NasaScientist" type="Sprite2D" parent="."]
+position = Vector2(-771, -127)
+scale = Vector2(0.467121, 0.445808)
+texture = ExtResource("3_mjj6o")
+
+[node name="Panel" type="TextureRect" parent="."]
+offset_left = -597.0
+offset_top = -84.0
+offset_right = 192.0
+offset_bottom = 64.0
+texture = ExtResource("4_bocyg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.537888
+anchor_top = 1.02365
+anchor_right = 0.565772
+anchor_bottom = 1.02365
+offset_left = -408.394
+offset_top = -129.5
+offset_right = 344.606
+offset_bottom = -15.5
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("9_s84ku")
+theme_override_font_sizes/font_size = 35
+text = "Hi there, space explorer! Let's assemble our star team and unlock the secrets of how planets are made with the exciting Psyche mission!"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Panel/Label"]
+
+[node name="sound" type="TextureButton" parent="."]
+offset_left = -1778.0
+offset_top = -519.0
+offset_right = -982.0
+offset_bottom = 275.0
+toggle_mode = true
+texture_normal = ExtResource("6_w4v18")
+texture_pressed = ExtResource("7_em8fc")
+texture_disabled = ExtResource("7_em8fc")
+script = ExtResource("7_uhfwe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ae2sr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -922.0
+offset_top = -614.0
+offset_right = 962.0
+offset_bottom = 624.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3a0sm")
+}
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+offset_left = -8.0
+offset_top = -558.0
+offset_right = 236.0
+offset_bottom = -485.0
+texture_normal = ExtResource("10_gmjx1")
+stretch_mode = 0
+
+[connection signal="pressed" from="sound" to="sound" method="_on_pressed"]

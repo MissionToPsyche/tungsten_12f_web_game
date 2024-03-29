@@ -1,6 +1,7 @@
 # Global.gd
 extends Node
 
+<<<<<<< HEAD
 # Preload the SatellitePart script file
 const SatelliteParts = preload("res://Classes/SatellitePart.gd")
 
@@ -28,3 +29,9 @@ func _init():
 #	current_satellite.add_part(power_part)
 #	current_satellite.add_part(propulsion_part)
 #	current_satellite.add_part(bus_part)
+=======
+var input_allowed = true
+
+func set_input_allowed(allowed):
+	input_allowed = allowed
+>>>>>>> ae7630d24d24048725c7f68d3669b3558278e589

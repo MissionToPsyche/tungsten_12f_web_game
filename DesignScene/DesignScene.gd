@@ -16,6 +16,7 @@ var File = preload("res://Classes/all_parts.json")
 var data_file_path = "res://Classes/all_parts.json"
 
 func _ready():
+<<<<<<< HEAD
 	load_json_file(data_file_path)
 	update_total_cost()  # Initialize the total cost label
 	print(Global.current_satellite.get_string_representation())
@@ -38,6 +39,21 @@ func load_json_file(filePath: String) -> Dictionary:
 	else:
 		print("File doesn't exist!")
 	return {}  # Return an empty dictionary if the file doesn't exist or there's an error
+=======
+	# Assuming your category buttons are direct children of a node called "Categories"
+	var category_buttons = get_node("Control/Categories")
+	for button in category_buttons.get_children():
+		if button is Button:
+
+			# button.pressed.connect("pressed", self, "_on_CategoryButton_pressed")
+
+			# button.connect("pressed", self, "_on_CategoryButton_pressed", [button.name])
+			# button.pressed.connect(self._on_CategoryButton_pressed)
+			# button.pressed.connect(self._on_CategoryButton_pressed.bind(button.name))
+			var placeholder = 0
+	initialize_parts()
+	update_ui()
+>>>>>>> ae7630d24d24048725c7f68d3669b3558278e589
 
 func load_parts():
 	var file = File.new()
@@ -47,6 +63,7 @@ func load_parts():
 
 		# Retrieve data
 		var json = JSON.new()
+<<<<<<< HEAD
 		var error = json.parse(json_text)
 		
 		if error == OK:
@@ -56,6 +73,40 @@ func load_parts():
 				for part_data in data_received[category]:
 					var part = create_part_instance(category, part_data)
 					satellite_parts[category].append(part)
+=======
+		var json_result = json.parse(json_text, true)
+		# json_result is a Dictionary with 'error' and 'result' keys
+		if json_result == OK:
+			var data = json.get_data()  # This is the parsed JSON data
+
+			# Create instances of parts based on the JSON data
+			for category in data.keys():
+				available_parts[category] = []
+				var category_vbox_path = "Control/Categories/" + category + "/" + category
+				if has_node(category_vbox_path):
+					var category_vbox = get_node(category_vbox_path)
+					
+					# Clear existing buttons if any
+					for child in category_vbox.get_children():
+						if child is Button:
+							child.queue_free()
+					
+					for part_data in data[category]:
+						var part = create_part_instance(category, part_data)
+						available_parts[category].append(part)
+						
+						# Create a button for the part
+						var part_button = Button.new()
+						part_button.text = part_data["name"]
+						#part_button.connect("pressed", self, "_on_PartButton_pressed")
+						#part_button.call_deferred("pressed", self, "_on_PartButton_pressed", [part_button, category, part])
+
+						
+						# Add the button to the VBoxContainer
+						category_vbox.add_child(part_button)
+				else:
+					print("Category VBoxContainer path not found: " + category_vbox_path)
+>>>>>>> ae7630d24d24048725c7f68d3669b3558278e589
 		else:
 			print("JSON Parse Error: ", json.get_error_message(), " in ", json_text, " at line ", json.get_error_line())
 	else:
@@ -87,9 +138,31 @@ func add_part_to_shop_item_list(part: SatellitePart):
 	# Add the part name to the item list
 	$Panel/ShopPanel/ShopItemList.add_item(text)
 
+<<<<<<< HEAD
 # Method to load parts into the ShopItemList based on category
 func load_parts_into_shop_item_list(category: String):
 	$Panel/ShopPanel/ShopItemList.clear()  # Clear the current list
+=======
+func _on_CategoryButton_pressed(category):
+	var category_buttons = get_node("Categories")
+	for button in category_buttons.get_children():
+		if button is Button and button.pressed:
+			var selected_category = button.name  # or any other property you need
+			show_components_for_category(category)
+			break
+
+#func _on_CategoryButton_pressed(button: Button):
+	# Now you can use the 'button' directly
+	#show_components_for_category(button.name)
+
+func add_part_to_satellite(category, part):
+	# Assume part is an instance of SatellitePart
+	if part.is_compatible_with_current_configuration():
+		satellite_parts[category] = part
+		update_ui()
+
+func remove_part_from_satellite(category):
+>>>>>>> ae7630d24d24048725c7f68d3669b3558278e589
 	if category in satellite_parts:
 		for part in satellite_parts[category]:
 			print(part.get_string_representation())
