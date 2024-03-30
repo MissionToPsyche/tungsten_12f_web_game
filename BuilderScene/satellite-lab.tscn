@@ -88,3 +88,4 @@ flat = true
 expand_icon = true
 
 [connection signal="pressed" from="DesignButton" to="." method="_on_design_button_pressed"]
+[connection signal="pressed" from="Launch" to="." method="_on_launch_pressed"]

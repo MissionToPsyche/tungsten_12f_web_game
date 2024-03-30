@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0i5dfmknwhe"
-path="res://.godot/imported/probe.png-c84a4b78463293f478b48f556cf64532.ctex"
+uid="uid://t1i42cmrltu3"
+path="res://.godot/imported/nextButton.png-cec0349516a51b00fd305aef9bad6bb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/probe.png"
-dest_files=["res://.godot/imported/probe.png-c84a4b78463293f478b48f556cf64532.ctex"]
+source_file="res://Minigame1-Rocketlaunch/assets/nextButton.png"
+dest_files=["res://.godot/imported/nextButton.png-cec0349516a51b00fd305aef9bad6bb6.ctex"]
 
 [params]
 

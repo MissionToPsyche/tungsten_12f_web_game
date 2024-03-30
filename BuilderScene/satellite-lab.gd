@@ -14,3 +14,7 @@ func _process(delta):
 
 func _on_design_button_pressed():
 	get_tree().change_scene_to_file("res://DesignScene/DesignScene.tscn")
+
+
+func _on_launch_pressed():
+	get_tree().change_scene_to_file("res://Minigame1-Rocketlaunch/node_2d.tscn")

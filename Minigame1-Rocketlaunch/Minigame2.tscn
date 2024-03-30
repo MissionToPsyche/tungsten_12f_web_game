@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct65k5dq1nabk"]
+
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/BackgroundMovement.gd" id="1_6u6gv"]
+[ext_resource type="Texture2D" uid="uid://cqvfqtpra37q4" path="res://Minigame1-Rocketlaunch/assets/backgroundSpace.png" id="1_c75uf"]
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/CraftMovement.gd" id="3_17aot"]
+[ext_resource type="Texture2D" uid="uid://bo0i5dfmknwhe" path="res://Minigame1-Rocketlaunch/assets/Probe.png" id="3_d4wpk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qesv1"]
+size = Vector2(445.397, 262.812)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2(1980, 0)
+script = ExtResource("1_6u6gv")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 860)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(575.667, 435)
+scale = Vector2(0.566406, 0.566406)
+texture = ExtResource("1_c75uf")
+
+[node name="Craft" type="Area2D" parent="."]
+script = ExtResource("3_17aot")
+speed = 300
+maxTilt = 40
+TiltSpeed = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Craft"]
+position = Vector2(577, 572)
+scale = Vector2(0.361475, 0.361475)
+texture = ExtResource("3_d4wpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Craft"]
+position = Vector2(576.5, 568.5)
+scale = Vector2(0.361475, 0.361475)
+shape = SubResource("RectangleShape2D_qesv1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 1119.0
+offset_top = 21.0
+offset_right = 1144.0
+offset_bottom = 194.0

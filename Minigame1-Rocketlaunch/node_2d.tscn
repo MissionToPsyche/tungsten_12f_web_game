@@ -1,23 +1,25 @@
-[gd_scene load_steps=33 format=3 uid="uid://b5d28eb5p60qe"]
+[gd_scene load_steps=39 format=3 uid="uid://b5d28eb5p60qe"]
 
-[ext_resource type="Script" path="res://mainScript.gd" id="1_qvqr0"]
-[ext_resource type="Texture2D" uid="uid://b1bqyo7t6ojeb" path="res://assets/groundAndPlatform.png" id="1_tcarb"]
-[ext_resource type="Texture2D" uid="uid://cfsldq0r1enaw" path="res://assets/cloud1.png" id="2_f2nm8"]
-[ext_resource type="Script" path="res://cloudInit.gd" id="2_p86ho"]
-[ext_resource type="Script" path="res://cloud.gd" id="3_8ptby"]
-[ext_resource type="Texture2D" uid="uid://dxhndxreuth6" path="res://assets/cloud2.png" id="5_na33r"]
-[ext_resource type="Texture2D" uid="uid://cy88j86ribods" path="res://assets/cloud3.png" id="6_fm6xy"]
-[ext_resource type="Texture2D" uid="uid://c0q7k3s7weosw" path="res://assets/cloud4.png" id="7_krv2f"]
-[ext_resource type="Script" path="res://ArrowRotation.gd" id="9_css6r"]
-[ext_resource type="Texture2D" uid="uid://dhyqdeag5ytk0" path="res://assets/rocket.png" id="9_kqihl"]
-[ext_resource type="Script" path="res://Arrow.gd" id="10_22nl8"]
-[ext_resource type="Texture2D" uid="uid://4dwsxrh0kayg" path="res://assets/whitearrowoutside.png" id="11_3uh02"]
-[ext_resource type="Texture2D" uid="uid://ccxhu34603stg" path="res://assets/whitearrowinside.png" id="12_du181"]
-[ext_resource type="Texture2D" uid="uid://bg5335nmwlc6y" path="res://assets/goodJob.png" id="14_1kpbt"]
-[ext_resource type="Texture2D" uid="uid://dngy8hvqrxw74" path="res://assets/tryagain.png" id="15_jet8i"]
-[ext_resource type="Texture2D" uid="uid://cly72qvts0thp" path="res://assets/powerbar.png" id="16_eim1l"]
-[ext_resource type="Texture2D" uid="uid://dik1lle437b0y" path="res://assets/stars.png" id="17_p87ai"]
-[ext_resource type="Texture2D" uid="uid://du0er7vkobs7i" path="res://assets/solarsystem.png" id="18_u2gcm"]
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/mainScript.gd" id="1_qvqr0"]
+[ext_resource type="Texture2D" uid="uid://b1bqyo7t6ojeb" path="res://Minigame1-Rocketlaunch/assets/groundAndPlatform.png" id="1_tcarb"]
+[ext_resource type="Texture2D" uid="uid://cfsldq0r1enaw" path="res://Minigame1-Rocketlaunch/assets/cloud1.png" id="2_f2nm8"]
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/cloudInit.gd" id="2_p86ho"]
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/cloud.gd" id="3_8ptby"]
+[ext_resource type="Texture2D" uid="uid://dxhndxreuth6" path="res://Minigame1-Rocketlaunch/assets/cloud2.png" id="5_na33r"]
+[ext_resource type="Texture2D" uid="uid://cy88j86ribods" path="res://Minigame1-Rocketlaunch/assets/cloud3.png" id="6_fm6xy"]
+[ext_resource type="Texture2D" uid="uid://c0q7k3s7weosw" path="res://Minigame1-Rocketlaunch/assets/cloud4.png" id="7_krv2f"]
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/ArrowRotation.gd" id="9_css6r"]
+[ext_resource type="Texture2D" uid="uid://dhyqdeag5ytk0" path="res://Minigame1-Rocketlaunch/assets/rocket.png" id="9_kqihl"]
+[ext_resource type="Script" path="res://Minigame1-Rocketlaunch/Arrow.gd" id="10_22nl8"]
+[ext_resource type="Texture2D" uid="uid://4dwsxrh0kayg" path="res://Minigame1-Rocketlaunch/assets/whitearrowoutside.png" id="11_3uh02"]
+[ext_resource type="Texture2D" uid="uid://ccxhu34603stg" path="res://Minigame1-Rocketlaunch/assets/whitearrowinside.png" id="12_du181"]
+[ext_resource type="Texture2D" uid="uid://bg5335nmwlc6y" path="res://Minigame1-Rocketlaunch/assets/goodJob.png" id="14_1kpbt"]
+[ext_resource type="Texture2D" uid="uid://dngy8hvqrxw74" path="res://Minigame1-Rocketlaunch/assets/tryagain.png" id="15_jet8i"]
+[ext_resource type="Texture2D" uid="uid://cly72qvts0thp" path="res://Minigame1-Rocketlaunch/assets/powerbar.png" id="16_eim1l"]
+[ext_resource type="Texture2D" uid="uid://dik1lle437b0y" path="res://Minigame1-Rocketlaunch/assets/stars.png" id="17_p87ai"]
+[ext_resource type="Texture2D" uid="uid://dakbx375hsa1x" path="res://Minigame1-Rocketlaunch/assets/NextButtonPressed.png" id="18_a1bke"]
+[ext_resource type="Texture2D" uid="uid://t1i42cmrltu3" path="res://Minigame1-Rocketlaunch/assets/nextButton.png" id="18_i26xx"]
+[ext_resource type="Texture2D" uid="uid://du0er7vkobs7i" path="res://Minigame1-Rocketlaunch/assets/solarsystem.png" id="18_u2gcm"]
 
 [sub_resource type="Animation" id="Animation_hy304"]
 resource_name = "CameraPan"
@@ -382,6 +384,20 @@ orbit_velocity_max = 0.0
 scale_max = 10.0
 color = Color(1, 1, 1, 0)
 color_ramp = SubResource("GradientTexture1D_fa5i2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p6my"]
+texture = ExtResource("18_a1bke")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sa28a"]
+texture = ExtResource("18_i26xx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ru63o"]
+texture = ExtResource("18_a1bke")
+
+[sub_resource type="Theme" id="Theme_yi02j"]
+Button/styles/hover = SubResource("StyleBoxTexture_7p6my")
+Button/styles/normal = SubResource("StyleBoxTexture_sa28a")
+Button/styles/pressed = SubResource("StyleBoxTexture_ru63o")
 
 [sub_resource type="Animation" id="Animation_4lupt"]
 length = 0.001
@@ -1113,7 +1129,7 @@ process_material = SubResource("ParticleProcessMaterial_2k7cw")
 
 [node name="Arrow" type="Node2D" parent="ParallaxBackground/GameLayer"]
 position = Vector2(628, 285)
-rotation = 0.791737
+rotation = -0.0340735
 script = ExtResource("10_22nl8")
 
 [node name="outline" type="Sprite2D" parent="ParallaxBackground/GameLayer/Arrow"]
@@ -1124,7 +1140,7 @@ scale = Vector2(0.0837499, 0.08375)
 texture = ExtResource("11_3uh02")
 
 [node name="Inside" type="Sprite2D" parent="ParallaxBackground/GameLayer/Arrow"]
-modulate = Color(0.656624, 0.980392, 0.2, 1)
+modulate = Color(0.0397731, 0.980392, 0.2, 1)
 position = Vector2(10.5, -85.2644)
 scale = Vector2(0.0864706, 0.0864706)
 texture = ExtResource("12_du181")
@@ -1217,6 +1233,13 @@ texture = ExtResource("7_krv2f")
 [node name="SceneCamera" type="Camera2D" parent="."]
 position = Vector2(576, 323)
 position_smoothing_enabled = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 898.0
+offset_top = 544.0
+offset_right = 1123.0
+offset_bottom = 625.0
+theme = SubResource("Theme_yi02j")
 
 [node name="SceneAnimator" type="AnimationPlayer" parent="."]
 libraries = {
