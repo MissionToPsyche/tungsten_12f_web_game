@@ -1,10 +1,11 @@
 extends Node2D
 var minigame_buttons = {}
 var button_positions = []
-var current_position = "start"
 var path_history = [] # To keep track of the paths taken
 var button_to_position_map = {}
 var button_tweens = {}
+signal switch_scene(scene_path)
+
 var progression_paths = {
 	"start": {"next": ["pos1", "pos2"], "arrows": {"pos1": 1, "pos2": 2}},
 	"pos1": {"next": ["pos3", "pos4"], "arrows": {"pos3": 3, "pos4": 4}},
@@ -17,12 +18,20 @@ var progression_paths = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("This is the value of is_first_load 1: ",Global.decision_tree_state["is_first_load"])
 	initialize_button_positions()
 	assign_minigames_to_buttons()
-	initialize_arrows()
 	initialize_arrow_size_and_direction()
 	initialize_arrow_position()
 	initialize_buttons()
+	if Global.decision_tree_state["is_first_load"]:
+		initialize_arrows()
+		Global.decision_tree_state["is_first_load"] = false
+	else:
+		print("This is the value of next_position upon reload: ",Global.decision_tree_state["next_position"])
+		handle_progression(Global.decision_tree_state["next_position"])
+	print("This is the value of is_first_load 2: ",Global.decision_tree_state["is_first_load"])
+	switch_scene.connect(self._on_switch_scene)
 
 func initialize_button_positions():
 	# Assign your Marker2D nodes to the array
@@ -30,28 +39,29 @@ func initialize_button_positions():
 
 func assign_minigames_to_buttons():
 	# Define fixed scenes for certain buttons
-	minigame_buttons["Marketing"] = 'res://marketing_minigame.tscn'
+	minigame_buttons["Marketing"] = 'res://Minigame1-Rocketlaunch/node_2d.tscn'
 	minigame_buttons["Simulation"] = 'res://main.tscn'  #greeshma mini game 
-	minigame_buttons["Simulation2"] = 'res://simulation_minigame.tscn'
-	minigame_buttons["Ore"] = 'res://ore_minigame.tscn'
+	minigame_buttons["Simulation2"] = 'res://main.tscn'
+	minigame_buttons["Ore"] = 'res://Minigame1-Rocketlaunch/Minigame2.tscn'
 	
 	# Create a pool of minigame scenes for Mystery button excluding the fixed ones
 	var mystery_scenes = [
-		'res://marketing_minigame.tscn', 
-		'res://simulation_minigame.tscn', 
-		'res://ore_minigame.tscn'
+		'res://Minigame1-Rocketlaunch/node_2d.tscn', 
+		'res://main.tscn', 
+		'res://Minigame1-Rocketlaunch/Minigame2.tscn'
 	]
 	
 	# Shuffle the remaining scenes and assign one to the Mystery button
 	mystery_scenes.shuffle()
 	minigame_buttons["Mystery"] = mystery_scenes[0]
-	mystery_scenes.shuffle()
-	minigame_buttons["Mystery2"] = mystery_scenes[0]
+	minigame_buttons["Mystery2"] = mystery_scenes[1]
 	button_to_position_map.clear()
+	
 	for i in range(minigame_buttons.size()):
 		var button_name = minigame_buttons.keys()[i]
 		var position = "pos" + str(i + 1)  # Assuming the order of minigame_buttons matches your position naming
 		button_to_position_map[button_name] = position
+	print("minigame_buttons dictionary:", minigame_buttons)
 
 
 func initialize_arrows():
@@ -135,8 +145,6 @@ func deg2rad(degrees):
 	return degrees * PI / 180.0
 
 
-
-
 func initialize_arrow_position():
 	var number_of_arrows = 10
 	for i in range(1, number_of_arrows + 1):
@@ -172,11 +180,10 @@ func initialize_buttons():
 		var button_texture_size = button_node.texture_normal.get_size()
 		var button_scale = max_button_size / max(button_texture_size.x, button_texture_size.y)
 		button_node.scale = Vector2(button_scale, button_scale)
-		
 	enable_buttons_for_current_position()
 
 func enable_buttons_for_current_position():
-	# Disable all buttons first
+	print("Enabling buttons for current position:", Global.decision_tree_state["current_position"])
 	for button in $UI/ButtonContainer.get_children():
 		button.disabled = true
 		
@@ -186,11 +193,12 @@ func enable_buttons_for_current_position():
 			button_tweens.erase(button.name)
 
 	# Enable buttons that are reachable from the current position
-	for next_pos in progression_paths[current_position]["next"]:
+	for next_pos in progression_paths[Global.decision_tree_state["current_position"]]["next"]:
 		for button_name in button_to_position_map:
 			if button_to_position_map[button_name] == next_pos:
 				var button_node = $UI/ButtonContainer.get_node(button_name)
 				button_node.disabled = false
+				print("Enabled button:", button_name)
 				# Start the button vibration animation
 				var tween = create_tween()
 				tween.set_loops(-1)  # Set the animation to loop indefinitely
@@ -208,20 +216,34 @@ func enable_buttons_for_current_position():
 
 
 func _on_Button_Pressed(button_name):
+	print("Button pressed:", button_name)
 	if button_name in button_to_position_map:
-		var next_position = button_to_position_map[button_name]
+		Global.decision_tree_state["next_position"] = button_to_position_map[button_name]
+		print("Next position set to:", Global.decision_tree_state["next_position"])
+		
 		for button in $UI/ButtonContainer.get_children():
 			button.rotation_degrees = 0
-		handle_progression(next_position)
+		
+		if button_name in minigame_buttons:
+			var minigame_scene = minigame_buttons[button_name]
+			emit_signal("switch_scene", minigame_scene)
+			print("Switch scene signal emitted for button:", button_name, "with scene path:", minigame_scene)
 	else:
 		print("Error: Button name not found in current mapping.")
 
+func _on_switch_scene(scene_path):
+	get_tree().change_scene_to_file(scene_path)
+
 
 func handle_progression(next_position):
-	if next_position in progression_paths[current_position]["next"]:
-		var arrow_index = progression_paths[current_position]["arrows"][next_position]
-		toggle_arrows_based_on_path(current_position, next_position, arrow_index)
-		current_position = next_position
+	print("Handling progression for next position:", next_position)
+	if next_position in progression_paths[Global.decision_tree_state["current_position"]]["next"]:
+		var arrow_index = progression_paths[Global.decision_tree_state["current_position"]]["arrows"][next_position]
+		print("Arrow index:", arrow_index)
+		toggle_arrows_based_on_path(Global.decision_tree_state["current_position"], next_position, arrow_index)
+		
+		Global.decision_tree_state["current_position"] = next_position
+		print("Current position updated to:", Global.decision_tree_state["current_position"])
 		enable_buttons_for_current_position()
 	else:
 		print("Invalid move to: ", next_position)
