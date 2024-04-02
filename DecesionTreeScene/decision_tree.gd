@@ -233,7 +233,7 @@ func _on_Button_Pressed(button_name):
 
 func _on_switch_scene(scene_path):
 	get_tree().change_scene_to_file(scene_path)
-
+	
 
 func handle_progression(next_position):
 	print("Handling progression for next position:", next_position)
