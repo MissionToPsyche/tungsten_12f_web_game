@@ -1,7 +1,9 @@
+Camera2D
+Button
 Label
 Panel
+Control
 TextureButton
-Button
 Timer
 WorldEnvironment
 Marker2D
@@ -11,7 +13,6 @@ RichTextLabel
 TextureRect
 CanvasLayer
 Node2D
-Control
 AnimationPlayer
 MarginContainer
 ColorRect
