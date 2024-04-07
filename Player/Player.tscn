@@ -455,7 +455,6 @@ sprite_frames = SubResource("SpriteFrames_ofnsk")
 animation = &"fall"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.8, 1.8)
 limit_left = 0
 limit_top = 0
 limit_bottom = 150
