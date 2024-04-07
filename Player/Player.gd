@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -550.0
 #var isMovementEnabled = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.5
 @onready var anim = get_node("AnimationPlayer")
 
 

@@ -10,3 +10,4 @@ res://TeamBuilderScene/team_builder.tscn
 res://DecesionTreeScene/decision_tree.tscn
 res://BuilderScene/satellite-lab.tscn
 res://Player/Player.tscn
+res://Player/Player.gd
