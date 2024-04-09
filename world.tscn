@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://h68kjwqrvj81"]
+[gd_scene load_steps=18 format=3 uid="uid://h68kjwqrvj81"]
 
 [ext_resource type="PackedScene" uid="uid://bfx5xfhby2odf" path="res://Player/Player.tscn" id="1_ck5dx"]
 [ext_resource type="Texture2D" uid="uid://cm0jen8xu2c7k" path="res://tileset.png" id="1_jkrxj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://game_manager.gd" id="9_t1sou"]
 [ext_resource type="PackedScene" uid="uid://b8ty68jsaxweq" path="res://finish.tscn" id="10_8gdod"]
 [ext_resource type="PackedScene" uid="uid://mvkga0wriwed" path="res://obstacle.tscn" id="11_1lfm7"]
+[ext_resource type="Script" path="res://Instr.gd" id="12_imqdp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocv4a"]
 texture = ExtResource("1_jkrxj")
@@ -668,6 +669,8 @@ texture = ExtResource("2_nwu34")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_d38kq")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_4roqi"]
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -720,12 +723,15 @@ texture = ExtResource("5_dmase")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_ck5dx")]
-position = Vector2(152, 93)
+position = Vector2(113, 105)
 scale = Vector2(2, 2)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 visible = false
 position = Vector2(3, -3)
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -753,7 +759,7 @@ position = Vector2(818, 450)
 position = Vector2(1034, 39)
 
 [node name="Collectible6" parent="Collectibles group" instance=ExtResource("8_3lyco")]
-position = Vector2(518, 20)
+position = Vector2(533, 61)
 
 [node name="Collectible7" parent="Collectibles group" instance=ExtResource("8_3lyco")]
 position = Vector2(-44, 463)
@@ -808,3 +814,75 @@ theme_override_font_sizes/font_size = 30
 text = "POINTS: "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Instructions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Instructions"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 119.0
+offset_top = 87.0
+offset_right = 993.0
+offset_bottom = 541.0
+script = ExtResource("12_imqdp")
+
+[node name="PointsLabel" type="Label" parent="Instructions/Panel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -6.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Use arrow keys to move and the space 
+bar to jump! Collect all the gems 
+and avoid interacting with the plants 
+(they make you lose  points). 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Instructions/Panel"]
+modulate = Color(0.427451, 0.113725, 0.321569, 1)
+self_modulate = Color(0.223529, 0.247059, 0.0901961, 1)
+layout_mode = 0
+offset_left = -4.0
+offset_right = 874.0
+offset_bottom = 454.0
+texture = SubResource("CanvasTexture_4roqi")
+
+[node name="Label" type="Label" parent="Instructions/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 26.0
+offset_top = -7.0
+offset_right = 954.0
+offset_bottom = 444.0
+text = "
+
+
+Use arrow keys to move and the space 
+bar to jump! Collect all the gems 
+and avoid interacting with the plants 
+(they make you lose  points). 
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ok_bttn" type="Button" parent="Instructions/Panel"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 318.0
+offset_right = 511.0
+offset_bottom = 386.0
+text = "OKAY!"
+
+[connection signal="pressed" from="Instructions/Panel/ok_bttn" to="Instructions/Panel" method="_on_ok_bttn_pressed"]

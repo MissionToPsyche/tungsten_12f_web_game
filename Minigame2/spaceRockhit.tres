@@ -1,0 +1,74 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://bqcddhk4tw6r5"]
+
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_obyeb"]
+default_input_values = [0, Vector3(0.5, 0, 0), 1, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_fl1sh"]
+parameter_name = "enable"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bewlj"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_k3nv7"]
+default_input_values = [0, 0.0, 1, 1.0, 2, 1e-05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform bool enable = false;
+
+
+
+void fragment() {
+// BooleanParameter:3
+	bool n_out3p0 = enable;
+
+
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+// ColorOp:11
+	vec3 n_in11p0 = vec3(0.50000, 0.00000, 0.00000);
+	vec3 n_out11p0 = vec3(1.0) - (vec3(1.0) - n_in11p0) * (vec3(1.0) - vec3(n_out5p0.xyz));
+
+
+	vec3 n_out7p0;
+// If:7
+	float n_in7p1 = 1.00000;
+	float n_in7p2 = 0.00001;
+	if(abs((n_out3p0 ? 1.0 : 0.0) - n_in7p1) < n_in7p2)
+	{
+		n_out7p0 = n_out11p0;
+	}
+	else if((n_out3p0 ? 1.0 : 0.0) < n_in7p1)
+	{
+		n_out7p0 = vec3(n_out5p0.xyz);
+	}
+	else
+	{
+		n_out7p0 = vec3(n_out5p0.xyz);
+	}
+
+
+// Output:0
+	COLOR.rgb = n_out7p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(780, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeBooleanParameter_fl1sh")
+nodes/fragment/3/position = Vector2(-260, -40)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_bewlj")
+nodes/fragment/5/position = Vector2(-300, 260)
+nodes/fragment/7/node = SubResource("VisualShaderNodeIf_k3nv7")
+nodes/fragment/7/position = Vector2(580, 160)
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorOp_obyeb")
+nodes/fragment/11/position = Vector2(120, 160)
+nodes/fragment/connections = PackedInt32Array(3, 0, 7, 0, 5, 0, 11, 1, 7, 0, 0, 0, 11, 0, 7, 3, 5, 0, 7, 4, 5, 0, 7, 5)

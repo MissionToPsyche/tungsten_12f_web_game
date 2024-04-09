@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0polrcduaj87"]
+
+[ext_resource type="Script" path="res://Minigame2/Minigame2_HUD_Container.gd" id="1_gu8wg"]
+[ext_resource type="PackedScene" uid="uid://ft2omm2bwkmg" path="res://Minigame2/Minigame2_HUD.tscn" id="2_hlbqa"]
+[ext_resource type="Script" path="res://Minigame2/ProgressBar.gd" id="3_to78t"]
+[ext_resource type="Texture2D" uid="uid://b68lkda371yhp" path="res://Minigame2/assets/underBar.png" id="4_bartn"]
+[ext_resource type="Texture2D" uid="uid://bcbaed4oi3jas" path="res://Minigame2/assets/overBar.png" id="5_43fdp"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gu8wg")
+
+[node name="LifeContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 4.75
+offset_top = 7.31
+offset_right = 132.75
+offset_bottom = 47.31
+
+[node name="TextureRect" parent="LifeContainer" instance=ExtResource("2_hlbqa")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="LifeContainer" instance=ExtResource("2_hlbqa")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="LifeContainer" instance=ExtResource("2_hlbqa")]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 11.12
+offset_right = 25.355
+offset_bottom = 40.255
+grow_horizontal = 2
+text = "000"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1008, 17)
+scale = Vector2(0.33, 0.33)
+script = ExtResource("3_to78t")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Node2D"]
+offset_right = 500.0
+offset_bottom = 500.0
+max_value = 70.0
+value = 40.0
+fill_mode = 3
+texture_under = ExtResource("4_bartn")
+texture_progress = ExtResource("5_43fdp")
+
+[node name="Progress" type="Timer" parent="Node2D"]
+wait_time = 60.0

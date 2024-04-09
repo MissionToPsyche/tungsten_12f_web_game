@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct65k5dq1nabk"]
+
+[ext_resource type="Script" path="res://Minigame2/Minigame2.gd" id="1_ensbs"]
+[ext_resource type="PackedScene" uid="uid://d0polrcduaj87" path="res://Minigame2/Minigame2_HUD_Container.tscn" id="2_2b860"]
+[ext_resource type="PackedScene" uid="uid://cf40fdu02yu4e" path="res://Minigame2/craft.tscn" id="3_ffmpv"]
+[ext_resource type="Script" path="res://Minigame2/Cam.gd" id="4_7qsp4"]
+[ext_resource type="Script" path="res://Minigame2/BackgroundMovement.gd" id="5_83n0q"]
+[ext_resource type="Texture2D" uid="uid://bqccwmuutcfxv" path="res://Minigame2/assets/backgroundSpace.png" id="6_hmeqf"]
+[ext_resource type="AudioStream" uid="uid://bw22tw00tj1m5" path="res://Minigame2/assets/bgsound.mp3" id="7_7f07a"]
+[ext_resource type="PackedScene" uid="uid://b3ygv41p7tpf8" path="res://Minigame2/GameCompleted.tscn" id="8_hcl0x"]
+[ext_resource type="PackedScene" uid="uid://dgyytx60q1w6x" path="res://Minigame2/GameOver.tscn" id="9_xnacr"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_ensbs")
+
+[node name="HUD" parent="." instance=ExtResource("2_2b860")]
+z_index = 10
+
+[node name="Craft" parent="." instance=ExtResource("3_ffmpv")]
+z_index = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.631
+
+[node name="Cam" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("4_7qsp4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Cam"]
+scroll_limit_end = Vector2(1980, 0)
+script = ExtResource("5_83n0q")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Cam/ParallaxBackground"]
+motion_mirroring = Vector2(0, 860)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cam/ParallaxBackground/ParallaxLayer"]
+position = Vector2(575.667, 435)
+scale = Vector2(0.566406, 0.566406)
+texture = ExtResource("6_hmeqf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7f07a")
+autoplay = true
+
+[node name="GameCompleted" parent="." instance=ExtResource("8_hcl0x")]
+visible = false
+z_index = 15
+
+[node name="GameOver" parent="." instance=ExtResource("9_xnacr")]
+visible = false
+z_index = 15
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
