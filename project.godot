@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NASA Psyche Mission 12F"
-run/main_scene="res://Minigame2/Minigame2.tscn"
+run/main_scene="res://Intro/Game_Intro.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 
 [autoload]
