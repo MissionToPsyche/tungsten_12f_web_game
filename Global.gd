@@ -10,12 +10,20 @@ var current_satellite: Satellite
 var input_allowed = true
 
 
-var decision_tree_state = {
-	"current_position": "start",
-	"path_history": [],
-	"next_position": null,
-	"is_first_load": true,
-}
+#Decision tree scene
+#--------------------
+var active_arrows = []
+var current_position = "start"
+var next_buttons = ["Marketing", "Simulation"]  # Set initial next buttons
+var next_arrows = [1, 2]  # Set initial next arrows
+var player_path = []
+
+func reset_decision_tree_state():
+	active_arrows = []
+	current_position = "start"
+	next_buttons = ["Marketing", "Simulation"]  # Reset initial next buttons
+	next_arrows = [1, 2]  # Reset initial next arrows
+	player_path = []
 
 func set_input_allowed(allowed):
 	input_allowed = allowed
