@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://c1eovyd6y7e0u"]
 
-[ext_resource type="Script" path="res://IntroScene/Intro.gd" id="1_n6qel"]
+[ext_resource type="Script" path="res://TransitionToBuilder/Intro.gd" id="1_u3ipt"]
 [ext_resource type="Texture2D" uid="uid://dpoe0x7hi2tex" path="res://assets/sprites/team_builder_sprites/office.jpg" id="2_f8opm"]
 [ext_resource type="Texture2D" uid="uid://cnvxtvvmyf3m8" path="res://assets/sprites/intro_scene/female_nasa_scientist.png" id="3_mjj6o"]
 [ext_resource type="Texture2D" uid="uid://bew13dphnnfmg" path="res://assets/sprites/intro_scene/panel_large.png" id="4_bocyg"]
 [ext_resource type="Texture2D" uid="uid://w3x668sbd1k5" path="res://assets/sprites/intro_scene/sound_on.png" id="6_w4v18"]
 [ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/intro_scene/sound_off.png" id="7_em8fc"]
-[ext_resource type="Script" path="res://IntroScene/sound.gd" id="7_uhfwe"]
 [ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
+[ext_resource type="Script" path="res://TransitionToBuilder/sound.gd" id="8_hwk24"]
 [ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="9_s84ku"]
 [ext_resource type="Texture2D" uid="uid://1yn6h484qkby" path="res://assets/sprites/intro_scene/continue_sprite.png" id="10_gmjx1"]
 
@@ -54,7 +54,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(911, 572)
-script = ExtResource("1_n6qel")
+script = ExtResource("1_u3ipt")
 
 [node name="LabBackground" type="Sprite2D" parent="."]
 position = Vector2(-322, -254)
@@ -88,7 +88,7 @@ offset_bottom = -15.5
 theme_type_variation = &"HeaderLarge"
 theme_override_fonts/font = ExtResource("9_s84ku")
 theme_override_font_sizes/font_size = 35
-text = "Hi there, space explorer! Let's assemble our star team and unlock the secrets of how planets are made with the exciting Psyche mission!"
+text = "Your team is looking great! Now let's head over to the lab to design our satellite and prepare for launch!"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -103,7 +103,7 @@ toggle_mode = true
 texture_normal = ExtResource("6_w4v18")
 texture_pressed = ExtResource("7_em8fc")
 texture_disabled = ExtResource("7_em8fc")
-script = ExtResource("7_uhfwe")
+script = ExtResource("8_hwk24")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ae2sr")
