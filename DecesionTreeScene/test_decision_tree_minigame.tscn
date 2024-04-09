@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://pkqlj802peqs"]
+
+[ext_resource type="Script" path="res://DecesionTreeScene/test_decision_tree_minigame.gd" id="1_3jjpf"]
+
+[node name="test_decision_tree_minigame" type="Node2D"]
+script = ExtResource("1_3jjpf")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 282.0
+offset_top = 160.0
+offset_right = 734.0
+offset_bottom = 480.0
+text = "Click here to return to the decision tree scene"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
