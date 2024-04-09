@@ -156,7 +156,7 @@ func _on_marketing_pressed():
 	Global.active_arrows.append(1)
 	Global.next_buttons = ["Simulation2", "Ore"]
 	Global.next_arrows = [3, 4]
-	get_tree().change_scene_to_file("res://DecesionTreeScene/test_decision_tree_minigame.tscn")
+	get_tree().change_scene_to_file("res://world.tscn")
 
 
 func _on_simulation_pressed():

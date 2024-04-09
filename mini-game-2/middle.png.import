@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0oxfmpns4dw5"
-path="res://.godot/imported/middle.png-27660a2d7f8c9788408082af81a9c07a.ctex"
+path="res://.godot/imported/middle.png-77732aade37ba960f72bf39aca7fe76c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini-game-2/middle.png"
-dest_files=["res://.godot/imported/middle.png-27660a2d7f8c9788408082af81a9c07a.ctex"]
+source_file="res://middle.png"
+dest_files=["res://.godot/imported/middle.png-77732aade37ba960f72bf39aca7fe76c.ctex"]
 
 [params]
 

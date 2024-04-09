@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1qmh4mi16t3e"
-path="res://.godot/imported/back.png-92c30fb8460d30ec30b2656ae5d1f1ff.ctex"
+path="res://.godot/imported/back.png-dc81948ada94089b9c87c9a589126020.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini-game-2/back.png"
-dest_files=["res://.godot/imported/back.png-92c30fb8460d30ec30b2656ae5d1f1ff.ctex"]
+source_file="res://back.png"
+dest_files=["res://.godot/imported/back.png-dc81948ada94089b9c87c9a589126020.ctex"]
 
 [params]
 
