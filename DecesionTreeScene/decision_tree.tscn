@@ -276,3 +276,10 @@ position = Vector2(971, 292)
 
 [node name="arrowpos10" type="Marker2D" parent="UI"]
 position = Vector2(971, 466)
+
+[connection signal="pressed" from="UI/ButtonContainer/Mystery" to="." method="_on_mystery_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Mystery2" to="." method="_on_mystery_2_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Marketing" to="." method="_on_marketing_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Simulation" to="." method="_on_simulation_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Simulation2" to="." method="_on_simulation_2_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Ore" to="." method="_on_ore_pressed"]

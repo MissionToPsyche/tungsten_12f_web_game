@@ -6,11 +6,24 @@ const SatelliteParts = preload("res://Classes/SatellitePart.gd")
 
 # Score variable to keep track of the player's score
 var score: int = 0
-
-# Satellite instance to hold the current satellite
 var current_satellite: Satellite
-
 var input_allowed = true
+
+
+#Decision tree scene
+#--------------------
+var active_arrows = []
+var current_position = "start"
+var next_buttons = ["Marketing", "Simulation"]  # Set initial next buttons
+var next_arrows = [1, 2]  # Set initial next arrows
+var player_path = []
+
+func reset_decision_tree_state():
+	active_arrows = []
+	current_position = "start"
+	next_buttons = ["Marketing", "Simulation"]  # Reset initial next buttons
+	next_arrows = [1, 2]  # Reset initial next arrows
+	player_path = []
 
 func set_input_allowed(allowed):
 	input_allowed = allowed

@@ -1,82 +1,60 @@
 extends Node2D
-var minigame_buttons = {}
-var button_positions = []
-var current_position = "start"
-var path_history = [] # To keep track of the paths taken
-var button_to_position_map = {}
-var button_tweens = {}
-var progression_paths = {
-	"start": {"next": ["pos1", "pos2"], "arrows": {"pos1": 1, "pos2": 2}},
-	"pos1": {"next": ["pos3", "pos4"], "arrows": {"pos3": 3, "pos4": 4}},
-	"pos2": {"next": ["pos4"], "arrows": {"pos4": 5}},
-	"pos3": {"next": ["pos5"], "arrows": {"pos5": 6}},
-	"pos4": {"next": ["pos5", "pos6"], "arrows": {"pos5": 7, "pos6": 8}},
-	"pos5": {"next": ["end"], "arrows": {"end": 9}},
-	"pos6": {"next": ["end"], "arrows": {"end": 10}}
-}
 
-# Called when the node enters the scene tree for the first time.
+var button_tweens = {}
+var button_positions = []
+var button_to_position_map = {}
+var timer = null
+
 func _ready():
 	initialize_button_positions()
-	assign_minigames_to_buttons()
-	initialize_arrows()
 	initialize_arrow_size_and_direction()
 	initialize_arrow_position()
 	initialize_buttons()
+	
+	#Disable all arrows
+	for i in range(1, 11):
+		set_arrow_state(i, false)
+		
+	for button in $UI/ButtonContainer.get_children():
+		button.disabled = true
+		
+	for arrow_num in Global.active_arrows:
+		set_arrow_state(arrow_num, true)
+		
+	for arrow_num in Global.next_arrows:
+		set_arrow_state(arrow_num, true)
+		
+	for button_name in Global.next_buttons:
+		enable_button(button_name)
+	
+	if "Mystery" in Global.player_path or "Mystery2" in Global.player_path:
+		get_tree().change_scene_to_file("res://DesignScene/DesignScene.tscn")
+
 
 func initialize_button_positions():
 	# Assign your Marker2D nodes to the array
 	button_positions = [$UI/pos1, $UI/pos2, $UI/pos3, $UI/pos4, $UI/pos5, $UI/pos6]
-
-func assign_minigames_to_buttons():
-	# Define fixed scenes for certain buttons
-	minigame_buttons["Marketing"] = 'res://marketing_minigame.tscn'
-	minigame_buttons["Simulation"] = 'res://main.tscn'  #greeshma mini game 
-	minigame_buttons["Simulation2"] = 'res://simulation_minigame.tscn'
-	minigame_buttons["Ore"] = 'res://ore_minigame.tscn'
+	button_to_position_map = {
+		"Marketing": "pos1",
+		"Simulation": "pos2",
+		"Simulation2": "pos3",
+		"Ore": "pos4",
+		"Mystery": "pos5",
+		"Mystery2": "pos6"
+	}
 	
-	# Create a pool of minigame scenes for Mystery button excluding the fixed ones
-	var mystery_scenes = [
-		'res://marketing_minigame.tscn', 
-		'res://simulation_minigame.tscn', 
-		'res://ore_minigame.tscn'
-	]
-	
-	# Shuffle the remaining scenes and assign one to the Mystery button
-	mystery_scenes.shuffle()
-	minigame_buttons["Mystery"] = mystery_scenes[0]
-	mystery_scenes.shuffle()
-	minigame_buttons["Mystery2"] = mystery_scenes[0]
-	button_to_position_map.clear()
-	for i in range(minigame_buttons.size()):
-		var button_name = minigame_buttons.keys()[i]
-		var position = "pos" + str(i + 1)  # Assuming the order of minigame_buttons matches your position naming
-		button_to_position_map[button_name] = position
-
-
-func initialize_arrows():
-	# Initialize all arrows to their inactive state
-	var number_of_arrows = 10
-	for i in range(1, number_of_arrows+1):
-		set_arrow_state(i, false)
-
-	# Set the starting active arrows
-	set_arrow_state(1, true)
-	set_arrow_state(2, true)
-
-	
-func set_arrow_state(arrow_number, is_active):
-	var arrow_active = $UI.get_node("ArrowActive" + str(arrow_number))
-	var arrow_inactive = $UI.get_node("ArrowInactive" + str(arrow_number))
-	arrow_active.visible = is_active
-	arrow_inactive.visible = !is_active
+	for button_name in button_to_position_map:
+		var position = button_to_position_map[button_name]
+		var button_node = $UI/ButtonContainer.get_node(button_name)
+		var marker_node = $UI.get_node(position)
+		button_node.position = marker_node.position
+		
 	
 func initialize_arrow_size_and_direction():
 	# Calculate the arrow size based on the screen size
 	var screen_size = get_viewport().size
 	var arrow_size = screen_size.x / 20.0
-
-	# Set the size and direction of all arrows
+	
 	var number_of_arrows = 10
 	for i in range(1, number_of_arrows+1):
 		set_arrow_size(i, arrow_size)
@@ -95,46 +73,29 @@ func set_arrow_size(arrow_number, arrow_size):
 	arrow_inactive.scale = Vector2(arrow_scale, arrow_scale)
 
 func set_arrow_direction():
-	# Define your arrow angles here, arranged in the pattern: Active, Inactive, Active, Inactive, ...
-	# The angles are specified in degrees for each pair of arrows.
 	var arrow_angles = {
-		"ArrowActive1": 315,
-		"ArrowInactive1": 315,
-		"ArrowActive2": 45,
-		"ArrowInactive2": 45,
-		"ArrowActive3": 0,
-		"ArrowInactive3": 0,
-		"ArrowActive4": 45,
-		"ArrowInactive4": 45,
-		"ArrowActive5": 0,
-		"ArrowInactive5": 0,
-		"ArrowActive6": 0,
-		"ArrowInactive6": 0,
-		"ArrowActive7": 315,
-		"ArrowInactive7": 315,
-		"ArrowActive8": 0,
-		"ArrowInactive8": 0,
-		"ArrowActive9": 45,
-		"ArrowInactive9": 45,
-		"ArrowActive10": 315,
-		"ArrowInactive10": 315,
+		"ArrowActive1": 315, "ArrowInactive1": 315,
+		"ArrowActive2": 45, "ArrowInactive2": 45,
+		"ArrowActive3": 0, "ArrowInactive3": 0,
+		"ArrowActive4": 45, "ArrowInactive4": 45,
+		"ArrowActive5": 0, "ArrowInactive5": 0,
+		"ArrowActive6": 0, "ArrowInactive6": 0,
+		"ArrowActive7": 315, "ArrowInactive7": 315,
+		"ArrowActive8": 0, "ArrowInactive8": 0,
+		"ArrowActive9": 45, "ArrowInactive9": 45,
+		"ArrowActive10": 315, "ArrowInactive10": 315,
 	}
 	
-	# Iterate through the arrow_angles dictionary to set each arrow's rotation
 	for arrow_name in arrow_angles.keys():
 		var arrow_node = $UI.get_node(arrow_name)
 		if arrow_node:
-			# Convert the angle from degrees to radians since Godot uses radians for rotations
 			var angle_in_radians = deg2rad(arrow_angles[arrow_name])
 			arrow_node.rotation = angle_in_radians
 		else:
 			print("Arrow node not found: ", arrow_name)
 
-# Helper function to convert degrees to radians
 func deg2rad(degrees):
 	return degrees * PI / 180.0
-
-
 
 
 func initialize_arrow_position():
@@ -152,116 +113,114 @@ func set_arrow_position(arrow_number):
 	arrow_inactive.position = arrow_position_marker.position
 
 func initialize_buttons():
-	# Deactivate all buttons initially
-	for button in $UI/ButtonContainer.get_children():
-		button.disabled = true
-		var button_name = button.name
-		if minigame_buttons.has(button_name):
-			button.pressed.connect(self._on_Button_Pressed.bind(button_name))
-			
 	var screen_size = get_viewport().size
 	var max_button_size = screen_size.x / 20.0
 	
 	for button_name in button_to_position_map:
-		var position = button_to_position_map[button_name]
 		var button_node = $UI/ButtonContainer.get_node(button_name)
-		var marker_node = $UI.get_node(position)
-		button_node.position = marker_node.position
-		
-		# Calculate the button scale based on its texture size and the maximum button size
 		var button_texture_size = button_node.texture_normal.get_size()
 		var button_scale = max_button_size / max(button_texture_size.x, button_texture_size.y)
 		button_node.scale = Vector2(button_scale, button_scale)
-		
-	enable_buttons_for_current_position()
-
-func enable_buttons_for_current_position():
-	# Disable all buttons first
-	for button in $UI/ButtonContainer.get_children():
-		button.disabled = true
-		
-		if button.name in button_tweens:
-			var tween = button_tweens[button.name]
-			tween.kill()  # Stop and free the tween
-			button_tweens.erase(button.name)
-
-	# Enable buttons that are reachable from the current position
-	for next_pos in progression_paths[current_position]["next"]:
-		for button_name in button_to_position_map:
-			if button_to_position_map[button_name] == next_pos:
-				var button_node = $UI/ButtonContainer.get_node(button_name)
-				button_node.disabled = false
-				# Start the button vibration animation
-				var tween = create_tween()
-				tween.set_loops(-1)  # Set the animation to loop indefinitely
-				tween.tween_property(button_node, "rotation_degrees", -5, 0.2)
-				tween.tween_property(button_node, "rotation_degrees", 10, 0.2)
-				tween.tween_property(button_node, "rotation_degrees", -5, 0.2)
-				tween.tween_property(button_node, "rotation_degrees", 0, 0.2)
-				tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)  # Pause the animation when the button is disabled
-				
-				# Connect the button's pressed signal to stop the animation for all buttons
-				button_node.pressed.connect(tween.kill)
-
-				# Store the tween as a child of the button node
-				button_tweens[button_node.name] = tween
 
 
-func _on_Button_Pressed(button_name):
-	if button_name in button_to_position_map:
-		var next_position = button_to_position_map[button_name]
-		for button in $UI/ButtonContainer.get_children():
-			button.rotation_degrees = 0
-		handle_progression(next_position)
-	else:
-		print("Error: Button name not found in current mapping.")
-
-
-func handle_progression(next_position):
-	if next_position in progression_paths[current_position]["next"]:
-		var arrow_index = progression_paths[current_position]["arrows"][next_position]
-		toggle_arrows_based_on_path(current_position, next_position, arrow_index)
-		current_position = next_position
-		enable_buttons_for_current_position()
-	else:
-		print("Invalid move to: ", next_position)
-
-
-func toggle_arrows_based_on_path(from_position, to_position, arrow_index):
-	# Deactivate all arrows first
-	for i in range(1, 11):  # Adjust based on your actual arrow range
-		set_arrow_state(i, false)
-
-	# Activate arrows based on the current path
-	for path_entry in path_history:
-		var current_pos = path_entry["position"]
-		var arrow_num = path_entry["arrow"]
-		set_arrow_state(arrow_num, true)
-
-	# Activate the arrow representing the current move
-	set_arrow_state(arrow_index, true)
-
-	# Activate arrows for the next possible positions from the current position
-	if to_position in progression_paths:
-		var next_positions = progression_paths[to_position]["next"]
-		for next_pos in next_positions:
-			if next_pos in progression_paths[to_position]["arrows"]:
-				var arrow_num = progression_paths[to_position]["arrows"][next_pos]
-				set_arrow_state(arrow_num, true)
-
-	# Add the current move to the path history, if it's not "end"
-	if to_position != "end":
-		path_history.append({"position": to_position, "arrow": arrow_index})
-
+func set_arrow_state(arrow_number, is_active):
+	var arrow_active = $UI.get_node("ArrowActive" + str(arrow_number))
+	var arrow_inactive = $UI.get_node("ArrowInactive" + str(arrow_number))
+	arrow_active.visible = is_active
+	arrow_inactive.visible = !is_active
 	
 	
-func toggle_arrow_visibility(arrow_number, is_active):
-	# If is_active is true, show the active arrow and hide the inactive arrow, and vice versa
-	var active_arrow_path = "ArrowActive" + str(arrow_number)
-	var inactive_arrow_path = "ArrowInactive" + str(arrow_number)
-	if is_active:
-		$UI/TreeBackground.get_node(active_arrow_path).visible = true
-		$UI/TreeBackground.get_node(inactive_arrow_path).visible = false
+func enable_button(button_name):
+	var button_node = $UI/ButtonContainer.get_node(button_name)
+	if button_node:
+		button_node.disabled = false
+
+		# Apply button rotation animation
+		var tween = create_tween()
+		tween.set_loops(-1)
+		tween.tween_property(button_node, "rotation_degrees", -5, 0.2)
+		tween.tween_property(button_node, "rotation_degrees", 10, 0.2)
+		tween.tween_property(button_node, "rotation_degrees", -5, 0.2)
+		tween.tween_property(button_node, "rotation_degrees", 0, 0.2)
+		tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		button_node.pressed.connect(tween.kill)
+		button_tweens[button_node.name] = tween
 	else:
-		$UI/TreeBackground.get_node(active_arrow_path).visible = false
-		$UI/TreeBackground.get_node(inactive_arrow_path).visible = true
+		print("Button node not found for position:", button_name)
+
+
+func _on_marketing_pressed():
+	print("ready to change scene, marketing button pressed")
+	Global.player_path.append("Marketing")
+	Global.current_position = "pos1"
+	Global.active_arrows.append(1)
+	Global.next_buttons = ["Simulation2", "Ore"]
+	Global.next_arrows = [3, 4]
+	get_tree().change_scene_to_file("res://DecesionTreeScene/test_decision_tree_minigame.tscn")
+
+
+func _on_simulation_pressed():
+	print("ready to change scene, simulation button pressed")
+	Global.current_position = "pos2"
+	Global.active_arrows.append(2)
+	Global.next_buttons = ["Ore"]
+	Global.next_arrows = [5]
+	get_tree().change_scene_to_file("res://DecesionTreeScene/test_decision_tree_minigame.tscn")
+
+
+func _on_simulation_2_pressed():
+	print("ready to change scene, simulation2 button pressed")
+	Global.player_path.append("Simulation2")
+	Global.current_position = "pos3"
+	Global.active_arrows.append(3)
+	Global.next_buttons = ["Mystery"]
+	Global.next_arrows = [6]
+	get_tree().change_scene_to_file("res://DecesionTreeScene/test_decision_tree_minigame.tscn")
+
+
+func _on_ore_pressed():
+	print("ready to change scene, ore button pressed")
+	Global.current_position = "pos4"
+	if "Simulation" in Global.player_path:
+		Global.active_arrows.append(4)
+	else:
+		Global.active_arrows.append(5)
+	Global.next_buttons = ["Mystery", "Mystery2"]
+	Global.next_arrows = [7, 8]
+	get_tree().change_scene_to_file("res://DecesionTreeScene/test_decision_tree_minigame.tscn")
+
+
+func _on_mystery_pressed():
+	print("ready to change scene, marketing button pressed")
+	Global.player_path.append("Mystery")
+	Global.current_position = "pos5"
+	
+	if "Simulation2" in Global.player_path:
+		Global.active_arrows.append(6)
+	else:
+		Global.active_arrows.append(7)
+
+	Global.next_arrows = [9]
+	var mystery_scenes = [
+		'res://DecesionTreeScene/test_decision_tree_minigame.tscn', 
+		'res://DecesionTreeScene/test_decision_tree_minigame.tscn', 
+		'res://DecesionTreeScene/test_decision_tree_minigame.tscn'
+	]
+	mystery_scenes.shuffle()
+	get_tree().change_scene_to_file(mystery_scenes[0])
+
+
+func _on_mystery_2_pressed():
+	print("ready to change scene, marketing button pressed")
+	Global.player_path.append("Mystery2")
+	Global.current_position = "pos6"
+	Global.active_arrows.append(8)
+
+	Global.next_arrows = [10]
+	var mystery_scenes = [
+		'res://DecesionTreeScene/test_decision_tree_minigame.tscn', 
+		'res://DecesionTreeScene/test_decision_tree_minigame.tscn', 
+		'res://DecesionTreeScene/test_decision_tree_minigame.tscn'
+	]
+	mystery_scenes.shuffle()
+	get_tree().change_scene_to_file(mystery_scenes[0])
