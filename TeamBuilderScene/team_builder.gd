@@ -121,27 +121,30 @@ func _on_character_selected(name, info):
 			hbox_container.add_child(character_instance)
 			character_index += 1
 		
-		print("Final team displayed")
+
 		Global.set_input_allowed(false) #no clicking
-		# Show congratulations message and transition to next scene after delay
+		
+		Global.chosen_characters = chosen_characters
+
+
 		$ConfirmationContainer/ConfirmationLabel.text = "Congratulations, you have your team"
 		$ConfirmationContainer/ConfirmationLabel.show()
 		$ConfirmationContainer.show()
+		
 		await get_tree().create_timer(3.0).timeout
 		Global.set_input_allowed(true)
-		get_tree().change_scene_to_file("res://TransitionToBuilder/trasnitiontolab.tscn")
-		#completion label and switch scenes
+		get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
+		#xxxxxxxxxxxx
 
 func set_character_position_and_size(character_instance, position_index):
 	var screen_size = get_viewport_rect().size
 	var target_height = screen_size.y / 2
 	var sprite = character_instance.get_node("CharacterSprite")
 
-	# Calculate and apply scale to maintain aspect ratio and match target height
+
 	var scale_factor = target_height / sprite.texture.get_height()
 	sprite.scale = Vector2(scale_factor, scale_factor)
 
-	# Set the position based on the index
 	var positions = [
 		Vector2(screen_size.x / 4, screen_size.y / 2),
 		Vector2(screen_size.x / 2, screen_size.y / 2),

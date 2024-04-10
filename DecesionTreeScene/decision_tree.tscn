@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8jswe4xhc31f"]
+[gd_scene load_steps=21 format=3 uid="uid://c8jswe4xhc31f"]
 
 [ext_resource type="Script" path="res://DecesionTreeScene/decision_tree.gd" id="1_l7wpw"]
 [ext_resource type="Texture2D" uid="uid://p5ab88ma5evx" path="res://assets/sprites/decision_tree_sprites/mystery.png" id="2_kopy0"]
@@ -10,11 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://bnhtud648q17p" path="res://assets/sprites/decision_tree_sprites/raw_ore.png" id="8_fono6"]
 [ext_resource type="Texture2D" uid="uid://cah0a1fqtr7at" path="res://assets/sprites/decision_tree_sprites/raw_ore2.png" id="9_7gbh0"]
 [ext_resource type="Script" path="res://DecesionTreeScene/ButtonScripts.gd" id="10_dt8al"]
+[ext_resource type="Texture2D" uid="uid://isxeb857xmby" path="res://assets/sprites/team_builder_sprites/panel_large.png" id="11_0gaal"]
 [ext_resource type="Texture2D" uid="uid://uhddq1lnpwad" path="res://assets/sprites/decision_tree_sprites/muted_space.png" id="11_6ori3"]
 [ext_resource type="Texture2D" uid="uid://btk20pv7chjrf" path="res://assets/sprites/decision_tree_sprites/arrow_active.png" id="12_pid2b"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="12_umpuu"]
 [ext_resource type="Texture2D" uid="uid://c7i3nl35vqui1" path="res://assets/sprites/decision_tree_sprites/arrow_inactive.png" id="13_psgvn"]
 [ext_resource type="Texture2D" uid="uid://cqj8k6i6cfc7o" path="res://assets/sprites/decision_tree_sprites/start.png" id="14_x6bah"]
 [ext_resource type="Texture2D" uid="uid://crauckbreb8eu" path="res://assets/sprites/decision_tree_sprites/end.png" id="15_65jos"]
+[ext_resource type="PackedScene" uid="uid://cvxa20rurw0sy" path="res://character.tscn" id="18_yvaqn"]
+[ext_resource type="Script" path="res://TeamBuilderScene/CharactersContainer.gd" id="19_11mk6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uc0h2"]
 
 [node name="decision_tree" type="Node2D"]
 script = ExtResource("1_l7wpw")
@@ -56,7 +62,7 @@ texture_normal = ExtResource("3_o0ioa")
 texture_pressed = ExtResource("3_o0ioa")
 texture_disabled = ExtResource("2_kopy0")
 
-[node name="Marketing" type="TextureButton" parent="UI/ButtonContainer"]
+[node name="Robotics" type="TextureButton" parent="UI/ButtonContainer"]
 layout_mode = 0
 offset_left = 1577.0
 offset_top = 466.0
@@ -66,17 +72,7 @@ texture_normal = ExtResource("5_ox4tu")
 texture_pressed = ExtResource("5_ox4tu")
 texture_disabled = ExtResource("4_vgv8q")
 
-[node name="Marketing2" type="TextureButton" parent="UI/ButtonContainer"]
-layout_mode = 0
-offset_left = 1577.0
-offset_top = 466.0
-offset_right = 2287.0
-offset_bottom = 1142.0
-texture_normal = ExtResource("5_ox4tu")
-texture_pressed = ExtResource("5_ox4tu")
-texture_disabled = ExtResource("4_vgv8q")
-
-[node name="Simulation" type="TextureButton" parent="UI/ButtonContainer"]
+[node name="Navigation" type="TextureButton" parent="UI/ButtonContainer"]
 layout_mode = 0
 offset_left = 253.0
 offset_top = 767.0
@@ -86,7 +82,7 @@ texture_normal = ExtResource("7_wqkce")
 texture_pressed = ExtResource("7_wqkce")
 texture_disabled = ExtResource("6_svm5m")
 
-[node name="Simulation2" type="TextureButton" parent="UI/ButtonContainer"]
+[node name="Navigation2" type="TextureButton" parent="UI/ButtonContainer"]
 layout_mode = 0
 offset_left = 253.0
 offset_top = 767.0
@@ -96,7 +92,7 @@ texture_normal = ExtResource("7_wqkce")
 texture_pressed = ExtResource("7_wqkce")
 texture_disabled = ExtResource("6_svm5m")
 
-[node name="Ore" type="TextureButton" parent="UI/ButtonContainer"]
+[node name="Exploration" type="TextureButton" parent="UI/ButtonContainer"]
 layout_mode = 0
 offset_left = 987.0
 offset_top = 962.0
@@ -106,15 +102,23 @@ texture_normal = ExtResource("9_7gbh0")
 texture_pressed = ExtResource("9_7gbh0")
 texture_disabled = ExtResource("8_fono6")
 
-[node name="Ore2" type="TextureButton" parent="UI/ButtonContainer"]
+[node name="PointsTexture" type="TextureRect" parent="UI"]
+offset_left = 886.0
+offset_top = 23.0
+offset_right = 1116.0
+offset_bottom = 90.0
+texture = ExtResource("11_0gaal")
+expand_mode = 1
+
+[node name="Points" type="Label" parent="UI/PointsTexture"]
 layout_mode = 0
-offset_left = 1974.0
-offset_top = 1924.0
-offset_right = 2704.0
-offset_bottom = 2652.0
-texture_normal = ExtResource("9_7gbh0")
-texture_pressed = ExtResource("9_7gbh0")
-texture_disabled = ExtResource("8_fono6")
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 219.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("12_umpuu")
+theme_override_font_sizes/font_size = 36
+text = "Total Points: 169"
 
 [node name="ButtonScripts" type="Node2D" parent="UI"]
 script = ExtResource("10_dt8al")
@@ -277,9 +281,72 @@ position = Vector2(971, 292)
 [node name="arrowpos10" type="Marker2D" parent="UI"]
 position = Vector2(971, 466)
 
+[node name="CharacterCanvas" type="CanvasLayer" parent="."]
+
+[node name="PromptTexture" type="TextureRect" parent="CharacterCanvas"]
+offset_left = 312.0
+offset_top = 527.0
+offset_right = 825.0
+offset_bottom = 628.0
+texture = ExtResource("11_0gaal")
+expand_mode = 1
+
+[node name="PromptLabel" type="Label" parent="CharacterCanvas/PromptTexture"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 503.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("12_umpuu")
+theme_override_font_sizes/font_size = 36
+text = "Please choose a player for this task"
+autowrap_mode = 3
+
+[node name="CharacterContainer" type="HBoxContainer" parent="CharacterCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_11mk6")
+
+[node name="ButtonCanvas" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ButtonCanvas"]
+color = Color(1, 1, 1, 0)
+
+[node name="Button" type="Button" parent="ButtonCanvas/CanvasModulate"]
+material = SubResource("ShaderMaterial_uc0h2")
+offset_left = 170.0
+offset_top = 162.0
+offset_right = 404.0
+offset_bottom = 476.0
+
+[node name="Button2" type="Button" parent="ButtonCanvas/CanvasModulate"]
+offset_left = 454.0
+offset_top = 162.0
+offset_right = 704.0
+offset_bottom = 476.0
+
+[node name="Button3" type="Button" parent="ButtonCanvas/CanvasModulate"]
+offset_left = 745.0
+offset_top = 162.0
+offset_right = 987.0
+offset_bottom = 476.0
+
+[node name="Character" parent="." instance=ExtResource("18_yvaqn")]
+
+[node name="ScoreIncreaseTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="UI/ButtonContainer/Mystery" to="." method="_on_mystery_pressed"]
 [connection signal="pressed" from="UI/ButtonContainer/Mystery2" to="." method="_on_mystery_2_pressed"]
-[connection signal="pressed" from="UI/ButtonContainer/Marketing" to="." method="_on_marketing_pressed"]
-[connection signal="pressed" from="UI/ButtonContainer/Simulation" to="." method="_on_simulation_pressed"]
-[connection signal="pressed" from="UI/ButtonContainer/Simulation2" to="." method="_on_simulation_2_pressed"]
-[connection signal="pressed" from="UI/ButtonContainer/Ore" to="." method="_on_ore_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Robotics" to="." method="_on_robotics_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Navigation" to="." method="_on_navigation_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Navigation2" to="." method="_on_navigation_2_pressed"]
+[connection signal="pressed" from="UI/ButtonContainer/Exploration" to="." method="_on_exploration_pressed"]
+[connection signal="pressed" from="ButtonCanvas/CanvasModulate/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ButtonCanvas/CanvasModulate/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ButtonCanvas/CanvasModulate/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="timeout" from="ScoreIncreaseTimer" to="." method="_on_score_increase_timer_timeout"]

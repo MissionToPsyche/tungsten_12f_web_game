@@ -5,23 +5,40 @@ extends Node
 const SatelliteParts = preload("res://Classes/SatellitePart.gd")
 
 # Score variable to keep track of the player's score
-var score: int = 0
+var score = 0
+var previous_score = 0
 var current_satellite: Satellite
 var input_allowed = true
 
 
+#Team Builder scene
+#------------------
+var chosen_characters = []
 #Decision tree scene
 #--------------------
+var character_clicked = [false,false,false]
+var selected_mission_character = []
+var selected_mission_character_stats = []
+var points_per_game = []
 var active_arrows = []
 var current_position = "start"
-var next_buttons = ["Marketing", "Simulation"]  # Set initial next buttons
+var next_buttons = ["Robotics", "Navigation"]  # Set initial next buttons
 var next_arrows = [1, 2]  # Set initial next arrows
 var player_path = []
+
+var button_states = {
+	"button": true,
+	"button2": true,
+	"button3": true
+}
+
+var points_per_minigame = []
+
 
 func reset_decision_tree_state():
 	active_arrows = []
 	current_position = "start"
-	next_buttons = ["Marketing", "Simulation"]  # Reset initial next buttons
+	next_buttons = ["Robotics", "Navigation"]  # Reset initial next buttons
 	next_arrows = [1, 2]  # Reset initial next arrows
 	player_path = []
 
@@ -31,6 +48,12 @@ func set_input_allowed(allowed):
 func _init():
 	# Initialize the current satellite
 	current_satellite = Satellite.new()
+	
+	
+func add_points(points, skill_frame):
+	var bonus_points = points + points * 10 * (skill_frame % 5)
+	score += bonus_points
+	points_per_minigame.append({"base_points": points, "bonus_points": bonus_points})
 #
 #	# Create individual parts with example data
 #	var comm_part = SatelliteParts.CommunicationsPart.new({"name": "Basic Comm", "weight": 50, "cost": 1000.0, "base_health": 100.0})

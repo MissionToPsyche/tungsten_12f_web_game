@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d6kh1b8lyh4w"]
+[gd_scene load_steps=5 format=3 uid="uid://d6kh1b8lyh4w"]
 
 [ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="1_aoi8m"]
 [ext_resource type="Script" path="res://CreditsScene/CreditsScene.gd" id="2_04t68"]
 [ext_resource type="Texture2D" uid="uid://cxn35htxrdej2" path="res://CreditsScene/Assets/DALL-E_jdpanj.png" id="3_evai5"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="3_pnarl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,29 +16,33 @@ theme = ExtResource("1_aoi8m")
 script = ExtResource("2_04t68")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 497.0
+offset_left = 467.0
 offset_top = 61.0
-offset_right = 682.0
-offset_bottom = 119.0
-theme_override_font_sizes/normal_font_size = 43
+offset_right = 709.0
+offset_bottom = 149.0
+theme_override_fonts/normal_font = ExtResource("3_pnarl")
+theme_override_font_sizes/normal_font_size = 100
 text = "Credits"
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
-position = Vector2(599, 546)
-scale = Vector2(0.341667, 0.31)
+position = Vector2(573, 407)
+scale = Vector2(0.16625, 0.160833)
 texture = ExtResource("3_evai5")
 
 [node name="Authors" type="Label" parent="Panel"]
-offset_left = 300.0
-offset_top = 147.0
-offset_right = 919.0
-offset_bottom = 315.0
-theme_override_font_sizes/font_size = 21
+layout_mode = 0
+offset_left = 264.0
+offset_top = 151.0
+offset_right = 883.0
+offset_bottom = 319.0
+theme_override_fonts/font = ExtResource("3_pnarl")
+theme_override_font_sizes/font_size = 50
 text = "Game Authors: Jack Pletka, Keb Summers, Greeshma Challaram, Sukul Handa, Jonathan Parilla"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -45,12 +50,13 @@ autowrap_mode = 2
 
 [node name="Credits" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 292.0
-offset_top = 322.0
-offset_right = 911.0
-offset_bottom = 490.0
-theme_override_font_sizes/font_size = 21
-text = "All assets found in the game were developed using OpenAI's DALLE-E AI image/art AI rendering system."
+offset_left = 54.0
+offset_top = 477.0
+offset_right = 1103.0
+offset_bottom = 645.0
+theme_override_fonts/font = ExtResource("3_pnarl")
+theme_override_font_sizes/font_size = 50
+text = "Some of the assets found in the game were developed using OpenAI's DALLE-E AI image/art AI rendering system."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -61,7 +67,8 @@ offset_left = 45.0
 offset_top = 34.0
 offset_right = 188.0
 offset_bottom = 94.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("3_pnarl")
+theme_override_font_sizes/font_size = 40
 text = "BACK"
 
 [connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_pressed"]

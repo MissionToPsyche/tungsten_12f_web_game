@@ -5,7 +5,7 @@ signal sprite_selected(name, info)
 
 # Character-specific information
 var character_name := "Default Name"
-var character_stats := {"Simulator Training": 0, "Rocket Engineering": 0, "Robotics": 0, "Piloting": 0}
+var character_stats := {"Navigation": 0, "Exploration": 0, "Robotics": 0}
 var chosen_skills = []
 # AnimatedSprites for skills
 var character_sprite: Sprite2D
@@ -29,18 +29,18 @@ func _ready():
 		update_skill_labels()
 		character_sprite.set_process_input(true)
 		character_sprite.call_deferred("set_name", character_name)
+		
 
 func randomize_stats():
 	# Randomize stats here
-	character_stats["Simulator Training"] = randi() % 5
-	character_stats["Rocket Engineering"] = randi() % 5
+	character_stats["Navigation"] = randi() % 5
+	character_stats["Exploration"] = randi() % 5
 	character_stats["Robotics"] = randi() % 5
-	character_stats["Piloting"] = randi() % 5
 	print("Randomized stats:", character_stats)
 
 func update_skill_frames():
 	# Randomly pick 2 skills out of the 4 available skills
-	var available_skills = ["Simulator Training", "Rocket Engineering", "Robotics", "Piloting"]
+	var available_skills = ["Navigation", "Exploration", "Robotics"]
 	chosen_skills = []
 	for _i in range(2):
 		var random_index = randi() % available_skills.size()
@@ -48,23 +48,22 @@ func update_skill_frames():
 		available_skills.remove_at(random_index)
 
 	# Update skill bar frames based on the chosen skills
-	if chosen_skills[0] == "Simulator Training":
-		Skill1.frame = 4 - character_stats["Simulator Training"]
-	elif chosen_skills[0] == "Rocket Engineering":
-		Skill1.frame = 9 - character_stats["Rocket Engineering"]
-	elif chosen_skills[0] == "Robotics":
+	if chosen_skills[0] == "Navigation":
+		Skill1.frame = 4 - character_stats["Navigation"]
+	elif chosen_skills[0] == "Exploration":
+		Skill1.frame = 9 - character_stats["Exploration"]
+	else:
 		Skill1.frame = 14 - character_stats["Robotics"]
-	else:
-		Skill1.frame = 19 - character_stats["Piloting"]
 
-	if chosen_skills[1] == "Simulator Training":
-		Skill2.frame = 4 - character_stats["Simulator Training"]
-	elif chosen_skills[1] == "Rocket Engineering":
-		Skill2.frame = 9 - character_stats["Rocket Engineering"]
-	elif chosen_skills[1] == "Robotics":
-		Skill2.frame = 14 - character_stats["Robotics"]
+
+
+	if chosen_skills[1] == "Navigation":
+		Skill2.frame = 4 - character_stats["Navigation"]
+	elif chosen_skills[1] == "Exploration":
+		Skill2.frame = 9 - character_stats["Exploration"]
 	else:
-		Skill2.frame = 19 - character_stats["Piloting"]
+		Skill2.frame = 14 - character_stats["Robotics"]
+		
 	print("Chosen skills:", chosen_skills)
 	print("Skill1 frame:", Skill1.frame)
 	print("Skill2 frame:", Skill2.frame)
@@ -73,31 +72,26 @@ func update_skill_labels():
 	var Skill1Label = $Skill1Label
 	var Skill2Label = $Skill2Label
 	if chosen_skills.size() >= 2:
-		if chosen_skills[0] == "Simulator Training":
-			Skill1Label.text = "Simulator Training"
-			Skill1Label.add_theme_color_override("font_color", Color.SKY_BLUE)
-		elif chosen_skills[0] == "Rocket Engineering":
-			Skill1Label.text = "Rocket Engineering"
-			Skill1Label.add_theme_color_override("font_color", Color.LIME)
-		elif chosen_skills[0] == "Robotics":
+		if chosen_skills[0] == "Navigation":
+			Skill1Label.text = "Navigation"
+			Skill1Label.add_theme_color_override("font_color", Color.DARK_TURQUOISE)
+		elif chosen_skills[0] == "Exploration":
+			Skill1Label.text = "Exploration"
+			Skill1Label.add_theme_color_override("font_color", Color.LIME_GREEN)
+		else:
 			Skill1Label.text = "Robotics"
-			Skill1Label.add_theme_color_override("font_color", Color.ORANGE_RED)
-		else:
-			Skill1Label.text = "Piloting"
-			Skill1Label.add_theme_color_override("font_color", Color.WEB_PURPLE)
+			Skill1Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
 
-		if chosen_skills[1] == "Simulator Training":
-			Skill2Label.text = "Simulator Training"
-			Skill2Label.add_theme_color_override("font_color", Color.SKY_BLUE)
-		elif chosen_skills[1] == "Rocket Engineering":
-			Skill2Label.text = "Rocket Engineering"
-			Skill2Label.add_theme_color_override("font_color", Color.LIME)
-		elif chosen_skills[1] == "Robotics":
-			Skill2Label.text = "Robotics"
-			Skill2Label.add_theme_color_override("font_color", Color.ORANGE_RED)
+		if chosen_skills[1] == "Navigation":
+			Skill2Label.text = "Navigation"
+			Skill2Label.add_theme_color_override("font_color", Color.DARK_TURQUOISE)
+		elif chosen_skills[1] == "Exploration":
+			Skill2Label.text = "Exploration"
+			Skill2Label.add_theme_color_override("font_color", Color.LIME_GREEN)
 		else:
-			Skill2Label.text = "Piloting"
-			Skill2Label.add_theme_color_override("font_color", Color.WEB_PURPLE)
+			Skill2Label.text = "Robotics"
+			Skill2Label.add_theme_color_override("font_color", Color.DARK_ORANGE)
+
 	print("Skill1 label text:", Skill1Label.text)
 	print("Skill1 label color:", Skill1Label.get_theme_color("font_color"))
 	print("Skill2 label text:", Skill2Label.text)
@@ -134,26 +128,22 @@ func update_skill_labels_final(skill1_frame, skill2_frame):
 	
 func get_skill_name(frame): #changed
 	if frame >= 0 and frame <= 4:
-		return "Simulator Training"
+		return "Navigation"
 	elif frame >= 5 and frame <= 9:
-		return "Rocket Engineering"
+		return "Exploration"
 	elif frame >= 10 and frame <= 14:
 		return "Robotics"
-	elif frame >= 15 and frame <= 19:
-		return "Piloting"
 	else:
 		return ""
 
 func get_skill_color(skill): #changed
 	match skill:
-		"Simulator Training":
-			return Color.SKY_BLUE
-		"Rocket Engineering":
-			return Color.LIME
+		"Navigation":
+			return Color.DARK_TURQUOISE
+		"Exploration":
+			return Color.LIME_GREEN
 		"Robotics":
-			return Color.ORANGE_RED
-		"Piloting":
-			return Color.WEB_PURPLE
+			return Color.DARK_ORANGE
 		_:
 			return Color.WHITE
 

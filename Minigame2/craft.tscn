@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Minigame2/CraftMovement.gd" id="1_j8dp7"]
 [ext_resource type="Shader" uid="uid://bcrvgx7d2k0t3" path="res://Minigame2/craft.tres" id="2_afd6f"]
-[ext_resource type="Texture2D" uid="uid://bo0i5dfmknwhe" path="res://Minigame2/assets/Probe.png" id="3_hrhq2"]
-[ext_resource type="AudioStream" uid="uid://uay1unfede2v" path="res://Minigame2/assets/shoot.mp3" id="4_akfsi"]
-[ext_resource type="AudioStream" uid="uid://djex0lkfcc44g" path="res://Minigame2/assets/death.mp3" id="5_1brmy"]
-[ext_resource type="AudioStream" uid="uid://s3s3ib5tyrfn" path="res://Minigame2/assets/hit.mp3" id="6_7rxfv"]
+[ext_resource type="Texture2D" uid="uid://cubsma55i8ypj" path="res://Minigame2/assets/Probe.png" id="3_cgltq"]
+[ext_resource type="AudioStream" uid="uid://utfbf7ujoed8" path="res://Minigame2/assets/shoot.mp3" id="4_akfsi"]
+[ext_resource type="AudioStream" uid="uid://b7c7pc8yb33ov" path="res://Minigame2/assets/death.mp3" id="5_1brmy"]
+[ext_resource type="AudioStream" uid="uid://byulu3maklxj8" path="res://Minigame2/assets/hit.mp3" id="6_7rxfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pnpmf"]
 shader = ExtResource("2_afd6f")
@@ -61,7 +61,7 @@ TiltSpeed = 2
 material = SubResource("ShaderMaterial_pnpmf")
 position = Vector2(0.00012207, -0.999878)
 scale = Vector2(0.361475, 0.361475)
-texture = ExtResource("3_hrhq2")
+texture = ExtResource("3_cgltq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6.10352e-05, -0.999878)
