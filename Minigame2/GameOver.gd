@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
-	$Score.text = "your score was this"
+	get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
 
 
 func DisplayScore(score: int):
