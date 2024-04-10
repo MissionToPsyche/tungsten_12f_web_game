@@ -11,4 +11,4 @@ func _process(delta):
 	pass
 
 func DisplayScore(score: int):
-	$Score.text = "Your Score: " + str(score)
+	get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
