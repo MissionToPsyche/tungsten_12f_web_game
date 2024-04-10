@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ty68jsaxweq" path="res://finish.tscn" id="10_8gdod"]
 [ext_resource type="PackedScene" uid="uid://mvkga0wriwed" path="res://obstacle.tscn" id="11_1lfm7"]
 [ext_resource type="Script" path="res://Instr.gd" id="12_imqdp"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="13_4oa3b"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="13_4oa3b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocv4a"]
 texture = ExtResource("1_jkrxj")
