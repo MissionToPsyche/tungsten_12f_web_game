@@ -15,5 +15,4 @@ func lose_points():
 	print(points)
 	points_label.text = "POINTS:" + str(points)
 
-func transfer_points_to_global(): 
-	Global.score += points
+
