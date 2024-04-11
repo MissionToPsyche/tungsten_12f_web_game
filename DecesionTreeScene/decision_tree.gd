@@ -430,7 +430,7 @@ func _on_CharacterSprite_pressed():
 	
 	match Global.current_position:
 		"pos1":
-			get_tree().change_scene_to_file("res://DecesionTreeScene/test_decision_tree_minigame.tscn")#keb's game here
+			get_tree().change_scene_to_file("res://PuzzleScene/main.tscn")
 		"pos2":
 			get_tree().change_scene_to_file("res://Minigame2/Minigame2.tscn")
 		"pos3":

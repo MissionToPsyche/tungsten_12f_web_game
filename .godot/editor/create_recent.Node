@@ -1,3 +1,5 @@
+Sprite2D
+SubViewport
 Timer
 CanvasLayer
 CanvasModulate
@@ -8,7 +10,6 @@ Node2D
 Container
 Label
 TextureRect
-Sprite2D
 RichTextLabel
 Control
 Panel

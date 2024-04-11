@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://isxeb857xmby" path="res://assets/sprites/team_builder_sprites/panel_large.png" id="11_0gaal"]
 [ext_resource type="Texture2D" uid="uid://uhddq1lnpwad" path="res://assets/sprites/decision_tree_sprites/muted_space.png" id="11_6ori3"]
 [ext_resource type="Texture2D" uid="uid://btk20pv7chjrf" path="res://assets/sprites/decision_tree_sprites/arrow_active.png" id="12_pid2b"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="12_umpuu"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="12_umpuu"]
 [ext_resource type="Texture2D" uid="uid://c7i3nl35vqui1" path="res://assets/sprites/decision_tree_sprites/arrow_inactive.png" id="13_psgvn"]
 [ext_resource type="Texture2D" uid="uid://cqj8k6i6cfc7o" path="res://assets/sprites/decision_tree_sprites/start.png" id="14_x6bah"]
 [ext_resource type="Texture2D" uid="uid://crauckbreb8eu" path="res://assets/sprites/decision_tree_sprites/end.png" id="15_65jos"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dci11hljs6gir"]
+
+[ext_resource type="Script" path="res://PuzzleScene/src/main.gd" id="1_6bcgi"]
+[ext_resource type="Texture2D" uid="uid://exm4jhpi7j3u" path="res://PuzzleScene/img/right.png" id="2_ckdvg"]
+[ext_resource type="Texture2D" uid="uid://pdgueuvilyuq" path="res://PuzzleScene/img/left.png" id="3_f1cap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyiox"]
+size = Vector2(1160, 665)
+
+[node name="Main" type="Area2D"]
+script = ExtResource("1_6bcgi")
+
+[node name="right" type="Sprite2D" parent="."]
+position = Vector2(18.5, 325.76)
+scale = Vector2(1.06452, 0.672159)
+texture = ExtResource("2_ckdvg")
+
+[node name="left" type="Sprite2D" parent="."]
+position = Vector2(1140.25, 319.375)
+scale = Vector2(1.41667, 0.689236)
+texture = ExtResource("3_f1cap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(580, 332.5)
+shape = SubResource("RectangleShape2D_qyiox")
+
+[node name="FullImage" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(516, 516)
