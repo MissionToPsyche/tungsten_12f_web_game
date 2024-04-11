@@ -1,8 +1,7 @@
-res://world.tscn
+res://main.tscn
 res://sci-fi-theme-4/sci-fi-theme.tres
 res://finish.gd
-res://main.tscn
-res://game_manager.gd
+res://world.tscn
 res://DesignScene/DesignScene.tscn
 res://Intro/Game_Intro.tscn
 res://TitleScene/main.tscn
@@ -11,3 +10,4 @@ res://TeamBuilderScene/team_builder.tscn
 res://DecesionTreeScene/decision_tree.tscn
 res://BuilderScene/satellite-lab.tscn
 res://Player/Player.tscn
+res://Player/Player.gd

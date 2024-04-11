@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1712854999
+::res://::1712516474
 back.png::CompressedTexture2D::4245103308931707936::1709004598::1712433264::1::::<><>::
 backround.png::CompressedTexture2D::8331083968965434153::1709004600::1712433264::1::::<><>::
 bg.gd::GDScript::-1::1712475708::0::1::::<>ParallaxBackground<>::
@@ -10,14 +10,14 @@ Checkpoint (Flag Idle)(64x64).png::CompressedTexture2D::7164489088140084430::170
 Checkpoint (No Flag).png::CompressedTexture2D::3138275274826824515::1709004596::1712433264::1::::<><>::
 collectible.gd::GDScript::-1::1709004600::0::1::::<>Area2D<>::
 collectible.tscn::PackedScene::4366843148533681017::1711669296::0::1::::<><>::uid://pymj3p52etjh
-finish.gd::GDScript::-1::1712854749::0::1::::<>Area2D<>::
+finish.gd::GDScript::-1::1712514004::0::1::::<>Area2D<>::
 finish.tscn::PackedScene::4743390016505314088::1709004602::0::1::::<><>::uid://bkyg62f2fkgkx
-game_manager.gd::GDScript::-1::1712854402::0::1::::<>Node<>::
+game_manager.gd::GDScript::-1::1711669276::0::1::::<>Node<>::
 Global.gd::GDScript::-1::1712433222::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::4930823610421393545::0::0::1::::<><>::
 Instr.gd::GDScript::-1::1712476878::0::1::::<>Panel<>::
 main.gd::GDScript::-1::1712477062::0::1::::<>Node2D<>::
-main.tscn::PackedScene::4745121087714206563::1712854999::0::1::::<><>::res://main.gd<>uid://cajycmciug0kk::::res://bg.tscn
+main.tscn::PackedScene::4745121087714206563::1712516473::0::1::::<><>::res://main.gd<>uid://cajycmciug0kk::::res://bg.tscn
 middle.png::CompressedTexture2D::1785028453378926206::1709004604::1712433264::1::::<><>::
 near.png::CompressedTexture2D::5345471993780190297::1709004604::1712433264::1::::<><>::
 obstacle.gd::GDScript::-1::1711655914::0::1::::<>Area2D<>::
@@ -27,7 +27,7 @@ spr_coin_ama.png::CompressedTexture2D::3991160428603407589::1709003224::17124332
 spr_coin_gri.png::CompressedTexture2D::1103123891951455573::1709004604::1712433264::1::::<><>::
 Terrain (16x16).png::CompressedTexture2D::7031007570032473916::1709004598::1712433264::1::::<><>::
 tileset.png::CompressedTexture2D::5667271265859506570::1709004606::1712433264::1::::<><>::
-world.tscn::PackedScene::557339641988791896::1712854999::0::1::::<><>::uid://bfx5xfhby2odf::::res://Player/Player.tscn<>uid://cm0jen8xu2c7k::::res://tileset.png<>res://bg.gd<>uid://c7f4wxs46fp7i::::res://Terrain (16x16).png<>uid://dqxv0atgk7cab::::res://backround.png<>uid://0oxfmpns4dw5::::res://middle.png<>uid://cifne4a20nonp::::res://near.png<>uid://b3hljeted6wq0::::res://collectible.tscn<>res://game_manager.gd<>uid://b8ty68jsaxweq::::res://finish.tscn<>uid://mvkga0wriwed::::res://obstacle.tscn<>res://Instr.gd
+world.tscn::PackedScene::557339641988791896::1712516474::0::1::::<><>::uid://bfx5xfhby2odf::::res://Player/Player.tscn<>uid://cm0jen8xu2c7k::::res://tileset.png<>res://bg.gd<>uid://c7f4wxs46fp7i::::res://Terrain (16x16).png<>uid://dqxv0atgk7cab::::res://backround.png<>uid://0oxfmpns4dw5::::res://middle.png<>uid://cifne4a20nonp::::res://near.png<>uid://b3hljeted6wq0::::res://collectible.tscn<>res://game_manager.gd<>uid://b8ty68jsaxweq::::res://finish.tscn<>uid://mvkga0wriwed::::res://obstacle.tscn<>res://Instr.gd
 yellow_collectible.gd::GDScript::-1::1709003816::0::1::::<>Area2D<>::
 ::res://assets/::1712433263
 cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3::AudioStreamMP3::1740432688522279682::1711751989::1712433263::1::::<><>::
@@ -91,9 +91,9 @@ office_b.jpg::CompressedTexture2D::40229030760116240::1711751989::1712433270::1:
 office_team.jpg::CompressedTexture2D::3204789455248306429::1711751989::1712433270::1::::<><>::
 panel_large.png::CompressedTexture2D::600073287595222562::1711751989::1712433268::1::::<><>::
 team_office_blur.png::CompressedTexture2D::1956695001250666409::1711751989::1712433270::1::::<><>::
-::res://BuilderScene/::1712854998
+::res://BuilderScene/::1712516473
 satellite-lab.gd::GDScript::-1::1712433222::0::1::::<>Node2D<>::
-satellite-lab.tscn::PackedScene::7329679859547387012::1712854998::0::1::::<><>::uid://cmpmp1t4wa8tq::::res://BuilderScene/Assets/satellite-lab.png<>res://BuilderScene/satellite-lab.gd<>uid://v33lbae37f5x::::res://BuilderScene/Assets/Design-Button.png<>uid://dccr8mekq1ksd::::res://BuilderScene/Assets/Analytics-Button.png<>uid://brug8amhvfx5s::::res://BuilderScene/Assets/Launch-Button.png<>uid://dp7je87bgfb8e::::res://BuilderScene/Assets/Test-Button.png<>uid://cbcmhnnikpw15::::res://BuilderScene/Assets/Abort-Button.png
+satellite-lab.tscn::PackedScene::7329679859547387012::1712516473::0::1::::<><>::uid://cmpmp1t4wa8tq::::res://BuilderScene/Assets/satellite-lab.png<>res://BuilderScene/satellite-lab.gd<>uid://v33lbae37f5x::::res://BuilderScene/Assets/Design-Button.png<>uid://dccr8mekq1ksd::::res://BuilderScene/Assets/Analytics-Button.png<>uid://brug8amhvfx5s::::res://BuilderScene/Assets/Launch-Button.png<>uid://dp7je87bgfb8e::::res://BuilderScene/Assets/Test-Button.png<>uid://cbcmhnnikpw15::::res://BuilderScene/Assets/Abort-Button.png
 ::res://BuilderScene/Assets/::1712433269
 Abort-Button.png::CompressedTexture2D::4847900774266357826::1711751988::1712433268::1::::<><>::
 Analytics-Button.png::CompressedTexture2D::7304860250875568031::1711751988::1712433268::1::::<><>::
@@ -106,18 +106,18 @@ Test-Button.png::CompressedTexture2D::8278710172648167826::1711751988::171243326
 all_parts.json::JSON::-1::1711751988::0::1::::<><>::
 Satellite.gd::GDScript::-1::1711751988::0::1::::Satellite<>Node<>::
 SatellitePart.gd::GDScript::-1::1711751988::0::1::::SatellitePart<>Node<>::
-::res://DecesionTreeScene/::1712854998
+::res://DecesionTreeScene/::1712516473
 ButtonScripts.gd::GDScript::-1::1711751988::0::1::::<>Node2D<>::
 Control.gd::GDScript::-1::1711751988::0::1::::<>RefCounted<>::
 decision_tree.gd::GDScript::-1::1712433222::0::1::::<>Node2D<>::
-decision_tree.tscn::PackedScene::7108785056510722441::1712854998::0::1::::<><>::res://DecesionTreeScene/decision_tree.gd<>uid://p5ab88ma5evx::::res://assets/sprites/decision_tree_sprites/mystery.png<>uid://dmbtrsfc6l4x::::res://assets/sprites/decision_tree_sprites/mystery2.png<>uid://hnqqk6twk6fq::::res://assets/sprites/decision_tree_sprites/marketing.png<>uid://8k856v7my5wx::::res://assets/sprites/decision_tree_sprites/marketing2.png<>uid://dsj4urf0wvxom::::res://assets/sprites/decision_tree_sprites/simulator.png<>uid://w4tnbvdhg0b1::::res://assets/sprites/decision_tree_sprites/simulator2.png<>uid://bnhtud648q17p::::res://assets/sprites/decision_tree_sprites/raw_ore.png<>uid://cah0a1fqtr7at::::res://assets/sprites/decision_tree_sprites/raw_ore2.png<>res://DecesionTreeScene/ButtonScripts.gd<>uid://uhddq1lnpwad::::res://assets/sprites/decision_tree_sprites/muted_space.png<>uid://btk20pv7chjrf::::res://assets/sprites/decision_tree_sprites/arrow_active.png<>uid://c7i3nl35vqui1::::res://assets/sprites/decision_tree_sprites/arrow_inactive.png<>uid://cqj8k6i6cfc7o::::res://assets/sprites/decision_tree_sprites/start.png<>uid://crauckbreb8eu::::res://assets/sprites/decision_tree_sprites/end.png
+decision_tree.tscn::PackedScene::7108785056510722441::1712516473::0::1::::<><>::res://DecesionTreeScene/decision_tree.gd<>uid://p5ab88ma5evx::::res://assets/sprites/decision_tree_sprites/mystery.png<>uid://dmbtrsfc6l4x::::res://assets/sprites/decision_tree_sprites/mystery2.png<>uid://hnqqk6twk6fq::::res://assets/sprites/decision_tree_sprites/marketing.png<>uid://8k856v7my5wx::::res://assets/sprites/decision_tree_sprites/marketing2.png<>uid://dsj4urf0wvxom::::res://assets/sprites/decision_tree_sprites/simulator.png<>uid://w4tnbvdhg0b1::::res://assets/sprites/decision_tree_sprites/simulator2.png<>uid://bnhtud648q17p::::res://assets/sprites/decision_tree_sprites/raw_ore.png<>uid://cah0a1fqtr7at::::res://assets/sprites/decision_tree_sprites/raw_ore2.png<>res://DecesionTreeScene/ButtonScripts.gd<>uid://uhddq1lnpwad::::res://assets/sprites/decision_tree_sprites/muted_space.png<>uid://btk20pv7chjrf::::res://assets/sprites/decision_tree_sprites/arrow_active.png<>uid://c7i3nl35vqui1::::res://assets/sprites/decision_tree_sprites/arrow_inactive.png<>uid://cqj8k6i6cfc7o::::res://assets/sprites/decision_tree_sprites/start.png<>uid://crauckbreb8eu::::res://assets/sprites/decision_tree_sprites/end.png
 marketing.gd::GDScript::-1::1711751988::0::1::::<>TextureButton<>::
 mystery.gd::GDScript::-1::1711751988::0::1::::<>TextureButton<>::
 ore.gd::GDScript::-1::1711751988::0::1::::<>TextureButton<>::
 simulation.gd::GDScript::-1::1711751988::0::1::::<>TextureButton<>::
-::res://DesignScene/::1712854998
+::res://DesignScene/::1712516473
 DesignScene.gd::GDScript::-1::1711751988::0::1::::<>Control<>::
-DesignScene.tscn::PackedScene::7179294367005188068::1712854998::0::1::::<><>::uid://c0re1bitbft18::::res://sci-fi-theme-4/sci-fi-theme.tres<>res://DesignScene/DesignScene.gd
+DesignScene.tscn::PackedScene::7179294367005188068::1712516473::0::1::::<><>::uid://c0re1bitbft18::::res://sci-fi-theme-4/sci-fi-theme.tres<>res://DesignScene/DesignScene.gd
 ::res://DesignScene/Assets/::1712433265
 black-background.jpg::CompressedTexture2D::3512455139417673018::1711751988::1712433265::1::::<><>::
 design-terminal.png::CompressedTexture2D::8618968092325391464::1711751988::1712433264::1::::<><>::
@@ -125,17 +125,17 @@ JoganSoft-Regular.ttf::FontFile::2234662895548748824::1711751988::1712433262::1:
 rocket-builder-terminal.png::CompressedTexture2D::4336574277038531585::1711751988::1712433265::1::::<><>::
 satellite-image.png::CompressedTexture2D::4453937920977503244::1711751988::1712433265::1::::<><>::
 terminal-background.jpg::CompressedTexture2D::9014074754664067946::1711751988::1712433263::1::::<><>::
-::res://Intro/::1712854998
-Game_Intro.tscn::PackedScene::2445272359480326935::1712854998::0::1::::<><>::res://Intro/Intro.gd<>uid://dw7wed3me3hpb::::res://Intro/Intro-Screen-V2.png
+::res://Intro/::1712516473
+Game_Intro.tscn::PackedScene::2445272359480326935::1712516473::0::1::::<><>::res://Intro/Intro.gd<>uid://dw7wed3me3hpb::::res://Intro/Intro-Screen-V2.png
 Intro-Screen-V2.png::CompressedTexture2D::8770819817638663867::1709004608::1712433266::1::::<><>::
 Intro.gd::GDScript::-1::1711751988::0::1::::<>Node2D<>::
-::res://IntroScene/::1712854998
+::res://IntroScene/::1712516473
 ContinueButton.gd::GDScript::-1::1711751988::0::1::::<>TextureButton<>::
 Intro.gd::GDScript::-1::1711751988::0::1::::<>Node2D<>::
 Label1.gd::GDScript::-1::1711751988::0::1::::<>Label<>::
 lab_background.png::CompressedTexture2D::5022095476000149996::1711751988::1712433266::1::::<><>::
 m5x7.ttf::FontFile::1543533619689119103::1711751989::1712433262::1::::<><>::
-node_2d.tscn::PackedScene::6606897619198666646::1712854998::0::1::::<><>::res://IntroScene/Intro.gd<>uid://dpoe0x7hi2tex::::res://assets/sprites/team_builder_sprites/office.jpg<>uid://cnvxtvvmyf3m8::::res://assets/sprites/intro_scene/female_nasa_scientist.png<>uid://bew13dphnnfmg::::res://assets/sprites/intro_scene/panel_large.png<>uid://w3x668sbd1k5::::res://assets/sprites/intro_scene/sound_on.png<>uid://2wmaupvsb1xf::::res://assets/sprites/intro_scene/sound_off.png<>res://IntroScene/sound.gd<>uid://y2cw37g3wg3c::::res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3<>uid://v8x1j28jbd80::::res://IntroScene/m5x7.ttf<>uid://1yn6h484qkby::::res://assets/sprites/intro_scene/continue_sprite.png
+node_2d.tscn::PackedScene::6606897619198666646::1712516473::0::1::::<><>::res://IntroScene/Intro.gd<>uid://dpoe0x7hi2tex::::res://assets/sprites/team_builder_sprites/office.jpg<>uid://cnvxtvvmyf3m8::::res://assets/sprites/intro_scene/female_nasa_scientist.png<>uid://bew13dphnnfmg::::res://assets/sprites/intro_scene/panel_large.png<>uid://w3x668sbd1k5::::res://assets/sprites/intro_scene/sound_on.png<>uid://2wmaupvsb1xf::::res://assets/sprites/intro_scene/sound_off.png<>res://IntroScene/sound.gd<>uid://y2cw37g3wg3c::::res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3<>uid://v8x1j28jbd80::::res://IntroScene/m5x7.ttf<>uid://1yn6h484qkby::::res://assets/sprites/intro_scene/continue_sprite.png
 points_label.gd::GDScript::-1::1711751989::0::1::::<>RichTextLabel<>::
 Popup.gd::GDScript::-1::1711751988::0::1::::<>Popup<>::
 sound.gd::GDScript::-1::1711751989::0::1::::<>TextureButton<>::
@@ -174,26 +174,26 @@ Idle (32x32).png::CompressedTexture2D::244487371344508862::1709004612::171243326
 Jump (32x32).png::CompressedTexture2D::4361628860221581301::1709004614::1712433265::1::::<><>::
 Run (32x32).png::CompressedTexture2D::83793787377361782::1709004614::1712433265::1::::<><>::
 Wall Jump (32x32).png::CompressedTexture2D::4214229706730909248::1709004614::1712433265::1::::<><>::
-::res://Player/::1712854999
+::res://Player/::1712516474
 Player.gd::GDScript::-1::1712516473::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::2786708446778410971::1712854999::0::1::::<><>::uid://d4g5d3cfsm5au::::res://Pink Man/Hit (32x32).png<>res://Player/Player.gd<>uid://dqow3ahvw7kk::::res://Pink Man/Idle (32x32).png<>uid://b3e2ni663fwtp::::res://Pink Man/Jump (32x32).png<>uid://rqfb1lxg5fji::::res://Pink Man/Fall (32x32).png<>uid://bgucotycnklq::::res://Pink Man/Run (32x32).png<>uid://b1bn0oghuu1ts::::res://Pink Man/Wall Jump (32x32).png
+Player.tscn::PackedScene::2786708446778410971::1712516474::0::1::::<><>::uid://d4g5d3cfsm5au::::res://Pink Man/Hit (32x32).png<>res://Player/Player.gd<>uid://dqow3ahvw7kk::::res://Pink Man/Idle (32x32).png<>uid://b3e2ni663fwtp::::res://Pink Man/Jump (32x32).png<>uid://rqfb1lxg5fji::::res://Pink Man/Fall (32x32).png<>uid://bgucotycnklq::::res://Pink Man/Run (32x32).png<>uid://b1bn0oghuu1ts::::res://Pink Man/Wall Jump (32x32).png
 ::res://Props/::1712433265
 crystal-1.png::CompressedTexture2D::208663251060297038::1709004616::1712433265::1::::<><>::
 crystal-2.png::CompressedTexture2D::1541552134785709941::1709004616::1712433265::1::::<><>::
 plant-1.png::CompressedTexture2D::1818380801436314963::1709004618::1712433265::1::::<><>::
 plant-2.png::CompressedTexture2D::7853322162054375794::1709004618::1712433264::1::::<><>::
-::res://sci-fi-theme-4/::1712853646
+::res://sci-fi-theme-4/::1712514004
 Pixel Square 10.ttf::FontFile::2623574215614884970::1711751989::1712433262::1::::<><>::
-sci-fi-theme.tres::Theme::6562946244515235321::1712853646::0::1::::<><>::uid://bdm45b6uw5sic::::res://sci-fi-theme-4/Pixel Square 10.ttf<>uid://c5pgo7sonlcw5::::res://sci-fi-theme-4/sci-fi.png
+sci-fi-theme.tres::Theme::6562946244515235321::1712514004::0::1::::<><>::uid://bdm45b6uw5sic::::res://sci-fi-theme-4/Pixel Square 10.ttf<>uid://c5pgo7sonlcw5::::res://sci-fi-theme-4/sci-fi.png
 sci-fi.png::CompressedTexture2D::6909863355116925434::1711751989::1712433264::1::::<><>::
-::res://TeamBuilderScene/::1712854998
+::res://TeamBuilderScene/::1712516473
 CharactersContainer.gd::GDScript::-1::1711751989::0::1::::<>HBoxContainer<>::
 InstructionsLabel.gd::GDScript::-1::1711751989::0::1::::<>Label<>::
 team_builder.gd::GDScript::-1::1711751989::0::1::::<>Node2D<>::
-team_builder.tscn::PackedScene::799459091791289473::1712854998::0::1::::<><>::res://TeamBuilderScene/team_builder.gd<>uid://cvxa20rurw0sy::::res://character.tscn<>res://TeamBuilderScene/CharactersContainer.gd<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>uid://243ql2ef3vg0::::res://assets/sprites/team_builder_sprites/team_office_blur.png<>uid://v8x1j28jbd80::::res://IntroScene/m5x7.ttf<>uid://c4oycrhuu8kia::::res://assets/sprites/intro_scene/red_panel_large.png<>uid://l7tv00qqe3fo::::res://assets/sprites/intro_scene/panel_small.png
-::res://TitleScene/::1712854998
+team_builder.tscn::PackedScene::799459091791289473::1712516473::0::1::::<><>::res://TeamBuilderScene/team_builder.gd<>uid://cvxa20rurw0sy::::res://character.tscn<>res://TeamBuilderScene/CharactersContainer.gd<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>uid://243ql2ef3vg0::::res://assets/sprites/team_builder_sprites/team_office_blur.png<>uid://v8x1j28jbd80::::res://IntroScene/m5x7.ttf<>uid://c4oycrhuu8kia::::res://assets/sprites/intro_scene/red_panel_large.png<>uid://l7tv00qqe3fo::::res://assets/sprites/intro_scene/panel_small.png
+::res://TitleScene/::1712516473
 main.gd::GDScript::-1::1711751989::0::1::::<>Node2D<>::
-main.tscn::PackedScene::3421949504959653084::1712854998::0::1::::<><>::res://TitleScene/main.gd<>uid://c5xmpip5h6nce::::res://TitleScene/Assets/Play-Button.png<>uid://cju6p5ntqpa37::::res://TitleScene/Assets/Abort.png<>uid://b4hijc1b1xlws::::res://TitleScene/Assets/Control-Room-Title-Screen.png
+main.tscn::PackedScene::3421949504959653084::1712516473::0::1::::<><>::res://TitleScene/main.gd<>uid://c5xmpip5h6nce::::res://TitleScene/Assets/Play-Button.png<>uid://cju6p5ntqpa37::::res://TitleScene/Assets/Abort.png<>uid://b4hijc1b1xlws::::res://TitleScene/Assets/Control-Room-Title-Screen.png
 ::res://TitleScene/Assets/::1712433267
 Abort.png::CompressedTexture2D::5447739125562229616::1711751989::1712433266::1::::<><>::
 Asteroid-Title-Screen.png::CompressedTexture2D::8299074220536430689::1711751989::1712433266::1::::<><>::
