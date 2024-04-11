@@ -808,12 +808,31 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 149.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointsLabel2" type="Label" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -5.0
+offset_right = -24.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "POINTS: "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Instructions" type="Control" parent="."]
 layout_mode = 3
@@ -858,6 +877,7 @@ offset_left = -4.0
 offset_right = 874.0
 offset_bottom = 454.0
 texture = SubResource("CanvasTexture_4roqi")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Instructions/Panel"]
 visible = false
