@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://TitleScene/main.gd" id="1_ugmkl"]
 [ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="2_wr2o3"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="3_5v4dj"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="3_5v4dj"]
 [ext_resource type="Texture2D" uid="uid://b4hijc1b1xlws" path="res://TitleScene/Assets/Control-Room-Title-Screen.png" id="4_sqtvo"]
 
 [node name="Main" type="Node2D"]

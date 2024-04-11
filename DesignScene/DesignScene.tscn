@@ -215,6 +215,59 @@ offset_right = 339.0
 offset_bottom = 137.0
 text = "NO"
 
+[node name="IntroPanel" type="Panel" parent="."]
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 1140.0
+offset_bottom = 642.0
+theme = ExtResource("1_w7s7m")
+
+[node name="ColorRect" type="ColorRect" parent="IntroPanel"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 63.0
+offset_right = 922.0
+offset_bottom = 561.0
+color = Color(0.215686, 0.6, 0.631373, 1)
+
+[node name="TextEdit" type="TextEdit" parent="IntroPanel/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Welcome to the design terminal!
+
+Here is where you can select the appropriate parts to build
+ your custom satellite.
+
+Clicking on one of the 5 categories of parts will show you
+the selection of parts available.
+
+Each part has unique properties that determine its overall
+
+Health, Weight, Cost
+
+Some unique parts such as the Power System and Propulsion
+will have 2 more unique properties:
+
+Fuel, Fuel Consumption
+
+Your satellite will perform differently based on the parts you
+choose. Harness your inner engineer and let's get designing!"
+
+[node name="Continue" type="Button" parent="IntroPanel/ColorRect"]
+modulate = Color(0.258824, 1, 1, 1)
+layout_mode = 0
+offset_left = 274.0
+offset_top = 425.0
+offset_right = 420.0
+offset_bottom = 484.0
+theme_override_font_sizes/font_size = 19
+text = "Continue"
+
 [connection signal="pressed" from="Panel/CartPanel/RemoveFromCartButton" to="." method="_on_remove_from_cart_button_pressed"]
 [connection signal="pressed" from="Panel/CartPanel/CheckoutButton" to="." method="_on_checkout_button_pressed"]
 [connection signal="item_selected" from="Panel/ShopPanel/ShopItemList" to="." method="_on_shop_item_selected"]
@@ -227,3 +280,4 @@ text = "NO"
 [connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Panel/ConfirmPanel/ColorRect/YesButton" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="Panel/ConfirmPanel/ColorRect/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="IntroPanel/ColorRect/Continue" to="." method="_on_continue_pressed"]

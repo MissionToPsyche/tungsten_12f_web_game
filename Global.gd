@@ -4,6 +4,11 @@ extends Node
 # Preload the SatellitePart script file
 const SatelliteParts = preload("res://Classes/SatellitePart.gd")
 
+# Toggles for the satellite lab and design scene
+var showIntroLab = true
+var showIntroDesign = true
+var satelliteBuilt = false
+
 # Score variable to keep track of the player's score
 var score = 0
 var previous_score = 0

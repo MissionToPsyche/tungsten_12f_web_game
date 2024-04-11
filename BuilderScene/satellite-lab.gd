@@ -4,7 +4,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$WarningPanel.set_visible(false)
+	if(Global.showIntroLab == false):
+		$IntroPanel.set_visible(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +19,11 @@ func _on_design_button_pressed():
 
 
 func _on_launch_pressed():
-	get_tree().change_scene_to_file("res://Minigame1-Rocketlaunch/node_2d.tscn")
+	if(Global.satelliteBuilt == false):
+		$WarningPanel.set_visible(true)
+	else:
+		get_tree().change_scene_to_file("res://Minigame1-Rocketlaunch/node_2d.tscn")
+	
+func _on_continue_pressed():
+	$IntroPanel.set_visible(false)
+	Global.showIntroLab = false

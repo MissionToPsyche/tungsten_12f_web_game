@@ -219,11 +219,15 @@ func _on_yes_button_pressed():
 	var satellite = build_satellite()  # Construct the satellite and store it in a local variable
 	Global.current_satellite = satellite  # Assign the constructed satellite to the global variable
 	print(Global.current_satellite.get_string_representation())  # Optional: Print the satellite details for debugging
+	Global.satelliteBuilt = true
 	get_tree().change_scene_to_file("res://BuilderScene/satellite-lab.tscn")
 	
 # Scene Navigation
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://BuilderScene/satellite-lab.tscn")
+	
+func _on_continue_pressed():
+	$IntroPanel.set_visible(false)
 
 
