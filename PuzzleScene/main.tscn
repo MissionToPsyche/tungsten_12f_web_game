@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://PuzzleScene/src/main.gd" id="1_6bcgi"]
 [ext_resource type="Texture2D" uid="uid://exm4jhpi7j3u" path="res://PuzzleScene/img/right.png" id="2_ckdvg"]
 [ext_resource type="Texture2D" uid="uid://pdgueuvilyuq" path="res://PuzzleScene/img/left.png" id="3_f1cap"]
-[ext_resource type="Texture2D" uid="uid://l7tv00qqe3fo" path="res://assets/sprites/intro_scene/panel_small.png" id="4_kyllj"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="5_wk3op"]
+[ext_resource type="Texture2D" uid="uid://l7tv00qqe3fo" path="res://assets/sprites/intro_scene/panel_small.png" id="4_tfyb6"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="5_4081g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyiox"]
 size = Vector2(1160, 665)
@@ -33,35 +33,33 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(516, 516)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Timer" type="Timer" parent="."]
 
-[node name="PointsTexture" type="TextureRect" parent="CanvasLayer"]
+[node name="PointsTexture" type="TextureRect" parent="."]
 offset_left = 970.0
 offset_top = 3.0
 offset_right = 1152.0
 offset_bottom = 71.0
-texture = ExtResource("4_kyllj")
+texture = ExtResource("4_tfyb6")
 
-[node name="JustPointsWord" type="Label" parent="CanvasLayer/PointsTexture"]
+[node name="JustPointsWord" type="Label" parent="PointsTexture"]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 16.0
 offset_right = 110.0
 offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("5_wk3op")
+theme_override_fonts/font = ExtResource("5_4081g")
 theme_override_font_sizes/font_size = 32
 text = "Score:"
 
-[node name="PointsLabel" type="Label" parent="CanvasLayer/PointsTexture"]
+[node name="PointsLabel" type="Label" parent="PointsTexture"]
 layout_mode = 0
 offset_left = 114.0
 offset_top = 17.0
 offset_right = 164.0
 offset_bottom = 49.0
-theme_override_fonts/font = ExtResource("5_wk3op")
+theme_override_fonts/font = ExtResource("5_4081g")
 theme_override_font_sizes/font_size = 32
 text = "69"
-
-[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
