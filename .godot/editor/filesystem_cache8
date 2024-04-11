@@ -1,11 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1712839118
+::res://::1712844252
 back.png::CompressedTexture2D::4245103308931707936::1711946352::1711946382::1::::<><>::
 backround.png::CompressedTexture2D::8331083968965434153::1711946352::1711946382::1::::<><>::
 bg.gd::GDScript::-1::1712641135::0::1::::<>ParallaxBackground<>::
 bg.tscn::PackedScene::4792882180347230770::1711946352::0::1::::<><>::res://bg.gd<>uid://dqxv0atgk7cab
-Character.gd::GDScript::-1::1712833919::0::1::::<>Node2D<>::
-character.tscn::PackedScene::6294337328841438304::1712839117::0::1::::<><>::res://Character.gd<>uid://nf8hia7ll8w2::::res://assets/sprites/stats_bar.png<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>res://TeamBuilderScene/character.gdshader
+Character.gd::GDScript::-1::1712844086::0::1::::<>Node2D<>::
+character.tscn::PackedScene::6294337328841438304::1712844251::0::1::::<><>::res://Character.gd<>uid://nf8hia7ll8w2::::res://assets/sprites/stats_bar.png<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>res://TeamBuilderScene/character.gdshader
 Checkpoint (Flag Idle)(64x64).png::CompressedTexture2D::7164489088140084430::1711946352::1711946382::1::::<><>::
 Checkpoint (No Flag).png::CompressedTexture2D::3138275274826824515::1711946352::1711946382::1::::<><>::
 collectible.gd::GDScript::-1::1711946352::0::1::::<>Area2D<>::
@@ -28,7 +28,7 @@ spr_coin_ama.png::CompressedTexture2D::3991160428603407589::1711946352::17119463
 spr_coin_gri.png::CompressedTexture2D::1103123891951455573::1711946352::1711946382::1::::<><>::
 Terrain (16x16).png::CompressedTexture2D::7031007570032473916::1711946352::1711946383::1::::<><>::
 tileset.png::CompressedTexture2D::5667271265859506570::1711946352::1711946383::1::::<><>::
-world.tscn::PackedScene::557339641988791896::1712839118::0::1::::<><>::uid://bfx5xfhby2odf::::res://Player/Player.tscn<>uid://cm0jen8xu2c7k::::res://tileset.png<>res://bg.gd<>uid://c7f4wxs46fp7i::::res://Terrain (16x16).png<>uid://dqxv0atgk7cab::::res://backround.png<>uid://0oxfmpns4dw5::::res://middle.png<>uid://cifne4a20nonp::::res://near.png<>uid://b3hljeted6wq0::::res://collectible.tscn<>res://game_manager.gd<>uid://b8ty68jsaxweq::::res://finish.tscn<>uid://mvkga0wriwed::::res://obstacle.tscn<>res://Instr.gd<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf
+world.tscn::PackedScene::557339641988791896::1712844252::0::1::::<><>::uid://bfx5xfhby2odf::::res://Player/Player.tscn<>uid://cm0jen8xu2c7k::::res://tileset.png<>res://bg.gd<>uid://c7f4wxs46fp7i::::res://Terrain (16x16).png<>uid://dqxv0atgk7cab::::res://backround.png<>uid://0oxfmpns4dw5::::res://middle.png<>uid://cifne4a20nonp::::res://near.png<>uid://b3hljeted6wq0::::res://collectible.tscn<>res://game_manager.gd<>uid://b8ty68jsaxweq::::res://finish.tscn<>uid://mvkga0wriwed::::res://obstacle.tscn<>res://Instr.gd<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf
 yellow_collectible.gd::GDScript::-1::1711946352::0::1::::<>Area2D<>::
 ::res://assets/::1706867994
 cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3::AudioStreamMP3::1740432688522279682::1703633798::1703637968::1::::<><>::
@@ -112,15 +112,14 @@ CreditsScene.gd::GDScript::-1::1712662670::0::1::::<>Control<>::
 CreditsScene.tscn::PackedScene::275183280441878364::1712730353::0::1::::<><>::uid://c0re1bitbft18
 ::res://CreditsScene/Assets/::1712723916
 DALL-E_jdpanj.png::CompressedTexture2D::6415775729560922149::1712662670::1712723916::1::::<><>::
-::res://DecesionTreeScene/::1712839117
+::res://DecesionTreeScene/::1712844251
 ButtonScripts.gd::GDScript::-1::1710853508::0::1::::<>Node2D<>::
 Control.gd::GDScript::-1::1710853508::0::1::::<>RefCounted<>::
-decision_tree.gd::GDScript::-1::1712821318::0::1::::<>Node2D<>::
-decision_tree.tscn::PackedScene::7108785056510722441::1712839117::0::1::::<><>::res://DecesionTreeScene/decision_tree.gd<>uid://p5ab88ma5evx::::res://assets/sprites/decision_tree_sprites/mystery.png<>uid://dmbtrsfc6l4x::::res://assets/sprites/decision_tree_sprites/mystery2.png<>uid://hnqqk6twk6fq::::res://assets/sprites/decision_tree_sprites/marketing.png<>uid://8k856v7my5wx::::res://assets/sprites/decision_tree_sprites/marketing2.png<>uid://dsj4urf0wvxom::::res://assets/sprites/decision_tree_sprites/simulator.png<>uid://w4tnbvdhg0b1::::res://assets/sprites/decision_tree_sprites/simulator2.png<>uid://bnhtud648q17p::::res://assets/sprites/decision_tree_sprites/raw_ore.png<>uid://cah0a1fqtr7at::::res://assets/sprites/decision_tree_sprites/raw_ore2.png<>res://DecesionTreeScene/ButtonScripts.gd<>uid://isxeb857xmby::::res://assets/sprites/team_builder_sprites/panel_large.png<>uid://uhddq1lnpwad::::res://assets/sprites/decision_tree_sprites/muted_space.png<>uid://btk20pv7chjrf::::res://assets/sprites/decision_tree_sprites/arrow_active.png<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf<>uid://c7i3nl35vqui1::::res://assets/sprites/decision_tree_sprites/arrow_inactive.png<>uid://cqj8k6i6cfc7o::::res://assets/sprites/decision_tree_sprites/start.png<>uid://crauckbreb8eu::::res://assets/sprites/decision_tree_sprites/end.png<>uid://cvxa20rurw0sy::::res://character.tscn<>res://TeamBuilderScene/CharactersContainer.gd
+decision_tree.gd::GDScript::-1::1712841780::0::1::::<>Node2D<>::
+decision_tree.tscn::PackedScene::7108785056510722441::1712844251::0::1::::<><>::res://DecesionTreeScene/decision_tree.gd<>uid://p5ab88ma5evx::::res://assets/sprites/decision_tree_sprites/mystery.png<>uid://dmbtrsfc6l4x::::res://assets/sprites/decision_tree_sprites/mystery2.png<>uid://hnqqk6twk6fq::::res://assets/sprites/decision_tree_sprites/marketing.png<>uid://8k856v7my5wx::::res://assets/sprites/decision_tree_sprites/marketing2.png<>uid://dsj4urf0wvxom::::res://assets/sprites/decision_tree_sprites/simulator.png<>uid://w4tnbvdhg0b1::::res://assets/sprites/decision_tree_sprites/simulator2.png<>uid://bnhtud648q17p::::res://assets/sprites/decision_tree_sprites/raw_ore.png<>uid://cah0a1fqtr7at::::res://assets/sprites/decision_tree_sprites/raw_ore2.png<>res://DecesionTreeScene/ButtonScripts.gd<>uid://isxeb857xmby::::res://assets/sprites/team_builder_sprites/panel_large.png<>uid://uhddq1lnpwad::::res://assets/sprites/decision_tree_sprites/muted_space.png<>uid://btk20pv7chjrf::::res://assets/sprites/decision_tree_sprites/arrow_active.png<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf<>uid://c7i3nl35vqui1::::res://assets/sprites/decision_tree_sprites/arrow_inactive.png<>uid://cqj8k6i6cfc7o::::res://assets/sprites/decision_tree_sprites/start.png<>uid://crauckbreb8eu::::res://assets/sprites/decision_tree_sprites/end.png<>uid://cvxa20rurw0sy::::res://character.tscn<>res://TeamBuilderScene/CharactersContainer.gd
 marketing.gd::GDScript::-1::1710853508::0::1::::<>TextureButton<>::
 mystery.gd::GDScript::-1::1710853508::0::1::::<>TextureButton<>::
 ore.gd::GDScript::-1::1703633798::0::1::::<>TextureButton<>::
-robot.jpg::CompressedTexture2D::6171059439234269670::1712833855::1712833857::1::::<><>::
 simulation.gd::GDScript::-1::1703633798::0::1::::<>TextureButton<>::
 test_decision_tree_minigame.gd::GDScript::-1::1712146624::0::1::::<>Node2D<>::
 test_decision_tree_minigame.tscn::PackedScene::1074468072589559242::1712745332::0::1::::<><>::res://DecesionTreeScene/test_decision_tree_minigame.gd
@@ -149,7 +148,7 @@ points_label.gd::GDScript::-1::1710853508::0::1::::<>RichTextLabel<>::
 Popup.gd::GDScript::-1::1703633798::0::1::::<>Popup<>::
 sound.gd::GDScript::-1::1710853508::0::1::::<>TextureButton<>::
 yes.gd::GDScript::-1::1710853509::0::1::::<>TextureButton<>::
-::res://Minigame1-Rocketlaunch/::1712839118
+::res://Minigame1-Rocketlaunch/::1712844252
 Arrow.gd::GDScript::-1::1703633798::0::1::::<>Node2D<>::
 ArrowRotation.gd::GDScript::-1::1703633798::0::1::::<>ParallaxLayer<>::
 BackgroundMovement.gd::GDScript::-1::1711946352::0::1::::<>ParallaxBackground<>::
@@ -160,7 +159,7 @@ fire.gd::GDScript::-1::1703633798::0::1::::<>GPUParticles2D<>::
 icon.svg::CompressedTexture2D::6750063630225533398::1703633798::1703637968::1::::<><>::
 mainScript.gd::GDScript::-1::1711946352::0::1::::<>Node2D<>::
 Minigame2.tscn::PackedScene::6172266055703853428::1712644407::0::1::::<><>::res://Minigame1-Rocketlaunch/BackgroundMovement.gd<>uid://cqvfqtpra37q4
-node_2d.tscn::PackedScene::4499977629122368624::1712839118::0::1::::<><>::res://Minigame1-Rocketlaunch/mainScript.gd<>uid://b1bqyo7t6ojeb::::res://Minigame1-Rocketlaunch/assets/groundAndPlatform.png<>uid://cfsldq0r1enaw::::res://Minigame1-Rocketlaunch/assets/cloud1.png<>res://Minigame1-Rocketlaunch/cloudInit.gd<>res://Minigame1-Rocketlaunch/cloud.gd<>uid://dxhndxreuth6::::res://Minigame1-Rocketlaunch/assets/cloud2.png<>uid://cy88j86ribods::::res://Minigame1-Rocketlaunch/assets/cloud3.png<>uid://c0q7k3s7weosw::::res://Minigame1-Rocketlaunch/assets/cloud4.png<>res://Minigame1-Rocketlaunch/ArrowRotation.gd<>uid://dhyqdeag5ytk0::::res://Minigame1-Rocketlaunch/assets/rocket.png<>res://Minigame1-Rocketlaunch/Arrow.gd<>uid://4dwsxrh0kayg::::res://Minigame1-Rocketlaunch/assets/whitearrowoutside.png<>uid://ccxhu34603stg::::res://Minigame1-Rocketlaunch/assets/whitearrowinside.png<>uid://bg5335nmwlc6y::::res://Minigame1-Rocketlaunch/assets/goodJob.png<>uid://dngy8hvqrxw74::::res://Minigame1-Rocketlaunch/assets/tryagain.png<>uid://cly72qvts0thp::::res://Minigame1-Rocketlaunch/assets/powerbar.png<>uid://dik1lle437b0y::::res://Minigame1-Rocketlaunch/assets/stars.png<>uid://dakbx375hsa1x::::res://Minigame1-Rocketlaunch/assets/NextButtonPressed.png<>uid://t1i42cmrltu3::::res://Minigame1-Rocketlaunch/assets/nextButton.png<>uid://du0er7vkobs7i::::res://Minigame1-Rocketlaunch/assets/solarsystem.png
+node_2d.tscn::PackedScene::4499977629122368624::1712844252::0::1::::<><>::res://Minigame1-Rocketlaunch/mainScript.gd<>uid://b1bqyo7t6ojeb::::res://Minigame1-Rocketlaunch/assets/groundAndPlatform.png<>uid://cfsldq0r1enaw::::res://Minigame1-Rocketlaunch/assets/cloud1.png<>res://Minigame1-Rocketlaunch/cloudInit.gd<>res://Minigame1-Rocketlaunch/cloud.gd<>uid://dxhndxreuth6::::res://Minigame1-Rocketlaunch/assets/cloud2.png<>uid://cy88j86ribods::::res://Minigame1-Rocketlaunch/assets/cloud3.png<>uid://c0q7k3s7weosw::::res://Minigame1-Rocketlaunch/assets/cloud4.png<>res://Minigame1-Rocketlaunch/ArrowRotation.gd<>uid://dhyqdeag5ytk0::::res://Minigame1-Rocketlaunch/assets/rocket.png<>res://Minigame1-Rocketlaunch/Arrow.gd<>uid://4dwsxrh0kayg::::res://Minigame1-Rocketlaunch/assets/whitearrowoutside.png<>uid://ccxhu34603stg::::res://Minigame1-Rocketlaunch/assets/whitearrowinside.png<>uid://bg5335nmwlc6y::::res://Minigame1-Rocketlaunch/assets/goodJob.png<>uid://dngy8hvqrxw74::::res://Minigame1-Rocketlaunch/assets/tryagain.png<>uid://cly72qvts0thp::::res://Minigame1-Rocketlaunch/assets/powerbar.png<>uid://dik1lle437b0y::::res://Minigame1-Rocketlaunch/assets/stars.png<>uid://dakbx375hsa1x::::res://Minigame1-Rocketlaunch/assets/NextButtonPressed.png<>uid://t1i42cmrltu3::::res://Minigame1-Rocketlaunch/assets/nextButton.png<>uid://du0er7vkobs7i::::res://Minigame1-Rocketlaunch/assets/solarsystem.png
 sky.gd::GDScript::-1::1703633798::0::1::::<>ColorRect<>::
 ::res://Minigame1-Rocketlaunch/assets/::1712723917
 backgroundSpace.png::CompressedTexture2D::5939547977985545469::1711946352::1711946385::1::::<><>::
@@ -182,7 +181,7 @@ stars.png::CompressedTexture2D::7743015448561415630::1703633798::1703637968::1::
 tryagain.png::CompressedTexture2D::8085619824778298301::1703633798::1703637968::1::::<><>::
 whitearrowinside.png::CompressedTexture2D::4961161994729265508::1703633798::1703637969::1::::<><>::
 whitearrowoutside.png::CompressedTexture2D::2043038751546847414::1703633798::1703637969::1::::<><>::
-::res://Minigame2/::1712833919
+::res://Minigame2/::1712844087
 Arrow.gd::GDScript::-1::1712641135::0::1::::<>Node2D<>::
 ArrowRotation.gd::GDScript::-1::1712641135::0::1::::<>ParallaxLayer<>::
 BackgroundMovement.gd::GDScript::-1::1712641135::0::1::::<>ParallaxBackground<>::
@@ -212,7 +211,7 @@ sky.gd::GDScript::-1::1712641135::0::1::::<>ColorRect<>::
 spaceRock.gd::GDScript::-1::1712641135::0::1::::<>Area2D<>::
 spaceRock.tscn::PackedScene::2692017595277844032::1712641135::0::1::::<><>::res://Minigame2/spaceRock.gd<>uid://bqcddhk4tw6r5
 spaceRockhit.gdshader::Shader::-1::1712641135::0::1::::<><>::
-spaceRockhit.tres::VisualShader::3513758830225166812::1712833919::0::1::::<><>::
+spaceRockhit.tres::VisualShader::3513758830225166812::1712844087::0::1::::<><>::
 ::res://Minigame2/assets/::1712725750
 backgroundSpace.png::CompressedTexture2D::3513732320971653495::1712641135::1712641155::1::::<><>::
 bgsound.mp3::AudioStreamMP3::3987987927273788790::1712641135::1712641152::1::::<><>::
@@ -261,9 +260,9 @@ crystal-1.png::CompressedTexture2D::208663251060297038::1711946352::1711946382::
 crystal-2.png::CompressedTexture2D::1541552134785709941::1711946352::1711946382::1::::<><>::
 plant-1.png::CompressedTexture2D::1818380801436314963::1711946352::1711946382::1::::<><>::
 plant-2.png::CompressedTexture2D::7853322162054375794::1711946352::1711946382::1::::<><>::
-::res://PuzzleScene/::1712839119
-main.tscn::PackedScene::7317780217931799601::1712839118::0::1::::<><>::res://PuzzleScene/src/main.gd<>uid://exm4jhpi7j3u::::res://PuzzleScene/img/right.png<>uid://pdgueuvilyuq::::res://PuzzleScene/img/left.png
-tile.tscn::PackedScene::7052396481335469024::1712839119::0::1::::<><>::res://PuzzleScene/src/tile.gd
+::res://PuzzleScene/::1712844252
+main.tscn::PackedScene::7317780217931799601::1712844252::0::1::::<><>::res://PuzzleScene/src/main.gd<>uid://exm4jhpi7j3u::::res://PuzzleScene/img/right.png<>uid://pdgueuvilyuq::::res://PuzzleScene/img/left.png<>uid://l7tv00qqe3fo::::res://assets/sprites/intro_scene/panel_small.png<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf
+tile.tscn::PackedScene::7052396481335469024::1712844252::0::1::::<><>::res://PuzzleScene/src/tile.gd
 ::res://PuzzleScene/fonts/::1712820760
 PressStart2P-Regular.ttf::FontFile::1939189066151027840::1683016050::1712820760::1::::<><>::
 ::res://PuzzleScene/img/::1712838726
@@ -272,19 +271,19 @@ left.png::CompressedTexture2D::1059426047622146064::1712838627::1712838627::1:::
 pink_DeLorian.png::CompressedTexture2D::7058031915148502737::1683016050::1712821480::1::::<><>::
 right.png::CompressedTexture2D::329016939049217296::1712838726::1712838726::1::::<><>::
 robot.jpg::CompressedTexture2D::8817354242671612177::1712837900::1712837902::1::::<><>::
-::res://PuzzleScene/src/::1712838467
-main.gd::GDScript::-1::1712838467::0::1::::<>Area2D<>::
+::res://PuzzleScene/src/::1712844087
+main.gd::GDScript::-1::1712844087::0::1::::<>Area2D<>::
 tile.gd::GDScript::-1::1683016050::0::1::::<>StaticBody2D<>::
 ::res://sci-fi-theme-4/::1712726282
 Pixel Square 10.ttf::FontFile::2623574215614884970::1711946352::1711946382::1::::<><>::
 sci-fi-theme.tres::Theme::6562946244515235321::1712726282::0::1::::<><>::uid://bdm45b6uw5sic
 sci-fi.png::CompressedTexture2D::6909863355116925434::1711946352::1711946382::1::::<><>::
-::res://TeamBuilderScene/::1712839119
-character.gdshader::Shader::-1::1712839119::0::1::::<><>::
+::res://TeamBuilderScene/::1712844252
+character.gdshader::Shader::-1::1712844252::0::1::::<><>::
 CharactersContainer.gd::GDScript::-1::1710853508::0::1::::<>HBoxContainer<>::
 InstructionsLabel.gd::GDScript::-1::1711462793::0::1::::<>Label<>::
 team_builder.gd::GDScript::-1::1712786373::0::1::::<>Node2D<>::
-team_builder.tscn::PackedScene::799459091791289473::1712839117::0::1::::<><>::res://TeamBuilderScene/team_builder.gd<>uid://cvxa20rurw0sy::::res://character.tscn<>res://TeamBuilderScene/CharactersContainer.gd<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>uid://243ql2ef3vg0::::res://assets/sprites/team_builder_sprites/team_office_blur.png<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf<>uid://c4oycrhuu8kia::::res://assets/sprites/intro_scene/red_panel_large.png<>uid://l7tv00qqe3fo::::res://assets/sprites/intro_scene/panel_small.png
+team_builder.tscn::PackedScene::799459091791289473::1712844252::0::1::::<><>::res://TeamBuilderScene/team_builder.gd<>uid://cvxa20rurw0sy::::res://character.tscn<>res://TeamBuilderScene/CharactersContainer.gd<>uid://63qtosmg0grw::::res://DesignScene/Assets/JoganSoft-Regular.ttf<>uid://243ql2ef3vg0::::res://assets/sprites/team_builder_sprites/team_office_blur.png<>uid://v8x1j28jbd80::::res://TransitionToBuilder/m5x7.ttf<>uid://c4oycrhuu8kia::::res://assets/sprites/intro_scene/red_panel_large.png<>uid://l7tv00qqe3fo::::res://assets/sprites/intro_scene/panel_small.png
 ::res://TitleScene/::1712727842
 main.gd::GDScript::-1::1712662670::0::1::::<>Node2D<>::
 main.tscn::PackedScene::3421949504959653084::1712727842::0::1::::<><>::res://TitleScene/main.gd<>uid://c0re1bitbft18

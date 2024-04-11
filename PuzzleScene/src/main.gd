@@ -14,6 +14,9 @@ var num_cols
 
 func _ready():
 	start_game()
+	$CanvasLayer/PointsTexture/PointsLabel.text = "300"
+	$Timer.wait_time = 1.0
+	$Timer.start()
 	
 
 func start_game():
@@ -80,7 +83,7 @@ func start_game():
 func shuffle_tiles():
 	offset = tile_h + 2
 	t = 0
-	while t < 3:
+	while t < 10:
 		var atile = randi() % (num_rows * num_cols)
 		if tiles[atile].tilename != "Tile" + str(num_rows * num_cols) and tiles[atile].tilename != previous:
 			var rows = int(tiles[atile].position.y / offset)
@@ -108,6 +111,8 @@ func _process(delta):
 		check_neighbours(rows,cols)
 		if tiles == solved and movecounter > 1:
 			print("You win in ", str(movecounter, " moves!!"))
+			var final_score = int($CanvasLayer/PointsTexture/PointsLabel.text)
+			Global.score += final_score
 			get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
 			
 
@@ -164,4 +169,7 @@ func _input_event(viewport, event, shape_idx):
 		mouse = event
 
 
-
+func _on_timer_timeout():
+	var current_score = int($CanvasLayer/PointsTexture/PointsLabel.text)
+	current_score -= 1
+	$CanvasLayer/PointsTexture/PointsLabel.text = str(current_score)

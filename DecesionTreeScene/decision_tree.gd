@@ -113,7 +113,7 @@ func _on_score_increase_timer_timeout():
 		$ScoreIncreaseTimer.stop()
 
 func update_score_label(score):
-	$UI/PointsTexture/Points.text = "Score: " + str(score)
+	$UI/PointsTexture/Points.text = "Total Score: " + str(score)
 
 func initialize_button_positions():
 	# Assign your Marker2D nodes to the array
