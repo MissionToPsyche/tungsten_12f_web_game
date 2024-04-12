@@ -3,11 +3,8 @@
 [ext_resource type="Script" path="res://Character.gd" id="1_xoapc"]
 [ext_resource type="Texture2D" uid="uid://nf8hia7ll8w2" path="res://assets/sprites/stats_bar.png" id="2_4fw63"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_50ha6"]
-[ext_resource type="Shader" path="res://TeamBuilderScene/character.gdshader" id="3_372r2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_afanm"]
-shader = ExtResource("3_372r2")
-shader_parameter/blur = 10.0
+[ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="3_kjsd1"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="5_rr7pr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8gvw"]
 atlas = ExtResource("2_4fw63")
@@ -170,14 +167,12 @@ offset_right = -166.0
 offset_bottom = 675.0
 theme_override_fonts/font = ExtResource("2_50ha6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_afanm")
-offset_left = 501.0
-offset_top = 258.0
-offset_right = 734.0
-offset_bottom = 378.0
+[node name="WarningPanel" type="Panel" parent="."]
+modulate = Color(1, 0.0313726, 0.105882, 1)
+offset_left = -119.0
+offset_right = 34.0
+offset_bottom = 139.0
+theme = ExtResource("3_kjsd1")
 
 [node name="Skill1" type="AnimatedSprite2D" parent="."]
 position = Vector2(-82.625, 65)
@@ -196,7 +191,8 @@ offset_right = -4.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.101961, 0.780392, 0.952941, 1)
 theme_override_colors/font_shadow_color = Color(0.419608, 0.419608, 0.419608, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_fonts/font = ExtResource("5_rr7pr")
+theme_override_font_sizes/font_size = 34
 text = "Simulator Training"
 
 [node name="Skill2Label" type="Label" parent="."]
@@ -206,5 +202,6 @@ offset_right = 46.0
 offset_bottom = 102.0
 theme_override_colors/font_color = Color(0.101961, 0.780392, 0.952941, 1)
 theme_override_colors/font_shadow_color = Color(0.419608, 0.419608, 0.419608, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_fonts/font = ExtResource("5_rr7pr")
+theme_override_font_sizes/font_size = 34
 text = "Rocket Engineering"
