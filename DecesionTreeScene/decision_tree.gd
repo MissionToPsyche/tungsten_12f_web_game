@@ -423,7 +423,7 @@ func _on_CharacterSprite_pressed():
 		char_instance.get_node("CharacterSprite").visible = false
 		
 	var scene_map = {
-		"Robotics": "res://DecesionTreeScene/test_decision_tree_minigame.tscn",
+		"Robotics": "res://PuzzleScene/main.tscn",
 		"Navigation": "res://Minigame2/Minigame2.tscn",
 		"Exploration": "res://world.tscn"
 	}	
