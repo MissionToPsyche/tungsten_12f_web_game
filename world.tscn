@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://h68kjwqrvj81"]
+[gd_scene load_steps=18 format=3 uid="uid://h68kjwqrvj81"]
 
 [ext_resource type="PackedScene" uid="uid://bfx5xfhby2odf" path="res://Player/Player.tscn" id="1_ck5dx"]
 [ext_resource type="Texture2D" uid="uid://cm0jen8xu2c7k" path="res://tileset.png" id="1_jkrxj"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b8ty68jsaxweq" path="res://finish.tscn" id="10_8gdod"]
 [ext_resource type="PackedScene" uid="uid://mvkga0wriwed" path="res://obstacle.tscn" id="11_1lfm7"]
 [ext_resource type="Script" path="res://Instr.gd" id="12_imqdp"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="13_4oa3b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocv4a"]
 texture = ExtResource("1_jkrxj")
@@ -781,7 +780,7 @@ position = Vector2(2063, 211)
 position = Vector2(1726, 306)
 
 [node name="Finish" parent="." instance=ExtResource("10_8gdod")]
-position = Vector2(2160, 32)
+position = Vector2(2158, 36)
 
 [node name="obstacle" parent="." instance=ExtResource("11_1lfm7")]
 position = Vector2(506, 517)
@@ -867,7 +866,6 @@ offset_left = 26.0
 offset_top = -7.0
 offset_right = 954.0
 offset_bottom = 444.0
-theme_override_fonts/font = ExtResource("13_4oa3b")
 text = "
 
 
