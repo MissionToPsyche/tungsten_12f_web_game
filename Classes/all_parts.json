@@ -2,46 +2,186 @@
   "Payload": [
 	{
 	  "name": "Hyperspectral Imager",
-	  "weight": 10,
-	  "cost": 1200000.00,
-	  "base_health": 100,
+	  "weight": 7,
+	  "cost": 145.00,
+	  "base_health": 120,
 	  "research_ability": "Surface Composition Mapping"
+	},
+	{
+	  "name": "Multispectral Camera",
+	  "weight": 10,
+	  "cost": 110.00,
+	  "base_health": 100,
+	  "research_ability": "Vegetation and Water Mapping"
+	},
+	{
+	  "name": "Gamma-Ray Spectrometer",
+	  "weight": 6,
+	  "cost": 150.00,
+	  "base_health": 130,
+	  "research_ability": "Elemental Composition Analysis"
+	},
+	{
+	  "name": "Seismic Experiment Package",
+	  "weight": 15,
+	  "cost": 95.00,
+	  "base_health": 90,
+	  "research_ability": "Planetary Seismic Activity"
+	},
+	{
+	  "name": "Atmospheric Analyzer",
+	  "weight": 12,
+	  "cost": 75.00,
+	  "base_health": 85,
+	  "research_ability": "Atmospheric Properties and Composition"
 	}
   ],
   "Communications": [
 	{
 	  "name": "X-Band Transceiver",
+	  "weight": 4,
+	  "cost": 120.00,
+	  "base_health": 75
+	},
+	{
+	  "name": "S-Band Antenna",
+	  "weight": 3,
+	  "cost": 85.00,
+	  "base_health": 60
+	},
+	{
+	  "name": "Ku-Band Transmitter",
+	  "weight": 2,
+	  "cost": 140.00,
+	  "base_health": 90
+	},
+	{
+	  "name": "UHF Radio System",
 	  "weight": 5,
-	  "cost": 450000.00,
-	  "base_health": 50
+	  "cost": 50.00,
+	  "base_health": 45
+	},
+	{
+	  "name": "Laser Communication Relay",
+	  "weight": 1,
+	  "cost": 150.00,
+	  "base_health": 100
 	}
   ],
   "PowerSystem": [
 	{
 	  "name": "Solar Panels",
-	  "weight": 100,
-	  "cost": 500000.00,
+	  "weight": 80,
+	  "cost": 140.00,
 	  "base_health": 200,
 	  "fuel": 100
+	},
+	{
+	  "name": "Radioisotope Thermoelectric Generator",
+	  "weight": 50,
+	  "cost": 150.00,
+	  "base_health": 250,
+	  "fuel": 300
+	},
+	{
+	  "name": "Lithium-ion Battery",
+	  "weight": 30,
+	  "cost": 90.00,
+	  "base_health": 150,
+	  "fuel": 200
+	},
+	{
+	  "name": "Fuel Cell",
+	  "weight": 60,
+	  "cost": 110.00,
+	  "base_health": 180,
+	  "fuel": 250
+	},
+	{
+	  "name": "Nuclear Fission Reactor",
+	  "weight": 70,
+	  "cost": 130.00,
+	  "base_health": 220,
+	  "fuel": 400
 	}
   ],
   "Propulsion": [
 	{
 	  "name": "Ion Thrusters",
-	  "weight": 20,
-	  "cost": 2000000.00,
+	  "weight": 15,
+	  "cost": 140.00,
 	  "base_health": 150,
 	  "fuel_consumption": 0.2,
 	  "thrust": 0.5
+	},
+	{
+	  "name": "Chemical Rockets",
+	  "weight": 20,
+	  "cost": 120.00,
+	  "base_health": 130,
+	  "fuel_consumption": 0.5,
+	  "thrust": 1.0
+	},
+	{
+	  "name": "Hall Effect Thruster",
+	  "weight": 12,
+	  "cost": 130.00,
+	  "base_health": 140,
+	  "fuel_consumption": 0.1,
+	  "thrust": 0.3
+	},
+	{
+	  "name": "Magnetoplasmadynamic Thruster",
+	  "weight": 10,
+	  "cost": 150.00,
+	  "base_health": 160,
+	  "fuel_consumption": 0.05,
+	  "thrust": 0.4
+	},
+	{
+	  "name": "Solid Rocket Booster",
+	  "weight": 25,
+	  "cost": 80.00,
+	  "base_health": 100,
+	  "fuel_consumption": 0.8,
+	  "thrust": 1.5
 	}
   ],
   "SpacecraftBus": [
-	{
+	 {
 	  "name": "Standard Bus",
-	  "weight": 500,
-	  "cost": 2500000.00,
+	  "weight": 450,
+	  "cost": 40.00,
 	  "base_health": 500,
 	  "bonus_health": 300
+	},
+	{
+	  "name": "Miniaturized Bus",
+	  "weight": 200,
+	  "cost": 0.00,
+	  "base_health": 300,
+	  "bonus_health": 150
+	},
+	{
+	  "name": "Expandable Bus",
+	  "weight": 500,
+	  "cost": 125.00,
+	  "base_health": 400,
+	  "bonus_health": 250
+	},
+	{
+	  "name": "Modular Bus",
+	  "weight": 350,
+	  "cost": 110.00,
+	  "base_health": 350,
+	  "bonus_health": 200
+	},
+	{
+	  "name": "Robust Bus",
+	  "weight": 600,
+	  "cost": 140.00,
+	  "base_health": 600,
+	  "bonus_health": 400
 	}
-  ]
+	]
 }
