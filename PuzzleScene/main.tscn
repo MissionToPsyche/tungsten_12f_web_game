@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://exm4jhpi7j3u" path="res://PuzzleScene/img/right.png" id="2_ckdvg"]
 [ext_resource type="Texture2D" uid="uid://pdgueuvilyuq" path="res://PuzzleScene/img/left.png" id="3_f1cap"]
 [ext_resource type="Texture2D" uid="uid://l7tv00qqe3fo" path="res://assets/sprites/intro_scene/panel_small.png" id="4_tfyb6"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="5_4081g"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="5_4081g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyiox"]
 size = Vector2(1160, 665)
