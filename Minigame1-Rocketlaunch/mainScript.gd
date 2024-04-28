@@ -23,14 +23,15 @@ func onRocketLaunchAnimationFinished(anim_name):
 		button.connect("pressed", onButtonPressed)
 		
 func onButtonPressed():
-	# Load the DecesionTreeScene
-	var minigame2_scene = preload("res://DecesionTreeScene/decision_tree.tscn")
-	
-	# Create an instance of the Minigame2 scene
-	var minigame2_instance = minigame2_scene.instantiate()
-	
-	# Add the new instance to the scene tree
-	get_tree().get_root().add_child(minigame2_instance)
-	
-	# Queue-free the current scene
-	queue_free()
+#	# Load the DecesionTreeScene
+#	var minigame2_scene = preload("res://DecesionTreeScene/decision_tree.tscn")
+#
+#	# Create an instance of the Minigame2 scene
+#	var minigame2_instance = minigame2_scene.instantiate()
+#
+#	# Add the new instance to the scene	 tree
+#	get_tree().get_root().add_child(minigame2_instance)
+#
+#	# Queue-free the current scene
+#	queue_free()
+	get_tree().quit()

@@ -14,7 +14,7 @@ func start_sequence():
 	fade_in.play("Black_in")
 	await get_tree().create_timer(fade_in.current_animation_length).timeout
 	animate_text()
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	$ContinueButton.visible = true
 	
 

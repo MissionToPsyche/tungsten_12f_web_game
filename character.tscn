@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nf8hia7ll8w2" path="res://assets/sprites/stats_bar.png" id="2_4fw63"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_50ha6"]
 [ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://sci-fi-theme-4/sci-fi-theme.tres" id="3_kjsd1"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="5_rr7pr"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="5_rr7pr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8gvw"]
 atlas = ExtResource("2_4fw63")

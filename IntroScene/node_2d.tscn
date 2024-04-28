@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2wmaupvsb1xf" path="res://assets/sprites/intro_scene/sound_off.png" id="7_em8fc"]
 [ext_resource type="Script" path="res://IntroScene/sound.gd" id="7_uhfwe"]
 [ext_resource type="AudioStream" uid="uid://y2cw37g3wg3c" path="res://assets/cyborg-ninja-kevin-macleod-main-version-03-00-7993.mp3" id="8_ae2sr"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="9_s84ku"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="9_s84ku"]
 [ext_resource type="Texture2D" uid="uid://1yn6h484qkby" path="res://assets/sprites/intro_scene/continue_sprite.png" id="10_gmjx1"]
 
 [sub_resource type="Animation" id="Animation_5mkt4"]

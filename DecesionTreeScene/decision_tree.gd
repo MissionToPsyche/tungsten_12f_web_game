@@ -36,7 +36,7 @@ func _ready():
 		enable_button(button_name)
 	
 	if "Mystery" in Global.player_path or "Mystery2" in Global.player_path:
-		get_tree().change_scene_to_file("res://DesignScene/DesignScene.tscn")
+		get_tree().change_scene_to_file("res://TransitionToBuilder/trasnitiontolab.tscn")
 
 	if not Global.button_states["button"]:
 		$ButtonCanvas/CanvasModulate/Button.disabled = true

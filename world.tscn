@@ -842,7 +842,7 @@ offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Use arrow keys to move and the space 
+text = "Use a and d keys to move and the space 
 bar to jump! Collect all the gems 
 and avoid interacting with the plants 
 (they make you lose  points). 
@@ -869,7 +869,7 @@ offset_bottom = 444.0
 text = "
 
 
-Use arrow keys to move and the space 
+Use a and d keys to move and the space 
 bar to jump! Collect all the gems 
 and avoid interacting with the plants 
 (they make you lose  points). 

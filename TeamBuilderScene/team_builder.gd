@@ -133,7 +133,7 @@ func _on_character_selected(name, info):
 		
 		await get_tree().create_timer(3.0).timeout
 		Global.set_input_allowed(true)
-		get_tree().change_scene_to_file("res://TransitionToBuilder/trasnitiontolab.tscn")
+		get_tree().change_scene_to_file("res://DecesionTreeScene/decision_tree.tscn")
 		#xxxxxxxxxxxx
 
 func set_character_position_and_size(character_instance, position_index):

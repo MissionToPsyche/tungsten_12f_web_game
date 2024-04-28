@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://TeamBuilderScene/CharactersContainer.gd" id="2_8xonn"]
 [ext_resource type="FontFile" uid="uid://63qtosmg0grw" path="res://DesignScene/Assets/JoganSoft-Regular.ttf" id="2_bican"]
 [ext_resource type="Texture2D" uid="uid://243ql2ef3vg0" path="res://assets/sprites/team_builder_sprites/team_office_blur.png" id="2_uica3"]
-[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://TransitionToBuilder/m5x7.ttf" id="3_1qwqf"]
+[ext_resource type="FontFile" uid="uid://v8x1j28jbd80" path="res://IntroScene/m5x7.ttf" id="3_1qwqf"]
 [ext_resource type="Texture2D" uid="uid://c4oycrhuu8kia" path="res://assets/sprites/intro_scene/red_panel_large.png" id="5_cvllx"]
 [ext_resource type="Texture2D" uid="uid://l7tv00qqe3fo" path="res://assets/sprites/intro_scene/panel_small.png" id="7_ti4xg"]
 

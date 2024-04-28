@@ -86,7 +86,7 @@ func start_game():
 func shuffle_tiles():
 	offset = tile_h + 2
 	t = 0
-	while t < 10:
+	while t < 5:
 		var atile = randi() % (num_rows * num_cols)
 		if tiles[atile].tilename != "Tile" + str(num_rows * num_cols) and tiles[atile].tilename != previous:
 			var rows = int(tiles[atile].position.y / offset)
